@@ -68,7 +68,7 @@ body {
 
 .home {
     background-color: var(--primary-color);
-    color: var(--bg-color);
+    color: var(--secondary-color);
 }
 
 .day-customer {
