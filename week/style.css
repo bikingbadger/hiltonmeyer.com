@@ -36,6 +36,7 @@ body {
 
 .heading {
     font-size: 1.5em;
+    color: var(--secondary-color);
 }
 
 .day {
@@ -47,7 +48,7 @@ body {
         rgba(0, 0, 0, .3) 4px 4px 0;
     /*line-height: 1.5em;*/
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, .5fr);
     text-align: center;
 }
 
@@ -58,7 +59,19 @@ body {
 }
 
 .day-customer {
-    text-align: right;
+    justify-self: end;
+    font-size: 1.75em;
+}
+
+.day-sport {
+    justify-self: end;
+}
+
+.day-sleep {
+    border-top-style: dashed;
+    border-bottom-style: dashed;
+    align-self: center;
+    justify-self: stretch;
 }
 
 .tsofit {
@@ -69,15 +82,4 @@ body {
 .home {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-}
-
-.day-customer {
-    justify-self: right;
-}
-
-.day-sleep {
-    border-top-style: dashed;
-    border-bottom-style: dashed;
-    align-self: center;
-    justify-self: stretch;
 }
