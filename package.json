@@ -1,0 +1,22 @@
+{
+  "name": "hiltonmeyer.com",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "index.html",
+  "scripts": {
+    "serve": "npx eleventy --serve",
+    "build": "npx eleventy",
+    "watch": "npx eleventy --watch",
+    "debug": "DEBUG=* npx eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bikingbadger/personal.hiltonmeyer.com.git"
+  },
+  "author": "Hilton Meyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bikingbadger/personal.hiltonmeyer.com/issues"
+  },
+  "homepage": "https://github.com/bikingbadger/personal.hiltonmeyer.com#readme"
+}
