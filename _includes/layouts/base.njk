@@ -13,11 +13,11 @@
   <!--link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}"-->
   <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
   <meta name="google-site-verification" content="-ZvJntRJqMQ-E1nq2f8L7KmBya0y_a-WlnT-GFlS4rE" />
-  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
 </head>
 
 <body>
-  <nav>
+  <header>
       <h1 class="logo">hilton meyer</h1>
       <ul class="links">
          <li><a href="/">Home</a></li>
@@ -26,7 +26,7 @@
          <li><a href="https://bikepacking.hiltonmeyer.com" target="_blank">Bike Packing</a></li>
          <li><a href="https://work.hiltonmeyer.com" target="_blank">Work Blog</a></li>
       </ul>
-   </nav>
+   </header>
 
   <main{% if templateClass %} class="{{ templateClass }}" {% endif %}>
     {{ content | safe }}
