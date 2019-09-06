@@ -2,7 +2,7 @@
 title: Template
 layout: layouts/recipe.njk
 tags:
-    - template    
+    - list    
 navtitle: Template
 date: 2019-09-05
 ---
@@ -23,7 +23,7 @@ date: 2019-09-05
 * Cheese and Ham {.recipe-list-item}
 * Guacamole {.recipe-list-item}
 * Kartoshka {.recipe-list-item}
-* [Potatoes Foil Packet](/recipes/potatoes-foil-packet)		 {.recipe-list-item}
+* [Potatoes Foil Packet](/recipes/potatoes-foil-packet) {.recipe-list-item}
 * Chicken wings {.recipe-list-item}
 * Antipasto Foil wrap {.recipe-list-item}
   * Zuchini
@@ -31,7 +31,7 @@ date: 2019-09-05
   * Onions
 * Spaghetti Bolognaise {.recipe-list-item}
 * Pizza {.recipe-list-item}
-* Baked beans and sausage {.recipe-list-item}
+* [Baked beans and sausage](/recipes/baked-beans-sausage) {.recipe-list-item}
 * Dutch Oven stuffed peppers {.recipe-list-item}
 * Corn on the cobb {.recipe-list-item}
 * Sweet Potatoes Au Gratin {.recipe-list-item}

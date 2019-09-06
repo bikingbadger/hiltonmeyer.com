@@ -4,6 +4,8 @@ layout: layouts/recipe.njk
 tags:
     - nav
     - recipe
+    - dinner
+    - vegan
     - cumin
     - mustard
     - onion

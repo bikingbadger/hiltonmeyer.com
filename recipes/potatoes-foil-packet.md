@@ -3,6 +3,8 @@ title: Potatoes Foil Packet
 layout: layouts/recipe.njk
 tags:
     - recipe    
+    - side-dish
+    - vegan
     - potatoes
     - onion
     - oil
