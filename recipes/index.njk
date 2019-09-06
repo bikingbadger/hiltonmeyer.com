@@ -14,12 +14,11 @@ date: 2000-01-01
 </ul> #}
 <ul>
   <li><a href="/recipes/camping">Camping</a></li>
-
 </ul>
 
-<ul>
+<ul class=".recipe-list">
 {%- for recipe in collections.recipe -%}
-  <li><a href={{ recipe.url }}>{{ recipe.data.title }}</a></li>
+  <li  class=".recipe-list-item"><a href={{ recipe.url }}>{{ recipe.data.title }}</a></li>
 {%- endfor -%}
 </ul>
 
