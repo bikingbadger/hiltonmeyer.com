@@ -3,16 +3,21 @@ title: Potatoes Foil Packet
 layout: layouts/recipe.njk
 tags:
     - recipe    
+    - potatoes
+    - onion
+    - oil
+    - rosemary
+    - garlic
 navtitle: Potatoes Foil Packet
 date: 2019-09-06
 ---
 # Ingedients {.recipe-ingredients}
 
-* Potatoes
-* Onion
-* Oil
-* Rosemary
-* Garlic
+- potatoes
+- onion
+- oil
+- rosemary
+- garlic
 
 # Directions {.recipe-directions}
 
