@@ -12,9 +12,14 @@ date: 2000-01-01
 {# <ul>
     <li><a href={{ recipe.data.url }}>{{ recipe.data.title }}</a></li>
 </ul> #}
+<ul>
+  <li><a href="/recipes/camping">Camping</a></li>
+
+</ul>
 
 <ul>
 {%- for recipe in collections.recipe -%}
   <li><a href={{ recipe.url }}>{{ recipe.data.title }}</a></li>
 {%- endfor -%}
 </ul>
+
