@@ -1,28 +1,24 @@
+:root {
+  --main-color: #e9b000;
+  --bg-color: #e24e42;
+  --primary-color: #eb6e80;
+  --secondary-color: #008f95;
+  --tertiary-color: #e6df61;
+}
+
 * {
   margin: 0;
   padding: 0;
-}
-
-:root {
-  --main-color: #e24e42;
-  --bg-color: #e9b000;
-  --primary-color: #eb6e80;
-  --secondary-color: #008f95;
-
-  --color-scheme-01: #d7cb9c;
-  --color-scheme-02: #6a582d;
-  --color-scheme-03: #ae3c28;
-  --color-scheme-04: #e2de48;
-  --color-scheme-05: #19223b;
+  font-size: 16px;
+  font-family: "Montserrat", "PT Serif", serif;
 }
 
 body {
   padding: 50px;
   margin: 0 auto;
   font-size: 18px;
-  font-family: "Krub", sans-serif;
-  background-color: var(--main-color);
-  color: var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--main-color);
 }
 
 @media screen and (min-width: 700px) {
@@ -37,23 +33,6 @@ body {
 /******************************************************************************************************
 * Navigation Bar for the site
 ******************************************************************************************************/
-nav > ul {
-  list-style-type: none;
-  text-align: center;
-}
-
-nav > ul > li {
-  display: inline;
-  text-decoration: none;
-}
-
-nav > ul > li a {
-  color: var(--bg-color);
-  text-align: center;
-  padding: 20px;
-  text-decoration: none;
-}
-
 .logo {
   font-size: 3em;
   text-align: end;
@@ -62,8 +41,39 @@ nav > ul > li a {
   padding: 20px;
 }
 
-/*****************************************************************************************************/
+/* Navigation Bar */
 
+header > ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+header > ul > li {
+  display: inline;
+  text-decoration: none;
+}
+
+header > ul > li a {
+  color: var(--main-color);
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+}
+
+
+
+/******************************************************************************************************
+* Content Styling
+******************************************************************************************************/
+
+main {
+  width: 80vw;
+  margin: 1rem auto;
+}
+
+/******************************************************************************************************
+* Week related styling
+******************************************************************************************************/
 .title {
   text-align: center;
   background-color: var(--secondary-color);
@@ -112,10 +122,11 @@ nav > ul > li a {
 
 .tsofit {
   background-color: var(--secondary-color);
-  color: var(--bg-color);
+  color: var(--main-color);
 }
 
 .home {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--bg-color);
+  color: var(--main-color);
 }
+/*****************************************************************************************************/
