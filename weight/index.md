@@ -1,35 +1,12 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weight</title>
-  <meta name="Description" content="">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
-  <!--link rel="stylesheet" href="/css/prism-base16-monokai.dark.css"-->
-  <link rel="alternate" href="." type="application/atom+xml" title="">
-  <meta name="google-site-verification" content="-ZvJntRJqMQ-E1nq2f8L7KmBya0y_a-WlnT-GFlS4rE" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
-</head>
-
-<body>
-  <header>
-      <h1 class="logo">hilton meyer</h1>
-      <ul class="links">
-         <li><a href="/">Home</a></li>
-         <li><a href="/recipes">Recipes</a></li>
-         <li><a href="/maker">Maker</a></li>
-         <li><a href="https://bikepacking.hiltonmeyer.com" target="_blank">Bike Packing</a></li>
-         <li><a href="https://work.hiltonmeyer.com" target="_blank">Work Blog</a></li>
-      </ul>
-   </header>
-
-  <main class="tmpl-home" >
-    <form id="add-weight">
+---
+title: Weight
+layout: layouts/home.njk
+tags:
+    - hidden
+navtitle: Weight
+date: 2019-09-09
+---
+<form id="add-weight">
         <label for="weight-date">Date</label>
         <input type="date" name="weight-date" id="weight-date">
         <br>
@@ -53,7 +30,9 @@
         <br>
         <button type="submit">Add weight</button>
 </form>
+
 <ol id="weight-list"></ol>
+
 <script>
     console.log('Welcome to Local Storage');
     // https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript/
@@ -111,12 +90,3 @@
 
     }
 </script>
-
-    </main>
-
-    <footer></footer>
-
-    <link href="https://fonts.googleapis.com/css?family=Krub&display=swap" rel="stylesheet">
-</body>
-
-</html>
