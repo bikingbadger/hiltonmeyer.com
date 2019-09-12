@@ -4,10 +4,10 @@ layout: layouts/recipe.njk
 tags:
     - recipe
     - drink
+    - fermentation
     - ginger
     - lemon
     - sugar
-    - fermentation
 navtitle: Ginger Beer
 date: 2019-09-06
 ---
