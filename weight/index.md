@@ -32,7 +32,7 @@ date: 2019-09-09
 </form>
 
 <ol id="weight-list"></ol>
-<svg class="line-chart"></svg>
+<div style="width: 95vh; display: inline-block;"><svg class="line-chart"></svg></div>
 <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
 <script src="script.js">
 
