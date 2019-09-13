@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("weight/script.js");
 
   /**************** Markdown Plugins********************/
   let markdownIt = require("markdown-it");
