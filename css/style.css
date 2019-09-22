@@ -6,6 +6,9 @@
   --tertiary-color: #e6df61;
 }
 
+/*****************************************************************************************
+* Globals
+*****************************************************************************************/
 * {
   margin: 0;
   padding: 0;
@@ -21,18 +24,29 @@ body {
   color: var(--main-color);
 }
 
-@media screen and (min-width: 700px) {
-  .schedule {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: [week] 0.5fr [day-sun] 0.5fr [day-mon] 0.5fr [day-tue] 0.5fr [day-wed] 0.5fr [day-thu] 0.5fr [day-fri] 0.5fr [day-sat] 0.5fr [day-end];
-    grid-template-rows: [title] 1fr [head] 1fr [week-1] 3fr [week-2] 3fr;
-  }
+/*****************************************************************************************
+* Typography
+*****************************************************************************************/
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/******************************************************************************************************
-* Navigation Bar for the site
-******************************************************************************************************/
+a:hover {
+  text-decoration: underline;
+  color: var(--secondary-color);
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/*****************************************************************************************
+* Layouts
+*****************************************************************************************/
+
+/* Logo */
 .logo {
   font-size: 3em;
   text-align: end;
@@ -42,38 +56,40 @@ body {
 }
 
 /* Navigation Bar */
-
-header > ul {
+.navigation-list {
   list-style-type: none;
   text-align: center;
+  position: sticky;
 }
 
-header > ul > li {
-  display: inline;
+.navigation-item {
+  display: inline-block;
+  text-decoration: none;
+  margin-right: 1em;
+}
+
+.navigation-item a[href]:not(:hover) {
   text-decoration: none;
 }
 
-header > ul > li a {
-  color: var(--main-color);
-  text-align: center;
-  padding: 20px;
-  text-decoration: none;
+.navigation-item-active {
+  font-weight: 700;
+  text-decoration: underline;
 }
 
-
-
-/******************************************************************************************************
+/*****************************************************************************************
 * Content Styling
-******************************************************************************************************/
+*****************************************************************************************/
 
 main {
   width: 80vw;
   margin: 1rem auto;
 }
 
-/******************************************************************************************************
-* Week related styling
-******************************************************************************************************/
+/*****************************************************************************************
+* Components
+*****************************************************************************************/
+/* Week related styling */
 .title {
   text-align: center;
   background-color: var(--secondary-color);
@@ -128,5 +144,14 @@ main {
 .home {
   background-color: var(--bg-color);
   color: var(--main-color);
+}
+
+@media screen and (min-width: 700px) {
+  .schedule {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: [week] 0.5fr [day-sun] 0.5fr [day-mon] 0.5fr [day-tue] 0.5fr [day-wed] 0.5fr [day-thu] 0.5fr [day-fri] 0.5fr [day-sat] 0.5fr [day-end];
+    grid-template-rows: [title] 1fr [head] 1fr [week-1] 3fr [week-2] 3fr;
+  }
 }
 /*****************************************************************************************************/

@@ -18,13 +18,14 @@
 
 <body>
   <header>
-      <h1 class="logo">hilton meyer</h1>
-      <ul class="links">
-         <li><a href="/">Home</a></li>
-         <li><a href="/recipes">Recipes</a></li>
-         <li><a href="/maker">Maker</a></li>
-         <li><a href="https://bikepacking.hiltonmeyer.com" target="_blank">Bike Packing</a></li>
-         <li><a href="https://work.hiltonmeyer.com" target="_blank">Work Blog</a></li>
+      <h1 class="logo">{{ metadata.title }}</h1>
+      <ul class="navigation-list">
+        {%- for nav in collections.nav  -%}
+        <li class="navigation-item{% if nav.url == page.url %} navigation-item-active{% endif %}"><a
+          href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a></li>
+        {%- endfor -%}         
+        <li class="navigation-item"><a href="https://work.hiltonmeyer.com" target="_blank">Work Blog</a></li>
+        <li class="navigation-item"><a href="https://bikingbadger.com" target="_blank">Bike Packing</a></li>
       </ul>
    </header>
 
