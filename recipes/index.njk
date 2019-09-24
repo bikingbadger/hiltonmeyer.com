@@ -16,9 +16,9 @@ date: 2000-03-01
   <li><a href="/recipes/camping">Camping</a></li>
 </ul>
 
-<ul class=".recipe-list">
+<ul class=".collection-list">
 {%- for recipe in collections.recipe -%}
-  <li  class=".recipe-list-item"><a href={{ recipe.url }}>{{ recipe.data.title }}</a></li>
+  <li  class=".collection-list-item"><a href={{ recipe.url }}>{{ recipe.data.title }}</a></li>
 {%- endfor -%}
 </ul>
 
