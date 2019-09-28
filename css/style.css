@@ -51,6 +51,7 @@ h1 {
 header {
   display: grid;
   grid-template-columns: 40% auto;
+  grid-template-rows: 50% 50%;
   background-color: var(--secondary-color);
   border-radius: 10px;
   padding: 1rem;
@@ -59,10 +60,12 @@ header {
 /* Logo */
 .logo {
   font-size: 3em;
+  text-align: left;
 }
 
 /* Hidden hamburger */
-.hamburger-box, .hamburger-label {
+.hamburger-box,
+.hamburger-label {
   display: none;
 }
 
@@ -89,7 +92,7 @@ header {
 }
 
 /* Tablet and smaller settings */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
   .logo {
     font-size: 0px;
   }
@@ -107,10 +110,10 @@ header {
   }
 
   header {
-    grid-template-rows: auto; 
+    grid-template-rows: auto;
   }
-  
-  .navigation-list {    
+
+  .navigation-list {
     display: none;
   }
 
@@ -125,6 +128,11 @@ header {
   #toggle:checked + .navigation-list {
     display: grid;
     text-align: center;
+
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 2;
+    justify-self: center;
   }
 }
 
