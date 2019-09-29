@@ -2,9 +2,10 @@
 title: EBS Installed Applications
 description: Scripts for find EBS Installed Applications
 date: 2019-08-14
+updated: 2019-08-14
 layout: layouts/article.njk
 tags: 
- - posts
+ - articles
  - scripts
  - ebs
 navtitle: EBS Installed Applications

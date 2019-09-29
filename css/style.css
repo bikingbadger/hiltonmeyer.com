@@ -1,11 +1,20 @@
 :root {
-  --main-color: #1b17ff;
-  --bg-color: #ffffff;
-  --primary-color: #eb6e80;
-  --secondary-color: #70cccc;
-  --tertiary-color: #e6df61;
+  --clr-bg: #ffffff;
+  --clr-primary: #1b17ff;
+  --clr-secondary: #1787ff /*#83e2e2*/;
+  --clr-secondary-lt: #aef5f5;
+  --clr-complimentary: #fbff17;
 
   --short-logo: "hm";
+
+  --txt-width: 70vw;
+  --txt-title: 3rem;
+  --txt-heading: 2rem;
+  --txt-subheading: 1.5rem;
+  --txt-text: 1rem;
+  --txt-small: 0.8rem;
+
+  --brdr-rad: 1rem;
 }
 
 /*****************************************************************************************
@@ -22,8 +31,8 @@ body {
   padding: 50px;
   margin: 0 auto;
   font-size: 18px;
-  background-color: var(--bg-color);
-  color: var(--main-color);
+  background-color: var(--clr-bg);
+  color: var(--clr-primary);
 }
 
 /*****************************************************************************************
@@ -36,12 +45,29 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: var(--secondary-color);
+  color: var(--clr-complimentary);
+  background-color: var(--clr-primary);
+}
+
+.title {
+  font-size: var(--txt-title);
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
-  font-size: 1.5rem;
+  font-size: var(--txt-heading);
+  border-bottom: 3px solid var(--clr-secondary);
+  padding-top: 1rem;
+}
+
+h2 {
+  font-size: var(--txt-subheading);
+  padding-top: 0.5rem;
+}
+
+p {
+  font-size: var(--txt-text);
+  padding-top: 0.3rem;
 }
 
 /*****************************************************************************************
@@ -50,9 +76,9 @@ h1 {
 
 header {
   display: grid;
-  grid-template-columns: 40% auto;
-  grid-template-rows: 50% 50%;
-  background-color: var(--secondary-color);
+  grid-template-columns: 2fr auto;
+  grid-template-rows: 1fr auto;
+  background-color: var(--clr-secondary);
   border-radius: 10px;
   padding: 1rem;
 }
@@ -61,6 +87,8 @@ header {
 .logo {
   font-size: 3em;
   text-align: left;
+  border: none;
+  padding: 0;
 }
 
 /* Hidden hamburger */
@@ -117,14 +145,6 @@ header {
     display: none;
   }
 
-  /*
-  .navigation-item {
-    clear: right;
-    display: block;
-    border-bottom: 1px solid #00b3b3;
-    margin: 0;
-  }*/
-
   #toggle:checked + .navigation-list {
     display: grid;
     text-align: center;
@@ -141,10 +161,45 @@ header {
 *****************************************************************************************/
 
 main {
-  width: 80vw;
+  width: var(--txt-width);
   margin: 1rem auto;
 }
 
 /*****************************************************************************************
 * Components
 *****************************************************************************************/
+
+.article-list {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.article-card {
+  text-decoration: none;
+  margin: 0.3rem;
+  background-color: var(--clr-secondary);
+  border-radius: var(--brdr-rad);
+  text-align: center;
+  min-height: 8rem;
+}
+
+.article-card-heading {
+  margin: 0.1rem;
+  text-align: center;
+  padding: 0;
+}
+
+.article-card-description {
+  font-size: var(--txt-small);
+}
+
+.list {
+  list-style-type: none;
+}
+
+.list-item {
+  text-decoration: none;
+  padding-top: 0.3rem;
+}
