@@ -2,6 +2,7 @@
 title: R12.2 Adding server to Weblogic
 description: Adding a secondary server such as oa_core to weblogic in Oracle EBS R12.2
 date: 2019-08-15
+updated: 2019-08-15
 layout: layouts/article.njk
 tags: 
  - articles

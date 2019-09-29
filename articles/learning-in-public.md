@@ -2,6 +2,7 @@
 title: Learning in Public
 description: How I go about learning
 date: 2019-09-19
+updated: 2019-09-19
 layout: layouts/article.njk
 tags: 
  - articles

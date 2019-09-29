@@ -2,6 +2,7 @@
 title: Eleventy Markdown Attributes
 description: Adding Attributes to Markdown using Eleventy
 date: 2019-09-19
+updated: 2019-09-19
 layout: layouts/article.njk
 tags: 
  - articles
