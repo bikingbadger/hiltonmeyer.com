@@ -4,7 +4,7 @@ description: Scripts for starting and stopping R12.2 EBS
 date: 2019-08-01
 layout: layouts/article.njk
 tags: 
- - posts
+ - articles
  - ebs
  - scripts
 navtitle: R12.2 Startup and Shutdown
