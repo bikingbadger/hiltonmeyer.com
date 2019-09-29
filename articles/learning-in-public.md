@@ -15,7 +15,7 @@ navtitle: Learning in Public
 
 ## Javascript
 
-### Basics
+**Basics**{.article-heading}
 
 - Arrays {.list-item}
 - Asyncronous JS {.list-item}

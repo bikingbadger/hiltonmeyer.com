@@ -13,13 +13,13 @@ navtitle: Eleventy Markdown Attributes
 
 I searched for a way to try and add attributes, such as class or id to markdown for a while. Using [11ty](https://www.11ty.io) as my static site generator I've been using Nunjucks for templating and was able to add attributes in the that way. I was sure there must be a way of doing the same thing in Markdown. Luckily 11ty comes with a way of adding your own [library instance](https://www.11ty.io/docs/languages/markdown/#optional%3A-set-your-own-library-instance) to Markdown. The example show's how to use emoji plugin but I found [markdown-it-attrs](https://www.npmjs.com/package/markdown-it-attrs) plugin which suited my purpose. This is basically how I went about adding it to my project.
 
-**Install libraries**
+**Install libraries**{.article-heading}
 ```
 npm install --save-dev markdown-it markdown-it-attrs
 ```
 These will give the required libraries for adding to the project and add them to the package.json
 
-**Setup library instance**
+**Setup library instance** {.article-heading}
 Now we want to add the libraries for eleventy to pickup
 
 *.eleventy.js*
@@ -62,7 +62,7 @@ module.exports = function (eleventyConfig) {
 };
 ```
 
-**Example of Usage**
+**Example of Usage** {.article-heading}
 
 *example.md*
 ```
