@@ -8,9 +8,14 @@ date: 2000-02-01
 ---
 <p>Articles of things I've learnt or tricks I've found in the database and web development</p>
 
-<ul class=".collection-list">
-{%- for article in collections.articles -%}
-  <li  class=".collection-list-item"><a href={{ article.url }}>{{ article.data.title }}</a></li>
-{%- endfor -%}
-</ul>
+<section class="article-list">
+  
+    {%- for article in collections.articles | reverse -%}
+      <div  class="article-card">
+        <a href={{ article.url }}><h2 class="article-card-heading">{{ article.data.title }}</h1></a>
+        <p class="article-card-description">{{ article.data.description }}</p>
+      </div>
+    {%- endfor -%}
+  
+</section>
 

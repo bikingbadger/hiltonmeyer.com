@@ -2,4 +2,8 @@
 layout: layouts/base.njk
 templateClass: tmpl-article
 ---
+<p class="title">{{ title }}</p>
+
 {{ content | safe }}
+
+<sub>Last updated {{updated}}</sub>

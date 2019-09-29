@@ -17,9 +17,10 @@ navtitle: Learning in Public
 
 ### Basics
 
-- Arrays
-- Asyncronous JS
-- ES6 aka ES2017
+- Arrays {.list-item}
+- Asyncronous JS {.list-item}
+- ES6 aka ES2017 {.list-item}
+{.list}
 
 ## DOM
 
@@ -27,31 +28,36 @@ navtitle: Learning in Public
 
 ## Design
 
-- UI/UX Basics
+- UI/UX Basics {.list-item}
+{.list}
 
 ## Frameworks
 
-- Vue.js
+- Vue.js {.list-item}
+{.list}
 
 ## CSS
 
-- Responsive Sites
-- Mobile First
-- Canvas
-- Bootstrap
+- Responsive Sites {.list-item}
+- Mobile First {.list-item}
+- Canvas {.list-item}
+- Bootstrap {.list-item}
+{.list}
   
 ## Database
 
-- Postgre
-- Mongo
+- Postgre {.list-item}
+- Mongo {.list-item}
+{.list}
 
 ## Node
 
 # Learnt
 
 # Related links
-- [Original article about Learn in Public](https://www.swyx.io/writing/learn-in-public/)
-- [Followup article by Shawn](https://www.swyx.io/writing/learning-gears/)
-- [Chris Coyier on persistance](https://chriscoyier.net/2013/10/18/mediocre-ideas-showing-up-and-persistence/)
-- [Shawn's talk](https://www.swyx.io/talks/learn-in-public/)
-- [Tania Rascia's list](https://www.taniarascia.com/learn/)
+- [Original article about Learn in Public](https://www.swyx.io/writing/learn-in-public/) {.list-item}
+- [Followup article by Shawn](https://www.swyx.io/writing/learning-gears/) {.list-item}
+- [Chris Coyier on persistance](https://chriscoyier.net/2013/10/18/mediocre-ideas-showing-up-and-persistence/) {.list-item}
+- [Shawn's talk](https://www.swyx.io/talks/learn-in-public/) {.list-item}
+- [Tania Rascia's list](https://www.taniarascia.com/learn/) {.list-item}
+{.list}
