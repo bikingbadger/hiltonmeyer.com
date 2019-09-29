@@ -12,13 +12,13 @@ navtitle: R12.2 Adding server to Weblogic
 
 In R12.2 with Weblogic now playing a huge role as well as java also creating resource heavy processes you will eventually run into a situation where you want to add servers to Weblogic. I'd actually recommend adding at least one more oa_core server as this is the one we've noticed is causing most of the issues.
 
-## Some checks and background{.article-heading}
+## Some checks and background
 
 Oracle recommends up to 150-200 concurrent users per JVM of size 2 GB. You can use the <span class='script-link'>[EBS Active Users Script](/scripts/ebs_active_users/)</span> to find the current value but you should track this over time to give you an indication of how many users are in the system.
 
 Finding the next available port
 
-## Adding Server{.article-heading}
+## Adding Server
 
 Add oacore_server2 via command line:
 

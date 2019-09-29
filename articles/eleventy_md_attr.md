@@ -19,7 +19,7 @@ npm install --save-dev markdown-it markdown-it-attrs
 ```
 These will give the required libraries for adding to the project and add them to the package.json
 
-**Setup library instance**{.article-heading}
+**Setup library instance** {.article-heading}
 Now we want to add the libraries for eleventy to pickup
 
 *.eleventy.js*
@@ -62,7 +62,7 @@ module.exports = function (eleventyConfig) {
 };
 ```
 
-**Example of Usage**{.article-heading}
+**Example of Usage** {.article-heading}
 
 *example.md*
 ```
