@@ -10,6 +10,6 @@ tags:
 navtitle: Weight Tracker Initial
 ---
 
-
+So I got the idea to create a weight tracker due to my fondness of good food. 
 
 ![Weight Tracker App](https://res.cloudinary.com/hiltonmeyer-com/image/upload/c_scale,w_800/v1569729554/weight-tracker-v1_yadxdk.jpg)
