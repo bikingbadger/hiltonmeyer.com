@@ -7,7 +7,7 @@ layout: layouts/article.njk
 tags: 
  - articles
  - vanilla js
- - eleventy
+ - 11ty
 navtitle: Dates in 11ty used in templates
 ---
 

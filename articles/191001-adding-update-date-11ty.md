@@ -1,13 +1,13 @@
 ---
 title: Update Date for 11ty file
-description: Adding a field to show the last updated date of the article 
+description: Adding a field to show the last updated date of the article using Front Matter Data of 11ty 
 date: 2019-10-02
 updated: 2019-10-02
 layout: layouts/article.njk
 tags: 
  - articles
  - vanilla js
- - eleventy
+ - 11ty
 navtitle: Update Date for 11ty file
 ---
 In 11ty you can place metadata into a file using the ```---``` at the top of an article. It took me a while to understand how to do this in 11ty because they call this [Front Matter Data](https://www.11ty.io/docs/data-frontmatter/). Anyway I was able to add some fields but the one I was interested in was adding an update date to my articles so I could latter either order my posts by the last updated date instead of just created as I will be updating content as I go along. Also I could for now just [show this in my articles](/articles/191002-dates-11ty-templates).
@@ -24,7 +24,7 @@ layout: layouts/article.njk
 tags: 
  - articles
  - vanilla js
- - eleventy
+ - 11ty
 navtitle: Update Date for 11ty file
 ---
 ```
