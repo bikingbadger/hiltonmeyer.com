@@ -73,6 +73,10 @@ p {
   padding-top: 0.3rem;
 }
 
+.txt-small {
+  font-size: var(--txt-small);
+}
+
 /*****************************************************************************************
 * Layouts
 *****************************************************************************************/
@@ -157,6 +161,19 @@ header {
     grid-row-start: 2;
     justify-self: center;
   }
+}
+
+.constrast {
+  background-color: var(--clr-secondary);
+  color: white;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.txt-right {
+  text-align: right;
 }
 
 /*****************************************************************************************
