@@ -6,4 +6,4 @@ templateClass: tmpl-article
 
 {{ content | safe }}
 
-<sub>Last updated {{updated}}</sub>
+<footer class="constrast txt-small txt-right">Create on {{ page.date.toDateString() }} - Last updated {{ updated.toDateString() }}</footer>
