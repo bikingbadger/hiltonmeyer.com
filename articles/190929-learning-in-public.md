@@ -1,8 +1,8 @@
 ---
 title: Learning in Public
 description: How I go about learning
-date: 2019-09-19
-updated: 2019-09-19
+date: 2019-09-29
+updated: 2019-09-30
 layout: layouts/article.njk
 tags: 
  - articles
@@ -13,20 +13,20 @@ navtitle: Learning in Public
 
 > [Consumption Is Sometimes Valuable, But Creation Moves You Forward - Kal Zumeus](https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing)
 
-
-
 # To Learn
 
 ## Javascript
 
-**Basics**{.article-heading}
+**Basics** {.article-heading}
 
+- Variables {.list-item}
+- Dates {.list-item}
 - Arrays {.list-item}
 - Asyncronous JS {.list-item}
 - ES6 aka ES2017 {.list-item}
 {.list}
 
-## DOM
+**DOM** {.article-heading}
 
 ## Patterns
 
@@ -42,6 +42,7 @@ navtitle: Learning in Public
 
 ## CSS
 
+- Variables {.list-item}
 - Responsive Sites {.list-item}
 - Mobile First {.list-item}
 - Canvas {.list-item}
