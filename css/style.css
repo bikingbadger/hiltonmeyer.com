@@ -4,7 +4,7 @@
 
   --clr-bg: #ffffff;
   --clr-primary: #1b17ff;
-  --clr-secondary: #1787ff /*#83e2e2*/;
+  --clr-secondary: #1787ff;
   --clr-secondary-lt: #aef5f5;
   --clr-complimentary: #fbff17;
 
@@ -43,7 +43,8 @@ body {
 *****************************************************************************************/
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--clr-secondary);
+  border-bottom: 1px var(--clr-secondary) dotted;
 }
 
 a:hover {
@@ -116,6 +117,7 @@ header {
   display: inline-block;
   text-decoration: none;
   margin-right: 1em;
+  color: var(--clr-primary);
 }
 
 .navigation-item:hover {
@@ -211,6 +213,7 @@ main {
   margin: 0.1rem;
   text-align: center;
   padding: 0;
+  color: var(--clr-primary);
 }
 
 .article-card-description {
