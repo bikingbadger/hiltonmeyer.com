@@ -1,0 +1,16 @@
+{
+  "title": "hilton meyer",
+  "url": "https://hiltonmeyer.com",
+  "description": "Personal blog",
+  "feed": {
+    "subtitle": "Personal blog",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://hiltonmeyer.com/feed/feed.xml",
+    "id": "https://hiltonmeyer.com/"
+  },
+  "author": {
+    "name": "Hilton Meyer",
+    "email": "me@hiltonmeyer.com"
+  }
+}

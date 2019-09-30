@@ -1,132 +1,254 @@
+:root {
+  --ff: "Montserrat";
+  --ff-code: "Space Mono";
+
+  --clr-bg: #ffffff;
+  --clr-primary: #1b17ff;
+  --clr-secondary: #1787ff /*#83e2e2*/;
+  --clr-secondary-lt: #aef5f5;
+  --clr-complimentary: #fbff17;
+
+  --short-logo: "hm";
+
+  --txt-width: 70vw;
+  --txt-title: 3rem;
+  --txt-heading: 2rem;
+  --txt-subheading: 1.5rem;
+  --txt-text: 1rem;
+  --txt-small: 0.8rem;
+
+  --brdr-rad: 1rem;
+}
+
+/*****************************************************************************************
+* Globals
+*****************************************************************************************/
 * {
   margin: 0;
   padding: 0;
-}
-
-:root {
-  --main-color: #e24e42;
-  --bg-color: #e9b000;
-  --primary-color: #eb6e80;
-  --secondary-color: #008f95;
-
-  --color-scheme-01: #d7cb9c;
-  --color-scheme-02: #6a582d;
-  --color-scheme-03: #ae3c28;
-  --color-scheme-04: #e2de48;
-  --color-scheme-05: #19223b;
+  font-size: 16px;
+  font-family: var(--ff);
 }
 
 body {
-  padding: 50px;
+  padding: 1rem 2rem;
   margin: 0 auto;
   font-size: 18px;
-  font-family: "Krub", sans-serif;
-  background-color: var(--main-color);
-  color: var(--bg-color);
+  background-color: var(--clr-bg);
+  color: var(--clr-primary);
 }
 
-@media screen and (min-width: 700px) {
-  .schedule {
+/*****************************************************************************************
+* Typography
+*****************************************************************************************/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--clr-complimentary);
+  background-color: var(--clr-primary);
+}
+
+.title {
+  font-size: var(--txt-title);
+  text-align: center;
+}
+
+h1 {
+  font-size: var(--txt-heading);
+  border-bottom: 3px solid var(--clr-secondary);
+  padding-top: 1rem;
+}
+
+h2 {
+  font-size: var(--txt-subheading);
+  padding-top: 0.5rem;
+}
+
+p {
+  font-size: var(--txt-text);
+  padding: 0.5rem 0;
+  text-align: justify;
+}
+
+.txt-small {
+  font-size: var(--txt-small);
+}
+
+/*****************************************************************************************
+* Layouts
+*****************************************************************************************/
+
+header {
+  display: grid;
+  grid-template-columns: 2fr auto;
+  grid-template-rows: 1fr auto;
+  background-color: var(--clr-secondary);
+  border-radius: var(--brdr-rad);
+  border-top-left-radius: 0;
+  padding: 1rem;
+}
+
+/* Logo */
+.logo {
+  font-size: 3em;
+  text-align: left;
+  border: none;
+  padding: 0;
+}
+
+/* Hidden hamburger */
+.hamburger-box,
+.hamburger-label {
+  display: none;
+}
+
+/* Navigation Bar */
+.navigation-list {
+  justify-self: end;
+  align-self: center;
+}
+
+.navigation-item {
+  display: inline-block;
+  text-decoration: none;
+  margin-right: 1em;
+}
+
+.navigation-item:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.navigation-item-active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Tablet and smaller settings */
+@media only screen and (max-width: 900px) {
+  .logo {
+    font-size: 0px;
+  }
+
+  .logo::before {
+    content: var(--short-logo);
+    font-size: 2rem;
+  }
+
+  .hamburger-label {
     display: grid;
-    grid-gap: 1em;
-    grid-template-columns: [week] 0.5fr [day-sun] 0.5fr [day-mon] 0.5fr [day-tue] 0.5fr [day-wed] 0.5fr [day-thu] 0.5fr [day-fri] 0.5fr [day-sat] 0.5fr [day-end];
-    grid-template-rows: [title] 1fr [head] 1fr [week-1] 3fr [week-2] 3fr;
+    cursor: pointer;
+    justify-self: end;
+    align-self: center;
+  }
+
+  header {
+    grid-template-rows: auto;
+  }
+
+  .navigation-list {
+    display: none;
+  }
+
+  #toggle:checked + .navigation-list {
+    display: grid;
+    text-align: center;
+
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 2;
+    justify-self: center;
   }
 }
 
-/******************************************************************************************************
-* Navigation Bar for the site
-******************************************************************************************************/
-nav > ul {
-  list-style-type: none;
+.constrast {
+  background-color: var(--clr-secondary);
+  color: white;
+}
+
+.txt-center {
   text-align: center;
 }
 
-nav > ul > li {
-  display: inline;
-  text-decoration: none;
+.txt-right {
+  text-align: right;
 }
 
-nav > ul > li a {
-  color: var(--bg-color);
-  text-align: center;
-  padding: 20px;
-  text-decoration: none;
-}
-
-.logo {
-  font-size: 3em;
-  text-align: end;
-  background-color: var(--secondary-color);
-  border-radius: 10px;
-  padding: 20px;
-}
-
-/******************************************************************************************************
+/*****************************************************************************************
 * Content Styling
-******************************************************************************************************/
+*****************************************************************************************/
 
 main {
-  width: 80vw;
+  width: var(--txt-width);
   margin: 1rem auto;
 }
 
-/******************************************************************************************************
-* Week related styling
-******************************************************************************************************/
-.title {
-  text-align: center;
-  background-color: var(--secondary-color);
-  border-radius: 10px;
-  grid-row: title;
-  grid-column: week / day-end;
-}
+/*****************************************************************************************
+* Components
+*****************************************************************************************/
 
-.heading {
-  font-size: 1.5em;
-  color: var(--secondary-color);
-}
-
-.day {
-  border-radius: 5px;
-  padding: 0.5em 1em 0.5em 1em;
-  /*font-size: 0.75em;*/
-  box-shadow: rgba(25) 5, 255, 255, 0.6 1px 1px 0, rgba(0, 0, 0, 0.3) 4px 4px 0;
-  /*line-height: 1.5em;*/
+.article-list {
+  list-style-type: none;
   display: grid;
-  grid-template-rows: repeat(3, 0.5fr);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.article-card {
+  text-decoration: none;
+  margin: 0.3rem;
+  background-color: var(--clr-secondary);
+  border-radius: var(--brdr-rad);
   text-align: center;
+  min-height: 8rem;
 }
 
-.day-customer,
-.day-sport,
-.day-sleep {
-  display: block;
+.article-card-heading {
+  margin: 0.1rem;
+  text-align: center;
+  padding: 0;
 }
 
-.day-customer {
-  justify-self: end;
-  font-size: 1.75em;
+.article-card-description {
+  font-size: var(--txt-small);
 }
 
-.day-sport {
-  justify-self: end;
+.article-heading {
+  padding: 0.5rem 1.5rem;
 }
 
-.day-sleep {
-  border-top-style: dashed;
-  border-bottom-style: dashed;
-  align-self: center;
-  justify-self: stretch;
+.list {
+  list-style-type: none;
 }
 
-.tsofit {
-  background-color: var(--secondary-color);
-  color: var(--bg-color);
+.list-item {
+  text-decoration: none;
+  padding-top: 0.3rem;
+  padding-left: 1.5rem;
 }
 
-.home {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+pre {
+  background-color: var(--clr-secondary);
+  color: white;
+  width: 40vw;
+  padding: 0.5rem 3rem;
+  margin: 0 auto;
+  border-radius: var(--brdr-rad);
+  border-top-left-radius: 0;
+
+  /* Browser specific (not valid) styles to make preformatted text wrap */
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  /*======================================================================*/
 }
-/*****************************************************************************************************/
+
+code {
+  font-family: var(--ff-code);
+}
