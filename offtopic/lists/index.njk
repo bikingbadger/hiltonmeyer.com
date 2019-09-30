@@ -15,7 +15,7 @@ If I rememeber correctly this came from how pilots have a checklist of each and 
     {%- for article in collections.checklist -%}
       <div  class="article-card">
         <a href={{ article.url }}><h2 class="article-card-heading">{{ article.data.title }}</h1></a>
-        <p class="article-card-description">{{ article.data.description }}</p>
+        <p class="article-card-description txt-center">{{ article.data.description }}</p>
       </div>
     {%- endfor -%}
   
