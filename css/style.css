@@ -237,6 +237,16 @@ pre {
   width: 40vw;
   padding: 0.5rem 3rem;
   margin: 0 auto;
+  border-radius: var(--brdr-rad);
+  border-top-left-radius: 0;
+
+  /* Browser specific (not valid) styles to make preformatted text wrap */
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  /*======================================================================*/
 }
 
 code {
