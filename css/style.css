@@ -1,4 +1,7 @@
 :root {
+  --ff: "Montserrat";
+  --ff-code: "Space Mono";
+
   --clr-bg: #ffffff;
   --clr-primary: #1b17ff;
   --clr-secondary: #1787ff /*#83e2e2*/;
@@ -24,7 +27,7 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-family: "Montserrat", "PT Serif", serif;
+  font-family: var(--ff);
 }
 
 body {
@@ -195,6 +198,10 @@ main {
   font-size: var(--txt-small);
 }
 
+.article-heading {
+  padding: 0.5rem 1.5rem;
+}
+
 .list {
   list-style-type: none;
 }
@@ -202,4 +209,16 @@ main {
 .list-item {
   text-decoration: none;
   padding-top: 0.3rem;
+  padding-left: 1.5rem;
+}
+
+pre {
+  background-color: var(--clr-secondary);
+  color: white;
+  width: 60vw;
+  padding: 0.5rem 3rem;
+}
+
+code {
+  font-family: var(--ff-code);
 }

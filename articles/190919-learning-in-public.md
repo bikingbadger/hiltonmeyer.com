@@ -11,11 +11,15 @@ tags:
 navtitle: Learning in Public
 ---
 
+> [Consumption Is Sometimes Valuable, But Creation Moves You Forward - Kal Zumeus](https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing)
+
+
+
 # To Learn
 
 ## Javascript
 
-### Basics
+**Basics**{.article-heading}
 
 - Arrays {.list-item}
 - Asyncronous JS {.list-item}

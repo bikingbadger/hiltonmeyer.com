@@ -13,53 +13,53 @@ navtitle: R12.2 Startup and Shutdown
 
 ## Start Apps Services
 
-**Node Manager**
+**Node Manager**{.article-heading}
 ```	
 $adnodemgrctl.sh start 
 Enter Weblogic Admin Password:
 ```
-**Weblogic Admin Server**
+**Weblogic Admin Server**{.article-heading}
 ```	
 $adadminsrvctl.sh start 
 Enter Weblogic Admin Password:
 ```	
-**Application Listener**
+**Application Listener**{.article-heading}
 ```	
 $adalnctl.sh start
 ```	
-**Oracle Process Manager**
+**Oracle Process Manager**{.article-heading}
 ```	
 $adopmnctl.sh start
 ```	
-**Apache Services**
+**Apache Services**{.article-heading}
 ```	
 $adapcctl.sh start
 ```	
-**Managed Server for OACORE Services**
+**Managed Server for OACORE Services**{.article-heading}
 ```	
 $admanagedsrvctl.sh start oacore_server1 
 Enter Weblogic Admin Password:
 ```	
-**Managed Server for Forms Services**
+**Managed Server for Forms Services**{.article-heading}
 ```	
 $admanagedsrvctl.sh start forms_server1 
 Enter Weblogic Admin Password:
 ```	
-**Managed Server for Fusion MiddleWare  Services**
+**Managed Server for Fusion MiddleWare  Services**{.article-heading}
 ```	
 $admanagedsrvctl.sh start oafm_server1 
 Enter Weblogic Admin Password:
 ```	
-**Managed Server for Forms web  Services**
+**Managed Server for Forms web  Services**{.article-heading}
 ```	
 $admanagedsrvctl.sh start forms-c4ws_server1 
 Enter Weblogic Admin Password:
 ```	
-**Concurrent Manager Service**
+**Concurrent Manager Service**{.article-heading}
 ```	
 $adcmctl.sh start apps/$APPS_PASS
 ```	
-**Fullfillment Serer Services**
+**Fullfillment Serer Services**{.article-heading}
 ```	
 $jtffmctl.sh start
 ```	
