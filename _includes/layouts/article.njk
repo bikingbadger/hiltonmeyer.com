@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-article
+---
+<p class="title">{{ title }}</p>
+
+{{ content | safe }}
+
+<footer class="constrast txt-small txt-right">Create on {{ page.date.toDateString() }} - Last updated {{ updated.toDateString() }}</footer>
