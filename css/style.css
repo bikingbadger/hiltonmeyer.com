@@ -215,6 +215,8 @@ main {
 
 .article-card-description {
   font-size: var(--txt-small);
+  text-align: center;
+  margin: 0.3rem;
 }
 
 .article-heading {
