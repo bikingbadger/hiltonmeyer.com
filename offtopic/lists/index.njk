@@ -1,0 +1,23 @@
+---
+layout: layouts/home.njk
+tags:
+    - nav
+navtitle: Recipes
+date: 2000-03-01
+---
+<p>Recipes I've found around the web and then bastardized into something for me to make with what I have on hand. 
+    This is more of a recipe index for me than for anyone else but feel free to try the things out and let
+    <mailto:me@hiltonmeyer.com> me know if it turned out</mailto:me>.
+</p>
+{# <ul>
+    <li><a href={{ recipe.data.url }}>{{ recipe.data.title }}</a></li>
+</ul> #}
+<ul>
+  <li><a href="/recipes/camping">Camping</a></li>
+</ul>
+
+<ul class=".collection-list">
+{%- for recipe in collections.recipe -%}
+  <li  class=".collection-list-item"><a href={{ recipe.url }}>{{ recipe.data.title }}</a></li>
+{%- endfor -%}
+</ul>
