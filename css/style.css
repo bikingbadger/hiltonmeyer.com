@@ -16,6 +16,7 @@
   --txt-subheading: 1.5rem;
   --txt-text: 1rem;
   --txt-small: 0.8rem;
+  --txt-indent: 3rem;
 
   --brdr-rad: 1rem;
 }
@@ -187,6 +188,22 @@ header {
 main {
   width: var(--txt-width);
   margin: 1rem auto;
+}
+
+ol {
+  margin-left: var(--txt-indent);
+}
+
+.quote p {
+  font-size: var(--txt-subheading);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5rem;
+}
+
+.quote p::before,
+.quote p::after {
+  content: '"';
 }
 
 /*****************************************************************************************
