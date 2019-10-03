@@ -209,6 +209,16 @@ main {
   min-height: 8rem;
 }
 
+.home-card {
+  text-decoration: none;
+  margin: 0.3rem;
+  background-color: var(--clr-secondary);
+  border-radius: var(--brdr-rad);
+  border-top-left-radius: 0;
+  text-align: center;
+  min-height: 16rem;
+}
+
 .article-card-heading {
   margin: 0.1rem;
   text-align: center;
