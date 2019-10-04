@@ -16,6 +16,7 @@
   --txt-subheading: 1.5rem;
   --txt-text: 1rem;
   --txt-small: 0.8rem;
+  --txt-indent: 3rem;
 
   --brdr-rad: 1rem;
 }
@@ -189,6 +190,22 @@ main {
   margin: 1rem auto;
 }
 
+ol {
+  margin-left: var(--txt-indent);
+}
+
+.quote p {
+  font-size: var(--txt-subheading);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5rem;
+}
+
+.quote p::before,
+.quote p::after {
+  content: '"';
+}
+
 /*****************************************************************************************
 * Components
 *****************************************************************************************/
@@ -207,6 +224,16 @@ main {
   border-radius: var(--brdr-rad);
   text-align: center;
   min-height: 8rem;
+}
+
+.home-card {
+  text-decoration: none;
+  margin: 0.3rem;
+  background-color: var(--clr-secondary);
+  border-radius: var(--brdr-rad);
+  border-top-left-radius: 0;
+  text-align: center;
+  min-height: 16rem;
 }
 
 .article-card-heading {

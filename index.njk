@@ -7,3 +7,13 @@ date: 1999-12-31
 ---
 <p>My spot on the interwebs. A place for dumping the idea's floating around in my head or sharing the things that I've managed to 
 actually create either online or in that thing they call real life.</p>
+
+<h1>Latest Articles</h1>
+<section class="article-list">
+  {%- for article in collections.articles  | currentArticles | head(3)  -%}
+    <div  class="home-card">
+      <a href={{ article.url }}><h2 class="article-card-heading">{{ article.data.title }}</h1></a>
+      <p class="article-card-description">{{ article.data.description }}</p>
+    </div>
+  {%- endfor -%}
+</section>
