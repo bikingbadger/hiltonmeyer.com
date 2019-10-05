@@ -8,6 +8,7 @@ tags:
  - articles
  - git
 navtitle: Git commit messages
+permalink: articles/git-commit-message.html
 ---
 On the Vanilla Js slack channel, highly recommended if you want to learn with an awesome group of people, Stefan Frede shared a [post](https://chris.beams.io/posts/git-commit/) about git commit messages. What I got out of it was that I actually have a hodge-podge of git commit messages and looking at my `git log` is not pretty. So here are the seven rules of a great Git commit message
 

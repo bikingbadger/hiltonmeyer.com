@@ -8,6 +8,7 @@ tags:
  - articles
  - git
 navtitle: Find deleted file in Git
+permalink: articles/git-find-deleted-file.html
 ---
 I found myself looking for a [recipe](/offtopic/recipes) I'm sure I had written down and put up on the site. I am using git to keep things in order so that led me down the path of wondering whether I could serach the git repo history and see if there is a file in there I was looking for and then retrieve it.
 

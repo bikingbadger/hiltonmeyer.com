@@ -9,6 +9,7 @@ tags:
  - ebs
  - scripts
 navtitle: R12.2 Startup and Shutdown
+permalink: articles/ebs-start-stop.html
 ---
 
 ## Start Apps Services

@@ -8,6 +8,7 @@ tags:
  - articles
  - ebs
 navtitle: R12.2 Adding server to Weblogic
+permalink: articles/ebs-weblogic-server.html
 ---
 
 In R12.2 with Weblogic now playing a huge role as well as java also creating resource heavy processes you will eventually run into a situation where you want to add servers to Weblogic. I'd actually recommend adding at least one more oa_core server as this is the one we've noticed is causing most of the issues.
