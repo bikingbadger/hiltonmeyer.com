@@ -5,6 +5,7 @@ date: 2019-09-29
 updated: 2019-09-30
 layout: layouts/article.njk
 tags: 
+ - content
  - articles
  - writing
  - learning

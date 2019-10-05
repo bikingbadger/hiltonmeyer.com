@@ -5,6 +5,7 @@ date: 2019-10-05
 updated: 2019-10-05
 layout: layouts/article.njk
 tags: 
+ - content
  - articles
  - git
 navtitle: Git commit messages

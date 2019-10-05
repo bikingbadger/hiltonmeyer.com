@@ -2,6 +2,7 @@
 title: Kale and Basil Pesto
 layout: layouts/recipe.njk
 tags:
+    - content
     - recipe
     - vegan
     - side-dish    

@@ -5,6 +5,7 @@ date: 2019-08-14
 updated: 2019-08-14
 layout: layouts/article.njk
 tags: 
+ - content
  - articles
  - scripts
  - ebs

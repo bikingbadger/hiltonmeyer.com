@@ -5,6 +5,7 @@ date: 2019-10-03
 updated: 2019-10-03
 layout: layouts/article.njk
 tags: 
+ - content
  - articles
  - git
 navtitle: Find deleted file in Git

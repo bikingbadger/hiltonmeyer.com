@@ -5,6 +5,7 @@ date: 2019-10-02
 updated: 2019-10-02
 layout: layouts/article.njk
 tags: 
+ - content
  - articles
  - vanilla js
  - 11ty
