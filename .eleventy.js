@@ -21,10 +21,8 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("currentArticles", articles => {
     const currentDate = new Date();
-    console.log(currentDate);
-    let currentArticles = articles.reverse().filter((article) =>{
-      
-      console.log(article.data.date, article.data.title);
+    
+    let currentArticles = articles.reverse().filter((article) =>{       
       return article.data.date < currentDate;
     }); 
 
