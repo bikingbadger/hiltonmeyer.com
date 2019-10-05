@@ -32,3 +32,5 @@ typings/
 package-lock.json
 drafts
 
+## custom scripts
+scripts
