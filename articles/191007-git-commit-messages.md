@@ -1,8 +1,8 @@
 ---
 title: Git commit messages
 description: Best practice for creating commit history in Git
-date: 2019-10-05
-updated: 2019-10-05
+date: 2019-10-07
+updated: 2019-10-07
 layout: layouts/article.njk
 tags: 
  - content
