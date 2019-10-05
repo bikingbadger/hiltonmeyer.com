@@ -19,16 +19,14 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, n);
   });
 
-  eleventyConfig.addFilter("currentArticles", articles => {
+  eleventyConfig.addFilter("currentContent", articles => {
     const currentDate = new Date();
-    console.log(currentDate);
-    let currentArticles = articles.reverse().filter((article) =>{
-      
-      console.log(article.data.date, article.data.title);
+    
+    let currentContent = articles.reverse().filter((article) =>{       
       return article.data.date < currentDate;
     }); 
 
-    return currentArticles;
+    return currentContent;
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
