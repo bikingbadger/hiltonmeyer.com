@@ -9,6 +9,7 @@ tags:
  - scripts
  - ebs
 navtitle: EBS Installed Applications
+permalink: articles/ebs-installed-applications.html
 ---
 
 Scripts for find EBS Installed Applications
