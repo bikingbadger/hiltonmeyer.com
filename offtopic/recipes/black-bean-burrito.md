@@ -2,6 +2,7 @@
 title: Black Bean Burrito Bowl
 layout: layouts/recipe.njk
 tags:
+    - content
     - recipe    
     - vegan
     - dinner

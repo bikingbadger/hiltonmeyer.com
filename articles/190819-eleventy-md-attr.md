@@ -5,6 +5,7 @@ date: 2019-08-19
 updated: 2019-08-19
 layout: layouts/article.njk
 tags: 
+ - content
  - articles
  - 11ty
  - markdown

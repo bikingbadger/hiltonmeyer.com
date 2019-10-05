@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const pluginRss = require("@11ty/eleventy-plugin-rss"); // Plugin for RSS in 11ty
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
@@ -55,6 +56,10 @@ module.exports = function(eleventyConfig) {
     .use(markdownItAnchor, optsAnchor);
   eleventyConfig.setLibrary("md", markdownLib);
   /**************** END Markdown Plugins********************/
+
+  /**************** RSS Plugins********************/
+  eleventyConfig.addPlugin(pluginRss);
+/**************** END RSS Plugins********************/
 
   return {
     passthroughFileCopy: true,

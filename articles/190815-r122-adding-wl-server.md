@@ -5,6 +5,7 @@ date: 2019-08-15
 updated: 2019-08-15
 layout: layouts/article.njk
 tags: 
+ - content
  - articles
  - ebs
 navtitle: R12.2 Adding server to Weblogic

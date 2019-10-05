@@ -2,6 +2,7 @@
 title: Quince Stew
 layout: layouts/recipe.njk
 tags:
+    - content
     - recipe
     - dinner
     - vegan
