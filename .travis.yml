@@ -1,7 +1,5 @@
 language: node_js
 node_js:
-  - 8
-  - 10
   - 12
 before_script:
   - npm install
@@ -9,8 +7,16 @@ script: npm run build
 branches:
   except:
     - gh-pages
+branches:
+  only:
+    - master    
 sudo: false
 os:
   - linux
-  - osx
-  - windows
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
