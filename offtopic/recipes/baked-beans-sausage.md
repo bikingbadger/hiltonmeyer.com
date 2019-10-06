@@ -2,6 +2,7 @@
 title: Baked Beans with Smoked Sausage
 layout: layouts/recipe.njk
 tags:
+    - content
     - recipe
     - dinner
     - bacon
@@ -15,17 +16,18 @@ tags:
 navtitle: Baked Beans with Smoked Sausage
 date: 2019-09-06
 ---
+
 # Ingedients {.recipe-ingredients}
 
-* 2 slices bacon, chopped into 1/2-inch pieces
-* 1 sweet onion, chopped
-* 2 cloves garlic, finely chopped
-* 1/2 pound smoked sausage, sliced, I use kielbasa
-* 3 cans baked beans
-* 1 can tomatoes
-* 1/4 cup honey
-* 2 tablespoons apple cider vinegar
-* 2 tablespoons yellow mustard
+- 2 slices bacon, chopped into 1/2-inch pieces
+- 1 sweet onion, chopped
+- 2 cloves garlic, finely chopped
+- 1/2 pound smoked sausage, sliced, I use kielbasa
+- 3 cans baked beans
+- 1 can tomatoes
+- 1/4 cup honey
+- 2 tablespoons apple cider vinegar
+- 2 tablespoons yellow mustard
 
 # Directions {.recipe-directions}
 

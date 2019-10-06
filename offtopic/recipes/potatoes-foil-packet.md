@@ -2,6 +2,7 @@
 title: Potatoes Foil Packet
 layout: layouts/recipe.njk
 tags:
+    - content
     - recipe    
     - side-dish
     - vegan

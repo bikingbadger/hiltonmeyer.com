@@ -2,6 +2,7 @@
 title: Red Lentil Dal
 layout: layouts/recipe.njk
 tags:
+    - content
     - recipe
     - dinner
     - vegan
