@@ -26,3 +26,5 @@ date: 2019-10-19
 3. Add the sugar and bring to a boil again. Stir to dissolve all of the sugar. Lower the heat to medium high.
 4. Cook uncovered, stirring occasionally until quince jam turns pink and thickens to desired consistency, about 30-50 minutes.
 5. Ladle into hot, sterilized canning jars\* and seal. Before applying the lids, sterilize the lids by placing them in a bowl and pouring boiling water over them. Wipe the rims of the jars clean before applying the lids.
+
+_Source: [Simply Recipes](https://www.simplyrecipes.com/recipes/quince_jam/)_
