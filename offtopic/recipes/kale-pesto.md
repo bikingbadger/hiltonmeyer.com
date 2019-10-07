@@ -14,7 +14,7 @@ tags:
 navtitle: Kale and Basil Pesto
 date: 2019-09-06
 ---
-# Ingedients {.recipe-ingredients}
+# Ingredients {.recipe-ingredients}
   
 * 1 cup fresh kale
 * 1 cup fresh basil leaves

@@ -17,7 +17,7 @@ tags:
 navtitle: Quince Stew
 date: 2019-09-05
 ---
-# Ingedients {.recipe-ingredients}
+# Ingredients {.recipe-ingredients}
 
 - 4  medium-size quince, washed, cored and sliced (could be cubed too), slice right before cooking.
 - 1 cup yellow split peas, picked over and rinsed

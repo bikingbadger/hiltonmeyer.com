@@ -6,7 +6,7 @@ tags:
 navtitle: Template
 date: 2019-09-05
 ---
-# Ingedients {.recipe-ingredients}
+# Ingredients {.recipe-ingredients}
 
 * 
 
