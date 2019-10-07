@@ -13,32 +13,37 @@ tags:
     - saffron
     - quince
     - peas, yellow split
+    - vegan
 navtitle: Quince Stew
 date: 2019-09-05
 ---
 # Ingedients {.recipe-ingredients}
 
-* 6 tablespoons regular olive oil (divided)
-* 1 medium onion chopped
-* ½ cup yellow split peas
-* 1 teaspoon salt
-* ½ teaspoon turmeric
-* ½ teaspoon cinnamon powder
-* ¼ teaspoon ground black pepper
-* 2 cups hot water
-* 2 tablespoons fresh lemon juice
-* 1/8 teaspoon ground saffron (optional)
-* 2 large quinces
+- 4  medium-size quince, washed, cored and sliced (could be cubed too), slice right before cooking.
+- 1 cup yellow split peas, picked over and rinsed
+- 1 large onion, peeled and chopped
+- 2 -3 tablespoons tomato paste
+- 1/4 teaspoon turmeric
+- 1/2 teaspoon liquid saffron
+- Salt and pepper to taste
+- 2-3 dried lemons (limoo amani) or juice of a lime
+- 2 tablespoons sugar
+- A dash of cinnamon
+- 2 cups of water
+- 2 tablespoons vegetable oil
+- 1 tablespoon butter
+
+
 
 # Directions {.recipe-directions}
 
-1. Heat 4 tablespoons of oil in a medium pot and add chopped onions. 
-2. Cook over medium-high heat for about 7 minutes or until slightly golden, stirring occasionally to keep from burning. 
-3. Add split peas, salt, turmeric, cinnamon powder, pepper and water. Cook for 10 to 15 minutes or until split peas are tender. 
-4. Half way through cooking, peel the quinces, cut into quarters and remove their cores. Chop the quarters into 1-inch cubes. Quince turns brown quickly if not used right after cutting. To prevent oxidization, keep them in a bowl of water mixed with lemon juice, ¼ cup lemon juice to 1 quart of cold water.
-5. Heat 2 tablespoons of oil in a skillet. Add chopped quinces and cook over medium-high heat for about 5 to 7 minutes or until slightly golden.
-6. Add lemon juice, saffron and chopped quinces to the pot. Cover and simmer over low heat for about 20 minutes or until the quinces are cooked through.
-7. Some varieties of quince are very sour unlike the ones used in this recipe. Taste the sauce before adding lemon juice. If the sauce is too sour omit the lemon juice and if needed add a little sugar to balance the flavors.
-8. Adjust the seasoning and serve with basmati rice.
-
-*Split peas used in this recipe are the “slow cook” type available at Middle Eastern markets or online. Regular split peas, found at most supermarkets, tend to cook faster and fall apart in Persian dishes. If using “regular” split peas adjust the cooking time.*
+1. I use a cast iron pot to heat the oil and then saute onions until they are golden color
+2. Add turmeric and stir to release the flavors
+3. Add the peas to the pot again giving a stir, leaving to simmer for 5 minutes
+4. Add the ret of the spices. Salt and pepper, cinnamon, saffron and dried lemon. 
+5. Pour water in the pot, mix in the tomato paste, bring to a boil, then lower the heat and cook on a medium to low heat for an hour.
+6. In another frying pan, melt the butter and saute the sliced quince on both sides for ten minutes over a medium heat. 
+7. Sprinkle sugar and stir till sugar is completely melted. Set aside.
+8. After the hour of the pea's cooking layer the quince on top. 
+9. Cook in the 350 degrees Fahrenheit pre-heated oven for 50 minutes. 
+10. Serve with rice.
