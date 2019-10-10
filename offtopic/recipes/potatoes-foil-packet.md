@@ -2,6 +2,7 @@
 title: Potatoes Foil Packet
 layout: layouts/recipe.njk
 tags:
+    - content
     - recipe    
     - side-dish
     - vegan
@@ -13,7 +14,7 @@ tags:
 navtitle: Potatoes Foil Packet
 date: 2019-09-06
 ---
-# Ingedients {.recipe-ingredients}
+# Ingredients {.recipe-ingredients}
 
 - potatoes
 - onion

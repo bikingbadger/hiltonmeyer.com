@@ -1,4 +1,3 @@
-_site
 node_modules
 jspm_packages
 
@@ -32,3 +31,5 @@ typings/
 package-lock.json
 drafts
 
+## custom scripts
+scripts

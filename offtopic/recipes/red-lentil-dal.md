@@ -2,6 +2,7 @@
 title: Red Lentil Dal
 layout: layouts/recipe.njk
 tags:
+    - content
     - recipe
     - dinner
     - vegan
@@ -19,7 +20,7 @@ tags:
 navtitle: Red Lentil Dal
 date: 2019-09-01
 ---
-# Ingedients {.recipe-ingredients}
+# Ingredients {.recipe-ingredients}
 
 * 2 tbs. organic ghee or extra-virgin olive oil
 * 1 ½ tsp. cumin seeds

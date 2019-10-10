@@ -1,7 +1,7 @@
 {
   "title": "hilton meyer",
   "url": "https://hiltonmeyer.com",
-  "description": "Personal blog",
+  "description": "Sharing what I'm learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics",
   "feed": {
     "subtitle": "Personal blog",
     "filename": "feed.xml",

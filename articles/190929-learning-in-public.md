@@ -5,10 +5,12 @@ date: 2019-09-29
 updated: 2019-09-30
 layout: layouts/article.njk
 tags: 
+ - content
  - articles
  - writing
  - learning
 navtitle: Learning in Public
+permalink: articles/learn-in-public.html
 ---
 
 > [Consumption Is Sometimes Valuable, But Creation Moves You Forward - Kal Zumeus](https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing)

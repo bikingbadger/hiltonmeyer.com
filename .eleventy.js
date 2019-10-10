@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const pluginRss = require("@11ty/eleventy-plugin-rss"); // Plugin for RSS in 11ty
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
@@ -8,6 +9,25 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj, {
       zone: "utc",
     }).toFormat("dd LLL yyyy");
+  });
+
+  // Get the first `n` elements of a collection.
+  eleventyConfig.addFilter("head", (array, n) => {
+    if (n < 0) {
+      return array.slice(n);
+    }
+
+    return array.slice(0, n);
+  });
+
+  eleventyConfig.addFilter("currentContent", articles => {
+    const currentDate = new Date();
+    
+    let currentContent = articles.reverse().filter((article) =>{       
+      return article.data.date < currentDate;
+    }); 
+
+    return currentContent;
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
@@ -36,6 +56,10 @@ module.exports = function(eleventyConfig) {
     .use(markdownItAnchor, optsAnchor);
   eleventyConfig.setLibrary("md", markdownLib);
   /**************** END Markdown Plugins********************/
+
+  /**************** RSS Plugins********************/
+  eleventyConfig.addPlugin(pluginRss);
+/**************** END RSS Plugins********************/
 
   return {
     passthroughFileCopy: true,
