@@ -17,7 +17,7 @@ date: 2019-09-06
 * 100g grated ginger
 * 250 ml (1 cup) freshly squeezed lemon juice (see Note 2, below)
 * 6 raisins
-* 250g cup white sugar
+* 250g white sugar
 * 4.5 litres water
 * Ginger bug starter or a teaspoon of yeast
 
