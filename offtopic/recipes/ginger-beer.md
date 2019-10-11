@@ -11,7 +11,7 @@ tags:
 navtitle: Ginger Beer
 date: 2019-09-06
 ---
-# Ingedients {.recipe-ingredients}
+# Ingredients {.recipe-ingredients}
 
 * grated rind of 2 lemons
 * 100g grated ginger
