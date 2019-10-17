@@ -268,7 +268,7 @@ pre {
   color: white;
   width: 40vw;
   padding: 0.5rem 3rem;
-  margin: 0 auto;
+  margin: 0 auto 0.5rem;
   border-radius: var(--brdr-rad);
   border-top-left-radius: 0;
 
