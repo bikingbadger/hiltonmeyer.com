@@ -786,4 +786,44 @@ showPassword.addEventListener(&amp;quot;click&amp;quot;, togglePassword, false);
 &lt;p&gt;I must say that each of us took a different view of the problem and found various solutions. I actually incorporated one of them as I had used password. On my solution I had used &lt;code&gt;password.setAttribute(&#39;type&#39;,&#39;text&#39;)&lt;/code&gt; which also works but I was not aware of the &lt;code&gt;.type&lt;/code&gt; for setting the attribute directory without jumping through loops. It&#39;s going to be an interests few weeks of intense learning.&lt;/p&gt;
 </content>
   </entry>
+  
+  <entry>
+    <title>Travis build branch for github pages</title>
+    <link href="https://hiltonmeyer.com/articles/travis-build-branch.html"/>
+    <updated>2019-10-17T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/travis-build-branch.html</id>
+    <content type="html">&lt;p&gt;In my article of automating my &lt;a href=&quot;https://hiltonmeyer.com/articles/travis-automatic-build.html&quot;&gt;build process for a hosted server&lt;/a&gt; I was using the default of gh-pages branch. This is the vanilla out of the box branch used by Travis-CI. The issue is that this should be a clean branch because I was getting emails about issues with the build of the &lt;a href=&quot;http://github.io/&quot;&gt;github.io&lt;/a&gt; page:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[bikingbadger/hiltonmeyer.com] Page build failure
+
+The page build failed for the `gh-pages` branch with the following error
+
+The tag `set` on line 14 in `feed.njk` is not a recognized Liquid tag
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The error was that is was still looking at the nunjucks files so this was causing me some issues. Again I was using this branch as a hack to get around Travis being able to build the site for me and then I could clone it onto the hosted server. I don&#39;t like getting junk emails so looked into it a bit and found that I could simply give another target branch if I didn&#39;t want to use the default. I added the &lt;code&gt;target_branch&lt;/code&gt; to parameter and it worked like a charm. This is the currently setup:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;language: node_js
+node_js:
+  - 12
+before_script:
+  - npm install
+script: npm run build
+branches:
+  except:
+    - gh-pages
+branches:
+  only:
+    - master    
+sudo: false
+os:
+  - linux
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  target_branch: prod
+  on:
+    branch: master
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
 </feed>

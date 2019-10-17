@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travis build branch for github pages</title>
+  <meta name="Description" content="How to specify the branch for Travis CI to build to">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Travis build branch for github pages</p>
+
+<p>In my article of automating my <a href="/articles/travis-automatic-build.html">build process for a hosted server</a> I was using the default of gh-pages branch. This is the vanilla out of the box branch used by Travis-CI. The issue is that this should be a clean branch because I was getting emails about issues with the build of the <a href="http://github.io">github.io</a> page:</p>
+<pre><code>[bikingbadger/hiltonmeyer.com] Page build failure
+
+The page build failed for the `gh-pages` branch with the following error
+
+The tag `set` on line 14 in `feed.njk` is not a recognized Liquid tag
+</code></pre>
+<p>The error was that is was still looking at the nunjucks files so this was causing me some issues. Again I was using this branch as a hack to get around Travis being able to build the site for me and then I could clone it onto the hosted server. I don't like getting junk emails so looked into it a bit and found that I could simply give another target branch if I didn't want to use the default. I added the <code>target_branch</code> to parameter and it worked like a charm. This is the currently setup:</p>
+<pre><code>language: node_js
+node_js:
+  - 12
+before_script:
+  - npm install
+script: npm run build
+branches:
+  except:
+    - gh-pages
+branches:
+  only:
+    - master    
+sudo: false
+os:
+  - linux
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  target_branch: prod
+  on:
+    branch: master
+</code></pre>
+
+
+<footer class="constrast txt-small txt-right">Create on Thu Oct 17 2019 - Last updated Mon Oct 21 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>
