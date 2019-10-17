@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R12.2 Adding server to Weblogic</title>
+  <meta name="Description" content="Adding a secondary server such as oa_core to weblogic in Oracle EBS R12.2">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">R12.2 Adding server to Weblogic</p>
+
+<p>In R12.2 with Weblogic now playing a huge role as well as java also creating resource heavy processes you will eventually run into a situation where you want to add servers to Weblogic. I'd actually recommend adding at least one more oa_core server as this is the one we've noticed is causing most of the issues.</p>
+<h2 id="some-checks-and-background">Some checks and background <a class="direct-link" href="#some-checks-and-background" aria-hidden="true">#</a></h2>
+<p>Oracle recommends up to 150-200 concurrent users per JVM of size 2 GB. You can use the <span class='script-link'><a href="/scripts/ebs_active_users/">EBS Active Users Script</a></span> to find the current value but you should track this over time to give you an indication of how many users are in the system.</p>
+<p>Finding the next available port</p>
+<h2 id="adding-server">Adding Server <a class="direct-link" href="#adding-server" aria-hidden="true">#</a></h2>
+<p>Add oacore_server2 via command line:</p>
+<pre><code>perl $AD_TOP/patch/115/bin/adProvisionEBS.pl ebs-create-managedserver \
+   -contextfile=$CONTEXT_FILE \
+   -managedsrvname=oacore_server2 \
+   -servicetype=oacore \
+   -managedsrvport=7205 \
+   -logfile=/tmp/addMS_oacoreserver2.log
+</code></pre>
+<p>Start the new managed server as follows:</p>
+<pre><code>$ADMIN_SCRIPTS_HOME/admanagedsrvctl.sh start oacore_server2
+</code></pre>
+<p>Added details of the newly added managed server into the OHS configuration files mod_wl_ohs.conf and apps.conf via command line as below:</p>
+<pre><code>perl $FND_TOP/patch/115/bin/txkSetAppsConf.pl \
+   -contextfile=$CONTEXT_FILE \
+   -configoption=addMS \
+   -oacore=testserver.example.com:7205
+
+perl $FND_TOP//patch/115/bin/txkSetAppsConf.pl \
+-contextfile=&lt;CONTEXT_FILE&gt; \
+-configoption=addMS \
+-oacore=&lt;host&gt;.&lt;domain&gt;:&lt;port&gt; \
+-oafm=&lt;host&gt;.&lt;domain&gt;:&lt;port&gt; \
+-forms=&lt;host&gt;.&lt;domain&gt;:&lt;port&gt; \
+-formsc4ws=&lt;host&gt;.&lt;domain&gt;:&lt;port&gt;   
+</code></pre>
+<p>Bounce the apache server:</p>
+<pre><code>sh $ADMIN_SCRIPTS_HOME/adapcctl.sh stop
+sh $ADMIN_SCRIPTS_HOME/adapcctl.sh start
+</code></pre>
+<h2 id="reference">Reference <a class="direct-link" href="#reference" aria-hidden="true">#</a></h2>
+<ul>
+<li><a href="https://support.oracle.com/epmos/faces/DocumentDisplay?id=1905593.1">Managing Configuration of Oracle HTTP Server and Web Application Services in Oracle E-Business Suite Release 12.2 (Doc ID 1905593.1)</a></li>
+</ul>
+
+
+<footer class="constrast txt-small txt-right">Create on Thu Aug 15 2019 - Last updated Thu Aug 15 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

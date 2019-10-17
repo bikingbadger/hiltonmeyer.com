@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11ty Markdown Attributes</title>
+  <meta name="Description" content="Adding Attributes to Markdown using 11ty">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">11ty Markdown Attributes</p>
+
+<p>I searched for a way to try and add attributes, such as class or id to markdown for a while. Using <a href="https://www.11ty.io">11ty</a> as my static site generator I've been using Nunjucks for templating and was able to add attributes in the that way. I was sure there must be a way of doing the same thing in Markdown. Luckily 11ty comes with a way of adding your own <a href="https://www.11ty.io/docs/languages/markdown/#optional%3A-set-your-own-library-instance">library instance</a> to Markdown. The example show's how to use emoji plugin but I found <a href="https://www.npmjs.com/package/markdown-it-attrs">markdown-it-attrs</a> plugin which suited my purpose. This is basically how I went about adding it to my project.</p>
+<p><strong class="article-heading">Install libraries</strong></p>
+<pre><code>npm install --save-dev markdown-it markdown-it-attrs
+</code></pre>
+<p>These will give the required libraries for adding to the project and add them to the package.json</p>
+<p><strong>Setup library instance</strong> {.article-heading}<br>
+Now we want to add the libraries for 11ty to pickup</p>
+<p><em>.eleventy.js</em></p>
+<pre><code class="language-js">module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy(&quot;css&quot;);
+
+  /**************** Markdown Plugins********************/
+  let markdownIt = require(&quot;markdown-it&quot;);
+  var markdownItAttrs = require('markdown-it-attrs');
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: true
+  };
+  let markdownLib = markdownIt(options).use(markdownItAttrs);
+  eleventyConfig.setLibrary(&quot;md&quot;, markdownLib);
+
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: &quot;.&quot;,
+      includes: &quot;_includes&quot;,
+      data: &quot;_data&quot;,
+      output: &quot;_site&quot;
+    }
+
+  };
+  /**************** END Markdown Plugins********************/
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: &quot;.&quot;,
+      includes: &quot;_includes&quot;,
+      data: &quot;_data&quot;,
+      output: &quot;_site&quot;
+    }
+
+  };
+};
+</code></pre>
+<p class="article-heading"><strong>Example of Usage</strong></p>
+<p><em><a href="http://example.md">example.md</a></em></p>
+<pre><code>---
+title: Template
+layout: layouts/base.njk
+tags:
+    - post    
+navtitle: Template
+date: 2019-09-05
+---
+# header {.style-me}
+paragraph {data-toggle=modal}
+
+another bit of data {.class #identifier attr=value attr2=&quot;spaced value&quot;} 
+</code></pre>
+
+
+<footer class="constrast txt-small txt-right">Create on Mon Aug 19 2019 - Last updated Mon Aug 19 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

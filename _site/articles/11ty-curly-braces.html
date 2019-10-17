@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11ty curly braces and nunjucks</title>
+  <meta name="Description" content="How to escape curly braces in eleventy using the Nunjucks templating engine">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">11ty curly braces and nunjucks</p>
+
+<p>In trying to share posts about using Nunjucks templating engine in 11ty I came unstuck when creating posts with the curly brackets that are used by Nunjucks. I'd either get and error or it would do the substitute.<br>
+I thought using backticks might work but that didn't help. A bit of searching and I found an issue on the Nunjucks repo about the curly brackets. This seems to be the only way to do it and I also found that it was <a href="https://mozilla.github.io/nunjucks/templating.html#raw">documented</a> as such.</p>
+<pre><code>{% raw %}
+{{ text to escape}}
+{% endraw %}
+</code></pre>
+<p>This is a bit meta but I had to use the above example to escape the code I was trying to show about how to escape the code I wanted to post about. Read that 3 times to try and understand what I am talking about as I still don't</p>
+
+
+<footer class="constrast txt-small txt-right">Create on Fri Oct 04 2019 - Last updated Fri Oct 04 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

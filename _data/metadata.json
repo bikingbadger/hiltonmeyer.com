@@ -1,0 +1,16 @@
+{
+  "title": "hilton meyer",
+  "url": "https://hiltonmeyer.com",
+  "description": "Sharing what I'm learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics",
+  "feed": {
+    "subtitle": "Personal blog",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://hiltonmeyer.com/feed/feed.xml",
+    "id": "https://hiltonmeyer.com/"
+  },
+  "author": {
+    "name": "Hilton Meyer",
+    "email": "me@hiltonmeyer.com"
+  }
+}

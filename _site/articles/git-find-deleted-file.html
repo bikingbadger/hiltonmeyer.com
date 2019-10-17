@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find deleted file in Git</title>
+  <meta name="Description" content="Finding a file that went MIA from a git repository">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Find deleted file in Git</p>
+
+<p>I found myself looking for a <a href="/offtopic/recipes">recipe</a> I'm sure I had written down and put up on the site. I am using git to keep things in order so that led me down the path of wondering whether I could serach the git repo history and see if there is a file in there I was looking for and then retrieve it.</p>
+<pre><code>git log --all --full-history -- **ginger.*
+</code></pre>
+<p>This spat out the history of the ginger beer recipe I was trying to find</p>
+<pre><code>commit 495eb42be1500fc54e892b1d6adffa132a0bab18
+Author: Hilton Meyer &lt;development@hiltonmeyer.com&gt;
+Date:   Fri Sep 13 06:28:07 2019 +0300
+
+    Created drafts for work in process recipes
+
+commit f9e910dc5b81052ea682e8d1f56449b53e37f647
+Author: Hilton Meyer &lt;development@hiltonmeyer.com&gt;
+Date:   Thu Sep 12 21:35:46 2019 +0300
+
+    A few more adjustments to ginger beer recipe
+
+commit 6fc00977acb65546f18b818facd501f70d038181
+Author: Hilton Meyer &lt;development@hiltonmeyer.com&gt;
+Date:   Thu Sep 12 21:28:17 2019 +0300
+
+    Adjustments to ginger beer
+
+commit fb41f763759d1b6d8e568596fbeb4b7cd6e3bbff
+Author: Hilton Meyer &lt;development@hiltonmeyer.com&gt;
+Date:   Fri Sep 6 16:29:27 2019 +0300
+
+    Added ginger beer recipe
+</code></pre>
+<p>Dope!! What I found was that I had forgotten about my drafts folder where I was keeping work in progress recipes. Well at least I found it but it go me wondering how would I have restore the file if I wanted it.</p>
+<p>Lets take a look at the commit:</p>
+<pre><code>git show 495eb42be1500fc54e892b1d6adffa132a0bab18
+</code></pre>
+<p>The result was showed me where the file was:</p>
+<pre><code>diff --git a/recipes/ginger-beer.md b/recipes/ginger-beer.md
+deleted file mode 100644
+index d75edf9..0000000
+--- a/recipes/ginger-beer.md
++++ /dev/null
+@@ -1,49 +0,0 @@
+----
+-title: Ginger Beer
+-layout: layouts/recipe.njk
+-tags:
+-    - recipe
+-    - drink
+-    - fermentation
+-    - ginger
+-    - lemon
+-    - sugar
+-navtitle: Ginger Beer
+-date: 2019-09-06
+...
+</code></pre>
+<p>So I can check it out with this:</p>
+<pre><code>git checkout fb41f763759d1b6d8e568596fbeb4b7cd6e3bbff -- recipes/ginger-beer.md
+</code></pre>
+<p>Bam!! file restored. Well I'll keep that for another day then.</p>
+
+
+<footer class="constrast txt-small txt-right">Create on Thu Oct 03 2019 - Last updated Thu Oct 03 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

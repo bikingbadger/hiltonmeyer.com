@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R12.2 Startup and Shutdown</title>
+  <meta name="Description" content="Scripts for starting and stopping R12.2 EBS">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">R12.2 Startup and Shutdown</p>
+
+<h2 id="start-apps-services">Start Apps Services <a class="direct-link" href="#start-apps-services" aria-hidden="true">#</a></h2>
+<p><strong class="article-heading">Node Manager</strong></p>
+<pre><code>$adnodemgrctl.sh start 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong class="article-heading">Weblogic Admin Server</strong></p>
+<pre><code>$adadminsrvctl.sh start 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong class="article-heading">Application Listener</strong></p>
+<pre><code>$adalnctl.sh start
+</code></pre>
+<p><strong class="article-heading">Oracle Process Manager</strong></p>
+<pre><code>$adopmnctl.sh start
+</code></pre>
+<p><strong class="article-heading">Apache Services</strong></p>
+<pre><code>$adapcctl.sh start
+</code></pre>
+<p><strong class="article-heading">Managed Server for OACORE Services</strong></p>
+<pre><code>$admanagedsrvctl.sh start oacore_server1 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong class="article-heading">Managed Server for Forms Services</strong></p>
+<pre><code>$admanagedsrvctl.sh start forms_server1 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong class="article-heading">Managed Server for Fusion MiddleWare  Services</strong></p>
+<pre><code>$admanagedsrvctl.sh start oafm_server1 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong class="article-heading">Managed Server for Forms web  Services</strong></p>
+<pre><code>$admanagedsrvctl.sh start forms-c4ws_server1 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong class="article-heading">Concurrent Manager Service</strong></p>
+<pre><code>$adcmctl.sh start apps/$APPS_PASS
+</code></pre>
+<p><strong class="article-heading">Fullfillment Serer Services</strong></p>
+<pre><code>$jtffmctl.sh start
+</code></pre>
+<h2 id="stop-apps-services">Stop Apps Services <a class="direct-link" href="#stop-apps-services" aria-hidden="true">#</a></h2>
+<p>When we want to stop all services <a href="http://adstpall.sh">adstpall.sh</a> apps/apps again it is going to ask weblogic password</p>
+<p><strong>Fullfillment Serer Services</strong></p>
+<pre><code>$jtffmctl.sh stop
+</code></pre>
+<p><strong>Concurrent Manager Service</strong></p>
+<pre><code>$adcmctl.sh stop apps/apps
+</code></pre>
+<p><strong>Managed Server for Forms web  Services</strong></p>
+<pre><code>$admanagedsrvctl.sh stop forms-c4ws_server1 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong>Managed Server for Fusion MiddleWare  Services</strong></p>
+<pre><code>$admanagedsrvctl.sh stop oafm_server1 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong>Managed Server for Forms Services</strong></p>
+<pre><code>$admanagedsrvctl.sh stop forms_server1 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong>Managed Server for OACORE Services</strong></p>
+<pre><code>$admanagedsrvctl.sh stop oacore_server1 
+Enter Weblogic Admin Password:
+</code></pre>
+<p><strong>Apache Services</strong></p>
+<pre><code>$adapcctl.sh stop
+</code></pre>
+<p><strong>Oracle Process Manager</strong></p>
+<pre><code>$adopmnctl.sh stop
+</code></pre>
+<p><strong>Application Listener</strong></p>
+<pre><code>$adadlctl stop
+</code></pre>
+<p><strong>Weblogic Admin Server</strong></p>
+<pre><code>$adadminsrvctl.sh stop Enter 
+Weblogic Admin Password:
+</code></pre>
+<p><strong>Node Manager</strong></p>
+<pre><code>$adnodemgrctl.sh stop Enter 
+Weblogic Admin Password:
+</code></pre>
+
+
+<footer class="constrast txt-small txt-right">Create on Thu Aug 01 2019 - Last updated Thu Aug 01 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

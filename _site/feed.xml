@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hilton Meyer</title>
+  <subtitle>Sharing what I&#39;m learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics</subtitle>
+  <link href="https://hiltonmeyer.com/feed.xml" rel="self"/>
+  <link href="https://hiltonmeyer.com/"/>
+  <updated>2019-08-01T00:00:00-00:00</updated>
+  <id>https://hiltonmeyer.com/</id>
+  <author>
+    <name>Hilton Meyer</name>
+    <email>me@hiltonmeyer.com</email>
+  </author>
+  
+  <entry>
+    <title>R12.2 Startup and Shutdown</title>
+    <link href="https://hiltonmeyer.com/articles/ebs-start-stop.html"/>
+    <updated>2019-08-01T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/ebs-start-stop.html</id>
+    <content type="html">&lt;h2 id=&quot;start-apps-services&quot;&gt;Start Apps Services &lt;a class=&quot;direct-link&quot; href=&quot;#start-apps-services&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Node Manager&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adnodemgrctl.sh start 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Weblogic Admin Server&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adadminsrvctl.sh start 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Application Listener&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adalnctl.sh start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Oracle Process Manager&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adopmnctl.sh start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Apache Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adapcctl.sh start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Managed Server for OACORE Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$admanagedsrvctl.sh start oacore_server1 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Managed Server for Forms Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$admanagedsrvctl.sh start forms_server1 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Managed Server for Fusion MiddleWare  Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$admanagedsrvctl.sh start oafm_server1 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Managed Server for Forms web  Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$admanagedsrvctl.sh start forms-c4ws_server1 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Concurrent Manager Service&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adcmctl.sh start apps/$APPS_PASS
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Fullfillment Serer Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$jtffmctl.sh start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;stop-apps-services&quot;&gt;Stop Apps Services &lt;a class=&quot;direct-link&quot; href=&quot;#stop-apps-services&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When we want to stop all services &lt;a href=&quot;http://adstpall.sh/&quot;&gt;adstpall.sh&lt;/a&gt; apps/apps again it is going to ask weblogic password&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fullfillment Serer Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$jtffmctl.sh stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Concurrent Manager Service&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adcmctl.sh stop apps/apps
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Managed Server for Forms web  Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$admanagedsrvctl.sh stop forms-c4ws_server1 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Managed Server for Fusion MiddleWare  Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$admanagedsrvctl.sh stop oafm_server1 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Managed Server for Forms Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$admanagedsrvctl.sh stop forms_server1 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Managed Server for OACORE Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$admanagedsrvctl.sh stop oacore_server1 
+Enter Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Apache Services&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adapcctl.sh stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Oracle Process Manager&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adopmnctl.sh stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Application Listener&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adadlctl stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Weblogic Admin Server&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adadminsrvctl.sh stop Enter 
+Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Node Manager&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$adnodemgrctl.sh stop Enter 
+Weblogic Admin Password:
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>EBS Installed Applications</title>
+    <link href="https://hiltonmeyer.com/articles/ebs-installed-applications.html"/>
+    <updated>2019-08-14T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/ebs-installed-applications.html</id>
+    <content type="html">&lt;p&gt;Scripts for find EBS Installed Applications&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SELECT
+fa.application_short_name,
+fa.application_name,
+fpi.patch_level,
+DECODE(fpi.status, &#39;I&#39;, &#39;Installed&#39;, &#39;S&#39;, &#39;Shared&#39;, &#39;N&#39;, &#39;Inactive&#39;, fpi.status) status,
+fpi.db_status
+FROM
+fnd_product_installations fpi,
+fnd_application_vl fa
+WHERE
+1 = 1
+AND fa.application_id = fpi.application_id
+ORDER BY
+fa.application_short_name;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>R12.2 Adding server to Weblogic</title>
+    <link href="https://hiltonmeyer.com/articles/ebs-weblogic-server.html"/>
+    <updated>2019-08-15T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/ebs-weblogic-server.html</id>
+    <content type="html">&lt;p&gt;In R12.2 with Weblogic now playing a huge role as well as java also creating resource heavy processes you will eventually run into a situation where you want to add servers to Weblogic. I&#39;d actually recommend adding at least one more oa_core server as this is the one we&#39;ve noticed is causing most of the issues.&lt;/p&gt;
+&lt;h2 id=&quot;some-checks-and-background&quot;&gt;Some checks and background &lt;a class=&quot;direct-link&quot; href=&quot;#some-checks-and-background&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Oracle recommends up to 150-200 concurrent users per JVM of size 2 GB. You can use the &lt;span class=&quot;script-link&quot;&gt;&lt;a href=&quot;https://hiltonmeyer.com/scripts/ebs_active_users/&quot;&gt;EBS Active Users Script&lt;/a&gt;&lt;/span&gt; to find the current value but you should track this over time to give you an indication of how many users are in the system.&lt;/p&gt;
+&lt;p&gt;Finding the next available port&lt;/p&gt;
+&lt;h2 id=&quot;adding-server&quot;&gt;Adding Server &lt;a class=&quot;direct-link&quot; href=&quot;#adding-server&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Add oacore_server2 via command line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;perl $AD_TOP/patch/115/bin/adProvisionEBS.pl ebs-create-managedserver \
+   -contextfile=$CONTEXT_FILE \
+   -managedsrvname=oacore_server2 \
+   -servicetype=oacore \
+   -managedsrvport=7205 \
+   -logfile=/tmp/addMS_oacoreserver2.log
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Start the new managed server as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ADMIN_SCRIPTS_HOME/admanagedsrvctl.sh start oacore_server2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Added details of the newly added managed server into the OHS configuration files mod_wl_ohs.conf and apps.conf via command line as below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;perl $FND_TOP/patch/115/bin/txkSetAppsConf.pl \
+   -contextfile=$CONTEXT_FILE \
+   -configoption=addMS \
+   -oacore=testserver.example.com:7205
+
+perl $FND_TOP//patch/115/bin/txkSetAppsConf.pl \
+-contextfile=&amp;lt;CONTEXT_FILE&amp;gt; \
+-configoption=addMS \
+-oacore=&amp;lt;host&amp;gt;.&amp;lt;domain&amp;gt;:&amp;lt;port&amp;gt; \
+-oafm=&amp;lt;host&amp;gt;.&amp;lt;domain&amp;gt;:&amp;lt;port&amp;gt; \
+-forms=&amp;lt;host&amp;gt;.&amp;lt;domain&amp;gt;:&amp;lt;port&amp;gt; \
+-formsc4ws=&amp;lt;host&amp;gt;.&amp;lt;domain&amp;gt;:&amp;lt;port&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bounce the apache server:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sh $ADMIN_SCRIPTS_HOME/adapcctl.sh stop
+sh $ADMIN_SCRIPTS_HOME/adapcctl.sh start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;reference&quot;&gt;Reference &lt;a class=&quot;direct-link&quot; href=&quot;#reference&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://support.oracle.com/epmos/faces/DocumentDisplay?id=1905593.1&quot;&gt;Managing Configuration of Oracle HTTP Server and Web Application Services in Oracle E-Business Suite Release 12.2 (Doc ID 1905593.1)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>11ty Markdown Attributes</title>
+    <link href="https://hiltonmeyer.com/articles/11ty-markdown-attributes.html"/>
+    <updated>2019-08-19T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/11ty-markdown-attributes.html</id>
+    <content type="html">&lt;p&gt;I searched for a way to try and add attributes, such as class or id to markdown for a while. Using &lt;a href=&quot;https://www.11ty.io/&quot;&gt;11ty&lt;/a&gt; as my static site generator I&#39;ve been using Nunjucks for templating and was able to add attributes in the that way. I was sure there must be a way of doing the same thing in Markdown. Luckily 11ty comes with a way of adding your own &lt;a href=&quot;https://www.11ty.io/docs/languages/markdown/#optional%3A-set-your-own-library-instance&quot;&gt;library instance&lt;/a&gt; to Markdown. The example show&#39;s how to use emoji plugin but I found &lt;a href=&quot;https://www.npmjs.com/package/markdown-it-attrs&quot;&gt;markdown-it-attrs&lt;/a&gt; plugin which suited my purpose. This is basically how I went about adding it to my project.&lt;/p&gt;
+&lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Install libraries&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install --save-dev markdown-it markdown-it-attrs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These will give the required libraries for adding to the project and add them to the package.json&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Setup library instance&lt;/strong&gt; {.article-heading}&lt;br&gt;
+Now we want to add the libraries for 11ty to pickup&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;.eleventy.js&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy(&amp;quot;css&amp;quot;);
+
+  /**************** Markdown Plugins********************/
+  let markdownIt = require(&amp;quot;markdown-it&amp;quot;);
+  var markdownItAttrs = require(&#39;markdown-it-attrs&#39;);
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: true
+  };
+  let markdownLib = markdownIt(options).use(markdownItAttrs);
+  eleventyConfig.setLibrary(&amp;quot;md&amp;quot;, markdownLib);
+
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: &amp;quot;.&amp;quot;,
+      includes: &amp;quot;_includes&amp;quot;,
+      data: &amp;quot;_data&amp;quot;,
+      output: &amp;quot;_site&amp;quot;
+    }
+
+  };
+  /**************** END Markdown Plugins********************/
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: &amp;quot;.&amp;quot;,
+      includes: &amp;quot;_includes&amp;quot;,
+      data: &amp;quot;_data&amp;quot;,
+      output: &amp;quot;_site&amp;quot;
+    }
+
+  };
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p class=&quot;article-heading&quot;&gt;&lt;strong&gt;Example of Usage&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&quot;http://example.md/&quot;&gt;example.md&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: Template
+layout: layouts/base.njk
+tags:
+    - post    
+navtitle: Template
+date: 2019-09-05
+---
+# header {.style-me}
+paragraph {data-toggle=modal}
+
+another bit of data {.class #identifier attr=value attr2=&amp;quot;spaced value&amp;quot;} 
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Red Lentil Dal</title>
+    <link href="https://hiltonmeyer.com/offtopic/recipes/red-lentil-dal/"/>
+    <updated>2019-09-01T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/offtopic/recipes/red-lentil-dal/</id>
+    <content type="html">&lt;h1 class=&quot;recipe-ingredients&quot; id=&quot;ingredients&quot;&gt;Ingredients &lt;a class=&quot;direct-link&quot; href=&quot;#ingredients&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;2 tbs. organic ghee or extra-virgin olive oil&lt;/li&gt;
+&lt;li&gt;1 ½ tsp. cumin seeds&lt;/li&gt;
+&lt;li&gt;1 ½ tsp. black or brown mustard seeds&lt;/li&gt;
+&lt;li&gt;1 onion, diced small&lt;/li&gt;
+&lt;li&gt;1 tbs. minced fresh ginger root&lt;/li&gt;
+&lt;li&gt;2 tsp. ground turmeric&lt;/li&gt;
+&lt;li&gt;2 tsp. ground cumin&lt;/li&gt;
+&lt;li&gt;½ tsp. plus pinch sea salt, divided&lt;/li&gt;
+&lt;li&gt;2 cups chopped tomatoes, or a 14.5-oz. can, drained and juices reserved&lt;/li&gt;
+&lt;li&gt;8 cups vegetable broth&lt;/li&gt;
+&lt;li&gt;2 cups dried red lentils, rinsed well&lt;/li&gt;
+&lt;li&gt;1 cinnamon stick&lt;/li&gt;
+&lt;li&gt;3 cups loosely packed baby spinach&lt;/li&gt;
+&lt;li&gt;1 tsp. freshly squeezed lime juice&lt;/li&gt;
+&lt;li&gt;1/4 cup finely chopped fresh cilantro&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 class=&quot;recipe-directions&quot; id=&quot;directions&quot;&gt;Directions &lt;a class=&quot;direct-link&quot; href=&quot;#directions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Heat the ghee in a soup pot over medium heat. Add the cumin seeds and mustard seeds&lt;/li&gt;
+&lt;li&gt;sauté until they begin to pop. Immediately add the onion, ginger, turmeric, cumin, and a pinch of salt, and sauté for about three minutes.&lt;/li&gt;
+&lt;li&gt;Add the tomatoes and 1/4 teaspoon of salt and sauté for two minutes.&lt;/li&gt;
+&lt;li&gt;Pour in 1/2 cup of broth and any reserved tomato juice to deglaze the pot, stirring to dislodge any bits stuck to the bottom.&lt;/li&gt;
+&lt;li&gt;Cook until the liquid is reduced by half. Add the lentils and stir; then add the remaining broth and cinnamon stick.&lt;/li&gt;
+&lt;li&gt;Increase the heat to high and bring to a boil.&lt;/li&gt;
+&lt;li&gt;Decrease the heat to low, cover, and simmer until the lentils are tender.&lt;/li&gt;
+&lt;li&gt;Stir in another 1/4 teaspoon of salt and simmer for five minutes.&lt;/li&gt;
+&lt;li&gt;Remove the cinnamon stick and stir in the spinach and lime juice.&lt;/li&gt;
+&lt;li&gt;Serve garnished with cilantro&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Baked Beans with Smoked Sausage</title>
+    <link href="https://hiltonmeyer.com/offtopic/recipes/baked-beans-sausage/"/>
+    <updated>2019-09-06T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/offtopic/recipes/baked-beans-sausage/</id>
+    <content type="html">&lt;h1 class=&quot;recipe-ingredients&quot; id=&quot;ingredients&quot;&gt;Ingredients &lt;a class=&quot;direct-link&quot; href=&quot;#ingredients&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;2 slices bacon, chopped into 1/2-inch pieces&lt;/li&gt;
+&lt;li&gt;1 sweet onion, chopped&lt;/li&gt;
+&lt;li&gt;2 cloves garlic, finely chopped&lt;/li&gt;
+&lt;li&gt;1/2 pound smoked sausage, sliced, I use kielbasa&lt;/li&gt;
+&lt;li&gt;3 cans baked beans&lt;/li&gt;
+&lt;li&gt;1 can tomatoes&lt;/li&gt;
+&lt;li&gt;1/4 cup honey&lt;/li&gt;
+&lt;li&gt;2 tablespoons apple cider vinegar&lt;/li&gt;
+&lt;li&gt;2 tablespoons yellow mustard&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 class=&quot;recipe-directions&quot; id=&quot;directions&quot;&gt;Directions &lt;a class=&quot;direct-link&quot; href=&quot;#directions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Preheat oven to 350 degrees.&lt;/li&gt;
+&lt;li&gt;In a Dutch oven, cook bacon until crispy. Remove with a slotted spoon and place on a paper towel-lined plate.&lt;/li&gt;
+&lt;li&gt;Add onion to bacon drippings and cook until soft.&lt;/li&gt;
+&lt;li&gt;Add garlic and smoked sausage and cook until sausage is browned.&lt;/li&gt;
+&lt;li&gt;Stir in remaining ingredients. Bring to a simmer. Place Dutch oven, uncovered, in oven and cook for 45 to 55 minutes, until thick.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Black Bean Burrito Bowl</title>
+    <link href="https://hiltonmeyer.com/offtopic/recipes/black-bean-burrito/"/>
+    <updated>2019-09-06T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/offtopic/recipes/black-bean-burrito/</id>
+    <content type="html">&lt;h1 class=&quot;recipe-ingredients&quot; id=&quot;ingredients&quot;&gt;Ingredients &lt;a class=&quot;direct-link&quot; href=&quot;#ingredients&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;1 pound dry black beans&lt;/li&gt;
+&lt;li&gt;2 Tbsp olive oil&lt;/li&gt;
+&lt;li&gt;1 Tbsp ground cumin&lt;/li&gt;
+&lt;li&gt;4 bay leaves&lt;/li&gt;
+&lt;li&gt;2 teaspoons Kosher salt&lt;/li&gt;
+&lt;li&gt;3 cloves garlic, minced&lt;/li&gt;
+&lt;li&gt;3 cups, uncooked rice, white or brown&lt;/li&gt;
+&lt;li&gt;1/2 teaspoon salt&lt;/li&gt;
+&lt;li&gt;4 1/2 to 6 cups of water, depending on the type of rice&lt;/li&gt;
+&lt;li&gt;Sliced red cabbage&lt;/li&gt;
+&lt;li&gt;Ripe avocado, peeled and cut into chunks&lt;/li&gt;
+&lt;li&gt;Fresh tomato salsa&lt;/li&gt;
+&lt;li&gt;Chopped fresh cilantro&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 class=&quot;recipe-directions&quot; id=&quot;directions&quot;&gt;Directions &lt;a class=&quot;direct-link&quot; href=&quot;#directions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;preparing-dry-beans&quot;&gt;Preparing dry beans &lt;a class=&quot;direct-link&quot; href=&quot;#preparing-dry-beans&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Place black beans in a large bowl or pot. Cover with 2 inches of water, let soak overnight, then drain. You can skip overnight soaking, place black beans in bowl, and cover with 2-inches of boiling water. Let soak for one hour. Then drain.&lt;/li&gt;
+&lt;li&gt;Place soaked and drained beans in a large pot. Cover with 2 inches of water. Bring to a boil, reduce to a simmer.&lt;/li&gt;
+&lt;li&gt;While the beans are coming to a boil in step 2, heat 2 tablespoons of olive oil in a small pan on medium heat. Stir in the ground cumin and cook until fragrant, 1 to 2 minutes. Add the minced garlic, cook a minute more. Once the beans are boiling, add the cumin and garlic to the pot with the beans. Add bay leaves and salt to the pot as well.&lt;/li&gt;
+&lt;li&gt;Cook the beans, uncovered, until tender, but not mushy, 30 minutes to 2 hours, depending on the size and age of the beans.&lt;/li&gt;
+&lt;li&gt;When the beans are done, place a strainer over a separate pot. Pour the beans into the strainer, to collect the cooking water into the pot. Set aside the beans, and boil down the cooking liquid until thickened and slightly syrupy. Return the cooking liquid to the beans and stir.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;preparing-the-rest&quot;&gt;Preparing the rest &lt;a class=&quot;direct-link&quot; href=&quot;#preparing-the-rest&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Place 3 cups of rice in a large saucepan. Depending on the type of rice you are using (short grain, long grain, white, brown) you will add any where from 4 1/2 cup of water to 6 cups of water to the pot.&lt;/li&gt;
+&lt;li&gt;Check the rice package instructions. Add 1/2 teaspoon of salt.&lt;/li&gt;
+&lt;li&gt;Bring to a boil, lower the heat to low to maintain a very low simmer.&lt;/li&gt;
+&lt;li&gt;Cover and cook from 15 minutes to 45 minutes, depending on the type of rice (again, check the package instructions for the rice you are using).&lt;/li&gt;
+&lt;li&gt;Remove from heat and let rest for 10 minutes, covered, before fluffing with a fork to serve.&lt;/li&gt;
+&lt;li&gt;To construct the burrito bowl, place a serving of cooked rice at the bottom of a serving bowl. Top with black beans.&lt;/li&gt;
+&lt;li&gt;Top with assorted garnishes—thinly sliced cabbage, chopped avocados, chopped cilantro&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Source: &lt;a href=&quot;https://www.simplyrecipes.com/recipes/black_bean_burrito_bowl/&quot;&gt;Simply Recipes&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Kale and Basil Pesto</title>
+    <link href="https://hiltonmeyer.com/offtopic/recipes/kale-pesto/"/>
+    <updated>2019-09-06T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/offtopic/recipes/kale-pesto/</id>
+    <content type="html">&lt;h1 class=&quot;recipe-ingredients&quot; id=&quot;ingredients&quot;&gt;Ingredients &lt;a class=&quot;direct-link&quot; href=&quot;#ingredients&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;1 cup fresh kale&lt;/li&gt;
+&lt;li&gt;1 cup fresh basil leaves&lt;/li&gt;
+&lt;li&gt;1-2 cloves garlic&lt;/li&gt;
+&lt;li&gt;2 Tbsp nutritional yeast or vegan Parmesan cheese substitute&lt;/li&gt;
+&lt;li&gt;2/3 cup cashew nuts&lt;/li&gt;
+&lt;li&gt;3-4 Tbsp good quality olive oil&lt;/li&gt;
+&lt;li&gt;2 tsp lemon juice&lt;/li&gt;
+&lt;li&gt;sea salt and fresh black pepper, to taste&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 class=&quot;recipe-directions&quot; id=&quot;directions&quot;&gt;Directions &lt;a class=&quot;direct-link&quot; href=&quot;#directions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;In a blender or food processor, combine the kale, basil, garlic, nutritional yeast and nuts, pulsing just until coarsely chopped.&lt;/li&gt;
+&lt;li&gt;Slowly add olive oil, lemon juice and plenty of salt and pepper, blending just until desired consistency is reached.&lt;/li&gt;
+&lt;li&gt;For a thinner, saucier pesto, add more olive oil or other liquid.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Potatoes Foil Packet</title>
+    <link href="https://hiltonmeyer.com/offtopic/recipes/potatoes-foil-packet/"/>
+    <updated>2019-09-06T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/offtopic/recipes/potatoes-foil-packet/</id>
+    <content type="html">&lt;h1 class=&quot;recipe-ingredients&quot; id=&quot;ingredients&quot;&gt;Ingredients &lt;a class=&quot;direct-link&quot; href=&quot;#ingredients&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;potatoes&lt;/li&gt;
+&lt;li&gt;onion&lt;/li&gt;
+&lt;li&gt;oil&lt;/li&gt;
+&lt;li&gt;rosemary&lt;/li&gt;
+&lt;li&gt;garlic&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 class=&quot;recipe-directions&quot; id=&quot;directions&quot;&gt;Directions &lt;a class=&quot;direct-link&quot; href=&quot;#directions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Slice potatoes and onions and toss together with olive oil&lt;/li&gt;
+&lt;li&gt;Place onto foil with rosemary and garlic&lt;/li&gt;
+&lt;li&gt;Pop onto some ready coals&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Learning in Public</title>
+    <link href="https://hiltonmeyer.com/articles/learn-in-public.html"/>
+    <updated>2019-09-29T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/learn-in-public.html</id>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing&quot;&gt;Consumption Is Sometimes Valuable, But Creation Moves You Forward - Kal Zumeus&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;to-learn&quot;&gt;To Learn &lt;a class=&quot;direct-link&quot; href=&quot;#to-learn&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;javascript&quot;&gt;Javascript &lt;a class=&quot;direct-link&quot; href=&quot;#javascript&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;article-heading&quot;&gt;&lt;strong&gt;Basics&lt;/strong&gt;&lt;/p&gt;
+&lt;ul class=&quot;list&quot;&gt;
+&lt;li class=&quot;list-item&quot;&gt;Variables&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;Dates&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;Arrays&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;Asyncronous JS&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;ES6 aka ES2017&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;article-heading&quot;&gt;&lt;strong&gt;DOM&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;patterns&quot;&gt;Patterns &lt;a class=&quot;direct-link&quot; href=&quot;#patterns&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;design&quot;&gt;Design &lt;a class=&quot;direct-link&quot; href=&quot;#design&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class=&quot;list&quot;&gt;
+&lt;li class=&quot;list-item&quot;&gt;UI/UX Basics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;frameworks&quot;&gt;Frameworks &lt;a class=&quot;direct-link&quot; href=&quot;#frameworks&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class=&quot;list&quot;&gt;
+&lt;li class=&quot;list-item&quot;&gt;Vue.js&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;css&quot;&gt;CSS &lt;a class=&quot;direct-link&quot; href=&quot;#css&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class=&quot;list&quot;&gt;
+&lt;li class=&quot;list-item&quot;&gt;Variables&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;Responsive Sites&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;Mobile First&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;Canvas&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;Bootstrap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;database&quot;&gt;Database &lt;a class=&quot;direct-link&quot; href=&quot;#database&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class=&quot;list&quot;&gt;
+&lt;li class=&quot;list-item&quot;&gt;Postgre&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;Mongo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;node&quot;&gt;Node &lt;a class=&quot;direct-link&quot; href=&quot;#node&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id=&quot;learnt&quot;&gt;Learnt &lt;a class=&quot;direct-link&quot; href=&quot;#learnt&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;related-links&quot;&gt;Related links &lt;a class=&quot;direct-link&quot; href=&quot;#related-links&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;ul class=&quot;list&quot;&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;https://www.swyx.io/writing/learn-in-public/&quot;&gt;Original article about Learn in Public&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;https://www.swyx.io/writing/learning-gears/&quot;&gt;Followup article by Shawn&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;https://chriscoyier.net/2013/10/18/mediocre-ideas-showing-up-and-persistence/&quot;&gt;Chris Coyier on persistance&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;https://www.swyx.io/talks/learn-in-public/&quot;&gt;Shawn&#39;s talk&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;https://www.taniarascia.com/learn/&quot;&gt;Tania Rascia&#39;s list&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Update Date for 11ty file</title>
+    <link href="https://hiltonmeyer.com/articles/11ty-update-dates.html"/>
+    <updated>2019-10-02T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/11ty-update-dates.html</id>
+    <content type="html">&lt;p&gt;In 11ty you can place metadata into a file using the &lt;code&gt;---&lt;/code&gt; at the top of an article. It took me a while to understand how to do this in 11ty because they call this &lt;a href=&quot;https://www.11ty.io/docs/data-frontmatter/&quot;&gt;Front Matter Data&lt;/a&gt;. Anyway I was able to add some fields but the one I was interested in was adding an update date to my articles so I could latter either order my posts by the last updated date instead of just created as I will be updating content as I go along. Also I could for now just &lt;a href=&quot;https://hiltonmeyer.com/articles/191002-dates-11ty-templates&quot;&gt;show this in my articles&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My other interest here is to be able to create posts but only show them in the lists based on this date and then the actual article will be &amp;quot;published&amp;quot; or go live on the date I had specified. So I have setup the Front Matter Data using the the YML setup described in the documentation:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: Update Date for 11ty file
+description: Adding a field to show the last updated date of the article 
+date: 2019-10-02
+updated: 2019-10-02
+layout: layouts/article.njk
+tags: 
+ - articles
+ - vanilla js
+ - 11ty
+navtitle: Update Date for 11ty file
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I have added title, description, updated and navtitle for usage in other places when using nunjucks to create the static content. The title and description I basically use for creating the card in the list on the &lt;a href=&quot;https://hiltonmeyer.com/articles&quot;&gt;articles landing page&lt;/a&gt;. I now have the update date which I just need to remember to change in the future when I update an article. This also allows me to not always use the files last changed as I might just be tweaking something or making a minor change so I don&#39;t want to have it calculated. there is an option to use &lt;a href=&quot;https://www.11ty.io/docs/data-frontmatter/#javascript-front-matter&quot;&gt;Javascript Front Matter&lt;/a&gt; so I might dig into this in a future post. One thing I&#39;m really interested in doing is getting an &lt;a href=&quot;https://www.11ty.io/docs/data-frontmatter/#example%3A-parse-excerpts-from-content&quot;&gt;excerpt from my article&lt;/a&gt; to show on the card which I might be digging into also in the future.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Dates in 11ty used in templates</title>
+    <link href="https://hiltonmeyer.com/articles/11ty-dates-in-templates.html"/>
+    <updated>2019-10-02T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/11ty-dates-in-templates.html</id>
+    <content type="html">&lt;p&gt;&lt;a href=&quot;https://hiltonmeyer.com/articles/191001-adding-update-date-11ty&quot;&gt;Yesterday&lt;/a&gt; was looking for a way to add the updated date to my static site, generated by 11ty, at the bottom of each article. I wanted to show the creation date and the last updated. I started will the following in my layout but the date being returned was then out put as &amp;quot;Last updated Thu Sep 19 2019 03:00:00 GMT+0300 (Israel Daylight Time)&amp;quot;:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;article.njk&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+layout: layouts/base.njk
+templateClass: tmpl-article
+---
+&amp;lt;p class=&amp;quot;title&amp;quot;&amp;gt;{{ title }}&amp;lt;/p&amp;gt;
+
+{{ content | safe }}
+
+Last updated {{ updated }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So I now needed a way to format the date instead of getting back such an unwieldy string and having something a bit more human readable. To the docs I went and found that there was something on using &lt;a href=&quot;https://www.11ty.io/docs/dates/&quot;&gt;dates&lt;/a&gt;. I saw they were using a Javascript method for correcting the dates &lt;code&gt;.toUTCString()&lt;/code&gt;. this got me wondering what other things I could use and if it was simply the Date object. So I added &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toString&quot;&gt;&lt;code&gt;.toString()&lt;/code&gt;&lt;/a&gt; and it worked. Well it worked in so much as I got back a full string with the date as above which is what &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toString&quot;&gt;&lt;code&gt;.toString()&lt;/code&gt;&lt;/a&gt; does according to the documentation on MDN. I noticed there was &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toDateString&quot;&gt;&lt;code&gt;.toDateString()&lt;/code&gt;&lt;/a&gt;. BINGO!!!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;article.njk&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+layout: layouts/base.njk
+templateClass: tmpl-article
+---
+&amp;lt;p class=&amp;quot;title&amp;quot;&amp;gt;{{ title }}&amp;lt;/p&amp;gt;
+
+{{ content | safe }}
+
+&amp;lt;footer&amp;gt;Create on {{ page.date.toDateString() }} - Last updated {{ updated.toDateString() }}&amp;lt;/footer&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You may have noticed that I added the &lt;code&gt;page&lt;/code&gt; to the date for creation date as this is working and how the 11ty documentation describes to use &lt;a href=&quot;https://www.11ty.io/docs/data/#page-variable-contents&quot;&gt;Page Variable Content&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Find deleted file in Git</title>
+    <link href="https://hiltonmeyer.com/articles/git-find-deleted-file.html"/>
+    <updated>2019-10-03T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/git-find-deleted-file.html</id>
+    <content type="html">&lt;p&gt;I found myself looking for a &lt;a href=&quot;https://hiltonmeyer.com/offtopic/recipes&quot;&gt;recipe&lt;/a&gt; I&#39;m sure I had written down and put up on the site. I am using git to keep things in order so that led me down the path of wondering whether I could serach the git repo history and see if there is a file in there I was looking for and then retrieve it.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git log --all --full-history -- **ginger.*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This spat out the history of the ginger beer recipe I was trying to find&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;commit 495eb42be1500fc54e892b1d6adffa132a0bab18
+Author: Hilton Meyer &amp;lt;development@hiltonmeyer.com&amp;gt;
+Date:   Fri Sep 13 06:28:07 2019 +0300
+
+    Created drafts for work in process recipes
+
+commit f9e910dc5b81052ea682e8d1f56449b53e37f647
+Author: Hilton Meyer &amp;lt;development@hiltonmeyer.com&amp;gt;
+Date:   Thu Sep 12 21:35:46 2019 +0300
+
+    A few more adjustments to ginger beer recipe
+
+commit 6fc00977acb65546f18b818facd501f70d038181
+Author: Hilton Meyer &amp;lt;development@hiltonmeyer.com&amp;gt;
+Date:   Thu Sep 12 21:28:17 2019 +0300
+
+    Adjustments to ginger beer
+
+commit fb41f763759d1b6d8e568596fbeb4b7cd6e3bbff
+Author: Hilton Meyer &amp;lt;development@hiltonmeyer.com&amp;gt;
+Date:   Fri Sep 6 16:29:27 2019 +0300
+
+    Added ginger beer recipe
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dope!! What I found was that I had forgotten about my drafts folder where I was keeping work in progress recipes. Well at least I found it but it go me wondering how would I have restore the file if I wanted it.&lt;/p&gt;
+&lt;p&gt;Lets take a look at the commit:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git show 495eb42be1500fc54e892b1d6adffa132a0bab18
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The result was showed me where the file was:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;diff --git a/recipes/ginger-beer.md b/recipes/ginger-beer.md
+deleted file mode 100644
+index d75edf9..0000000
+--- a/recipes/ginger-beer.md
++++ /dev/null
+@@ -1,49 +0,0 @@
+----
+-title: Ginger Beer
+-layout: layouts/recipe.njk
+-tags:
+-    - recipe
+-    - drink
+-    - fermentation
+-    - ginger
+-    - lemon
+-    - sugar
+-navtitle: Ginger Beer
+-date: 2019-09-06
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So I can check it out with this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout fb41f763759d1b6d8e568596fbeb4b7cd6e3bbff -- recipes/ginger-beer.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bam!! file restored. Well I&#39;ll keep that for another day then.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>11ty curly braces and nunjucks</title>
+    <link href="https://hiltonmeyer.com/articles/11ty-curly-braces.html"/>
+    <updated>2019-10-04T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/11ty-curly-braces.html</id>
+    <content type="html">&lt;p&gt;In trying to share posts about using Nunjucks templating engine in 11ty I came unstuck when creating posts with the curly brackets that are used by Nunjucks. I&#39;d either get and error or it would do the substitute.&lt;br&gt;
+I thought using backticks might work but that didn&#39;t help. A bit of searching and I found an issue on the Nunjucks repo about the curly brackets. This seems to be the only way to do it and I also found that it was &lt;a href=&quot;https://mozilla.github.io/nunjucks/templating.html#raw&quot;&gt;documented&lt;/a&gt; as such.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{% raw %}
+{{ text to escape}}
+{% endraw %}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is a bit meta but I had to use the above example to escape the code I was trying to show about how to escape the code I wanted to post about. Read that 3 times to try and understand what I am talking about as I still don&#39;t&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Git commit messages</title>
+    <link href="https://hiltonmeyer.com/articles/git-commit-message.html"/>
+    <updated>2019-10-07T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/git-commit-message.html</id>
+    <content type="html">&lt;p&gt;On the Vanilla Js slack channel, highly recommended if you want to learn with an awesome group of people, Stefan Frede shared a &lt;a href=&quot;https://chris.beams.io/posts/git-commit/&quot;&gt;post&lt;/a&gt; about git commit messages. What I got out of it was that I actually have a hodge-podge of git commit messages and looking at my &lt;code&gt;git log&lt;/code&gt; is not pretty. So here are the seven rules of a great Git commit message&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Separate subject from body with a blank line&lt;/li&gt;
+&lt;li&gt;Limit the subject line to 50 characters&lt;/li&gt;
+&lt;li&gt;Capitalize the subject line&lt;/li&gt;
+&lt;li&gt;Do not end the subject line with a period&lt;/li&gt;
+&lt;li&gt;Use the imperative mood in the subject line&lt;/li&gt;
+&lt;li&gt;Wrap the body at 72 characters&lt;/li&gt;
+&lt;li&gt;Use the body to explain what and why vs. how&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Other than the formatting which would seem pretty obvious I really appreciate the fact that I should be aiming at writing the commit message in the imperative. I had no idea what this was. If you fall into that camp to the original &lt;a href=&quot;https://chris.beams.io/posts/git-commit/&quot;&gt;post&lt;/a&gt; for the explanation because english was not high on my topics of achievement back in the school days but basically you should ask yourself the question&lt;/p&gt;
+&lt;blockquote class=&quot;quote&quot;&gt;
+&lt;p&gt;If applied, this commit will [your subject line here]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I really like simple rules, they just seem easier to follow and as I am mostly into KISS (Keep It Stupid and Simple). Another site that was shared was &lt;a href=&quot;https://www.conventionalcommits.org/&quot;&gt;Conventional Commits&lt;/a&gt; which has a set structure to the commit message. I think for larger projects this could be usedful but for me being the only developer on most of my sites or side projects I prefer to kee p it simple. Basically the structure is as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;type&amp;gt;[optional scope]: &amp;lt;description&amp;gt;
+
+[optional body]
+
+[optional footer]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Where type can be any of the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;fix:&lt;/li&gt;
+&lt;li&gt;feat:&lt;/li&gt;
+&lt;li&gt;chore:&lt;/li&gt;
+&lt;li&gt;docs:&lt;/li&gt;
+&lt;li&gt;style:&lt;/li&gt;
+&lt;li&gt;refactor:&lt;/li&gt;
+&lt;li&gt;perf:&lt;/li&gt;
+&lt;li&gt;test:&lt;/li&gt;
+&lt;li&gt;improvement:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I like this but the list could be rounded down for my use to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;fix: Fixing an article or bug that I find in the content or background JS&lt;/li&gt;
+&lt;li&gt;feat: Adding something new to the site, as its mainly a blog I can&#39;t see how much this will happen&lt;/li&gt;
+&lt;li&gt;article: Probably the most used an its custom to the content I&#39;m creating, could be exchanged with docs for brevity&lt;/li&gt;
+&lt;li&gt;style: CSS related changes to the site&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The downside to using this is that you have 50 characters to work with to you are using valuable real estate for the type. I am considering using this structure but again wondering whether a concise message might just be good enough. I do like though that you could pull out all the types from the history just based on this tagging method.&lt;/p&gt;
+&lt;p&gt;Another thing I would like to add although this is again overkill for the smaller sites is to use &lt;code&gt;Resolves: #[Issue num&lt;/code&gt; and &lt;code&gt;See also: #[Issue num]&lt;/code&gt;. This will enable me to also start referencing and opening issues for my little projects and getting into the habit of using issues to track changes and make updates to the site. I am changing css and different parts of the site in an on going fashion just because I am learning and not creating separate issues for the smaller fixes. This is OK although would i want to revert or pull out something it would be much easier with smaller changes that are more specific.&lt;/p&gt;
+&lt;p&gt;The example for this article&#39;s commit would be&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;article: Post article about git commit message structure
+
+An article about best practice for creating commit history in Git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So starting today I will try out this approach and refer back to this article when I need.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Travis automated build and hosted deployment</title>
+    <link href="https://hiltonmeyer.com/articles/travis-automatic-build.html"/>
+    <updated>2019-10-08T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/travis-automatic-build.html</id>
+    <content type="html">&lt;p&gt;I have website hosting that I&#39;m currently trying to bend to my will and not sure how much longer I can continue to mess around with Shared Hosting and getting everything working. Luckily there are services available around the interwebs that can help with build things. &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis-CI&lt;/a&gt; is one of those that has come to my aid to help with the build process. &lt;a href=&quot;https://www.netlify.com/&quot;&gt;Netlify&lt;/a&gt; is also wonderful and definitely something I would rather use for static sites as it does the whole build and deploy for you.&lt;/p&gt;
+&lt;h1 id=&quot;repository&quot;&gt;Repository &lt;a class=&quot;direct-link&quot; href=&quot;#repository&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;The first thing I have to do is to push the changes to my &lt;a href=&quot;https://github.com/bikingbadger/hiltonmeyer.com&quot;&gt;Github repository&lt;/a&gt;. This holds the changes and because of my setup of 11ty building only my current content on the site I don&#39;t have to worry about publishing future content that I am still working on or is in drafts. The thing is that once I have finished writing an article I can make sure the date is current to the day I am done and then it will be published or I can &#39;schedule&#39; the post by having a future date and when the build happens on that day the post will go live.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;automation&quot;&gt;Automation &lt;a class=&quot;direct-link&quot; href=&quot;#automation&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;My missing piece of this automation puzzle was somehow scheduling the builds to happen daily. I have heard a lot about Continuous Integration and Travis-CI has popped onto the radar from time to time without me fully understanding exactly what it is. There is also the whole CI integration on Gitlab. I&#39;m currently using Github so I wanted a way to build the site daily with Travis. I thought I could also push to the server but this seemed to be a bit of a security risk I didn&#39;t want to take. I broke it down into a few steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Build the master on a schedule using Travis&lt;/li&gt;
+&lt;li&gt;Deploy to Github Pages&lt;/li&gt;
+&lt;li&gt;On the hosted server create cronjob to clone the gh-pages branch&lt;/li&gt;
+&lt;li&gt;Sync the repo locally on the server with my site&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;build-using-travis&quot;&gt;Build using Travis &lt;a class=&quot;direct-link&quot; href=&quot;#build-using-travis&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This was actually not that difficult after reading the &lt;a href=&quot;https://docs.travis-ci.com/user/tutorial/&quot;&gt;getting started documentation&lt;/a&gt; and then copying the .travis.yml file from the 11ty repo for their build process which I noticed had a travis build file in it. I actually got lucky because it may have been something completely different. I was not looking to create a build for mulitply operating systems or node versions. I chose the latest version of node and linux. These were set with &lt;code&gt;language&lt;/code&gt;, &lt;code&gt;node_js&lt;/code&gt; and &lt;code&gt;os&lt;/code&gt; respectively and can be seen below in complete. Before the build I need to &lt;code&gt;npm install&lt;/code&gt; my dependancies as they are required for the the creation of my site by 11ty. I only want to build the master branch so added that and kept it to ignore building to gh-pages as this is what the deploy step will do. You can see these settings on the &lt;code&gt;branches&lt;/code&gt; settings. And that was all I needed for the build.&lt;/p&gt;
+&lt;p&gt;In order to schedule the daily build I went to the settings and added a line to run a daily build on master. This will now have this build process run at least daily and publish all the current content that might be waiting.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/c_scale,w_800/v1570366009/travis-automation_gtnppp.jpg&quot; alt=&quot;Travis Settings&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;deploy-to-gh-pages&quot;&gt;Deploy to gh-pages &lt;a class=&quot;direct-link&quot; href=&quot;#deploy-to-gh-pages&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The next step was to deploy this build back to github so that I could then clone that branch to the server. This took a bit of tinkering and playing around but the &lt;a href=&quot;https://docs.travis-ci.com/user/deployment/pages/&quot;&gt;docs&lt;/a&gt; made that so much easier. My first step was to create a github token which I followed the &lt;a href=&quot;https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line&quot;&gt;step by step guide&lt;/a&gt; provided by Github. I copied this token and added it as an &lt;a href=&quot;https://docs.travis-ci.com/user/environment-variables/#default-environment-variables&quot;&gt;environment variable in Travis&lt;/a&gt;, again follow the link for the documentation on how to do this. I made sure to call it &lt;code&gt;GITHUB_TOKEN&lt;/code&gt;, the same uppercase as I used in the Yaml file. This was the last of my Travis setup and the Github requirements. I still could not get it to work and the _site directory was not showing up. It then dawned on my that Travis was trying to push the build to Github and the .gitignore had the directory in there. This means that in development I will need to delete this directory each time or find another way of getting around this. Once I had removed the line I could see the folder created in the gh-pages branch which Travis had also created. Woop Woop!!!!!&lt;/p&gt;
+&lt;h2 id=&quot;final-travis.yml&quot;&gt;Final travis.yml &lt;a class=&quot;direct-link&quot; href=&quot;#final-travis.yml&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This is how the final Yaml file for Travis looks. I place this in my root directory and away you go. It will also build on each push I do to the master branch.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;language: node_js
+node_js:
+  - 12
+before_script:
+  - npm install
+script: npm run build
+branches:
+  except:
+    - gh-pages
+branches:
+  only:
+    - master    
+sudo: false
+os:
+  - linux
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;clone-gh-pages&quot;&gt;Clone gh-pages &lt;a class=&quot;direct-link&quot; href=&quot;#clone-gh-pages&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I now had the automation setup to build the site daily and deploy it as a gh-pages branch. I could have from here just used Github as my host and setup a custom URL. I though already had the hosted site so needed a way to get that locally there. Now you might be asking why not just run a cronjob on the server to pull the master daily, build it and then sync the changes. Well the hosting server doesn&#39;t have npm installed so I was out of luck. Luckily git was available so I knew all I needed was to somehow get the site built automatically there and then i could just pull that branch on a scheduled basis. The track here was to clone the specific branch using &lt;code&gt;git clone -b gh-pages&lt;/code&gt;. I now had the latest build on my server. I then used &lt;code&gt;rsync&lt;/code&gt; to synchronize the changes on the latest build to my site.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rm -rf $HOME/hiltonmeyer.com
+git clone -b gh-pages https://github.com/bikingbadger/hiltonmeyer.com.git
+/usr/bin/rsync -avzh $HOME/hiltonmeyer.com/_site/ $HOME/www/hiltonmeyer.com/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;final-notes&quot;&gt;Final Notes &lt;a class=&quot;direct-link&quot; href=&quot;#final-notes&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This is probably a very niche way of getting my site deployment automated but it seems to work and I don&#39;t have to worry about copying from my local machine any longer.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>11ty Hosted on Netlify</title>
+    <link href="https://hiltonmeyer.com/articles/11ty-on-netlify.html"/>
+    <updated>2019-10-09T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/11ty-on-netlify.html</id>
+    <content type="html">&lt;p&gt;Yesterday I wrote a long &lt;a href=&quot;https://hiltonmeyer.com/articles/articles/travis-automatic-build.html&quot;&gt;article&lt;/a&gt; on how to get my site built and deployed using &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis-CI&lt;/a&gt;. I learnt quite a bit in the process but it all actuality I could have had this up and running in no time using Netlify and skipped the whole cutomization steps to get everything playing nice. With the simple setup of the toml file as seen below I would have achieved the same result:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;netlify.toml&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[build]
+  publish = &amp;quot;_site&amp;quot;
+  command = &amp;quot;DEBUG=* eleventy&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So the modern tools don&#39;t actually need to be more complicated and time consuming to get up and running. The old saying of when you have a hammer everything is a nail still stands true. The trick is to try and fill your toolbox with tools that can help without causing you too much of a sore thumb in the process, excuse my abuse of the pun.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Toggle Password Visibility</title>
+    <link href="https://hiltonmeyer.com/articles/toggle-password-visibility.html"/>
+    <updated>2019-10-15T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/toggle-password-visibility.html</id>
+    <content type="html">&lt;p&gt;I&#39;ve joined the &lt;a href=&quot;https://vanillajsacademy.com/&quot;&gt;Vanilla JS Academy&lt;/a&gt; taught by &lt;a href=&quot;https://gomakethings.com/&quot;&gt;Chris Ferdinandi&lt;/a&gt;. The awesome thing about the course so far has been that the lessons are pretty short and you produce something in the end of the day. The major bonus is also that the is an amazing Slack channel that is actually where I have been learning even more. Our first project was to create a Show Password checkbox that would toggle showing the password in plain text. This is a handy little feature to have and is sprinkled throughout the web.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Password Visibility&amp;lt;/title&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/css/style.css&amp;quot; /&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;/&amp;quot;&amp;gt; &amp;lt; Home&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;h1&amp;gt;Password Visibility&amp;lt;/h1&amp;gt;
+
+    &amp;lt;p&amp;gt;Enter your username and password to login.&amp;lt;/p&amp;gt;
+
+    &amp;lt;form&amp;gt;
+      &amp;lt;div&amp;gt;
+        &amp;lt;label for=&amp;quot;username&amp;quot; style=&amp;quot;white-space:nowrap&amp;quot;
+          &amp;gt;Username &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;username&amp;quot; id=&amp;quot;username&amp;quot;
+        /&amp;gt;&amp;lt;/label&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;div style=&amp;quot;white-space:nowrap&amp;quot;&amp;gt;
+        &amp;lt;label for=&amp;quot;password&amp;quot;
+          &amp;gt;Password &amp;lt;input type=&amp;quot;password&amp;quot; name=&amp;quot;password&amp;quot; id=&amp;quot;password&amp;quot;
+        /&amp;gt;&amp;lt;/label&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;div&amp;gt;
+        &amp;lt;label for=&amp;quot;show-password&amp;quot;&amp;gt;
+          &amp;lt;input type=&amp;quot;checkbox&amp;quot; name=&amp;quot;show-passwords&amp;quot; id=&amp;quot;show-password&amp;quot; /&amp;gt;
+          Show password
+        &amp;lt;/label&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;p&amp;gt;
+        &amp;lt;button type=&amp;quot;submit&amp;quot;&amp;gt;Log In&amp;lt;/button&amp;gt;
+      &amp;lt;/p&amp;gt;
+    &amp;lt;/form&amp;gt;    
+
+    &amp;lt;script src=&amp;quot;script.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;My thoughts for tackling this was firstly to make it super complicated trying to look at ways to catch the event with some checkbox listener that I found my way wandering down in the MSDN docs. Luckily I took a step back and decided to get back to something Chris mentioned in a post a while back, that is &lt;a href=&quot;https://gomakethings.com/how-to-plan-out-your-javascript-project/&quot;&gt;planning it out on paper&lt;/a&gt;. By simplyfying it I foudn that the solution required me to&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Select the elements of the password and the checkbox&lt;/li&gt;
+&lt;li&gt;Check when the checkbox was clicked&lt;/li&gt;
+&lt;li&gt;Toggle the password field&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Elements
+const showPassword = document.querySelector(&amp;quot;#show-password&amp;quot;);
+const password = document.querySelector(&amp;quot;#password&amp;quot;);
+
+// Toggle Password Field
+const togglePassword = () =&amp;gt; {
+  password.type = showPassword.checked ? &amp;quot;text&amp;quot; : &amp;quot;password&amp;quot;;
+};
+
+// Listen for checkbox click
+showPassword.addEventListener(&amp;quot;click&amp;quot;, togglePassword, false);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I must say that each of us took a different view of the problem and found various solutions. I actually incorporated one of them as I had used password. On my solution I had used &lt;code&gt;password.setAttribute(&#39;type&#39;,&#39;text&#39;)&lt;/code&gt; which also works but I was not aware of the &lt;code&gt;.type&lt;/code&gt; for setting the attribute directory without jumping through loops. It&#39;s going to be an interests few weeks of intense learning.&lt;/p&gt;
+</content>
+  </entry>
+</feed>

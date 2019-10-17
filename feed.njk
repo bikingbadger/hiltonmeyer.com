@@ -1,0 +1,38 @@
+---
+permalink: feed.xml
+metadata:
+  title: Hilton Meyer
+  url: https://hiltonmeyer.com/
+  author:
+    name: Hilton Meyer
+    email: me@hiltonmeyer.com
+  feed:
+    subtitle: Sharing what I'm learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics
+    filename: feed.xml
+    path: feed/feed.xml
+    url: https://hiltonmeyer.com/feed.xml
+    id: https://hiltonmeyer.com/
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.feed.subtitle }}</subtitle>
+  <link href="{{ metadata.feed.url }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>{{ collections.content | rssLastUpdatedDate }}</updated>
+  <id>{{ metadata.feed.id }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+  {%- for content in collections.content | currentContent  %}
+  {% set absoluteContentUrl %}{{ content.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  <entry>
+    <title>{{ content.data.title }}</title>
+    <link href="{{ absoluteContentUrl }}"/>
+    <updated>{{ content.date | rssDate }}</updated>
+    <id>{{ absoluteContentUrl }}</id>
+    <content type="html">{{ content.templateContent | htmlToAbsoluteUrls(absoluteContentUrl) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

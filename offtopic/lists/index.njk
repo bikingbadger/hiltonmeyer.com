@@ -1,0 +1,22 @@
+---
+title: Lists
+layout: layouts/home.njk
+tags:
+  - nav
+navtitle: Lists
+date: 2000-03-01
+---
+<p>Checklists I find useful to make sure everything is either in the car or what I should check to get something up and running without worrying if I missed a step. 
+I find checklists really useful as it gets rid of the congnitive issues of wondering what needs to be done. I also find I don't forget things that way. 
+If I rememeber correctly this came from how pilots have a checklist of each and every check they do before take-off, so if it works for them I reckon it should help a plonker like me.</p>
+
+<section class="article-list">
+  
+    {%- for article in collections.checklist -%}
+      <div  class="article-card">
+        <a href={{ article.url }}><h2 class="article-card-heading">{{ article.data.title }}</h1></a>
+        <p class="article-card-description txt-center">{{ article.data.description }}</p>
+      </div>
+    {%- endfor -%}
+  
+</section>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EBS Installed Applications</title>
+  <meta name="Description" content="Scripts for find EBS Installed Applications">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">EBS Installed Applications</p>
+
+<p>Scripts for find EBS Installed Applications</p>
+<pre><code>SELECT
+fa.application_short_name,
+fa.application_name,
+fpi.patch_level,
+DECODE(fpi.status, 'I', 'Installed', 'S', 'Shared', 'N', 'Inactive', fpi.status) status,
+fpi.db_status
+FROM
+fnd_product_installations fpi,
+fnd_application_vl fa
+WHERE
+1 = 1
+AND fa.application_id = fpi.application_id
+ORDER BY
+fa.application_short_name;
+</code></pre>
+
+
+<footer class="constrast txt-small txt-right">Create on Wed Aug 14 2019 - Last updated Wed Aug 14 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

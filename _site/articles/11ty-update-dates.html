@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Date for 11ty file</title>
+  <meta name="Description" content="Adding a field to show the last updated date of the article using Front Matter Data of 11ty">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Update Date for 11ty file</p>
+
+<p>In 11ty you can place metadata into a file using the <code>---</code> at the top of an article. It took me a while to understand how to do this in 11ty because they call this <a href="https://www.11ty.io/docs/data-frontmatter/">Front Matter Data</a>. Anyway I was able to add some fields but the one I was interested in was adding an update date to my articles so I could latter either order my posts by the last updated date instead of just created as I will be updating content as I go along. Also I could for now just <a href="/articles/191002-dates-11ty-templates">show this in my articles</a>.</p>
+<p>My other interest here is to be able to create posts but only show them in the lists based on this date and then the actual article will be &quot;published&quot; or go live on the date I had specified. So I have setup the Front Matter Data using the the YML setup described in the documentation:</p>
+<pre><code>---
+title: Update Date for 11ty file
+description: Adding a field to show the last updated date of the article 
+date: 2019-10-02
+updated: 2019-10-02
+layout: layouts/article.njk
+tags: 
+ - articles
+ - vanilla js
+ - 11ty
+navtitle: Update Date for 11ty file
+---
+</code></pre>
+<p>I have added title, description, updated and navtitle for usage in other places when using nunjucks to create the static content. The title and description I basically use for creating the card in the list on the <a href="/articles">articles landing page</a>. I now have the update date which I just need to remember to change in the future when I update an article. This also allows me to not always use the files last changed as I might just be tweaking something or making a minor change so I don't want to have it calculated. there is an option to use <a href="https://www.11ty.io/docs/data-frontmatter/#javascript-front-matter">Javascript Front Matter</a> so I might dig into this in a future post. One thing I'm really interested in doing is getting an <a href="https://www.11ty.io/docs/data-frontmatter/#example%3A-parse-excerpts-from-content">excerpt from my article</a> to show on the card which I might be digging into also in the future.</p>
+
+
+<footer class="constrast txt-small txt-right">Create on Wed Oct 02 2019 - Last updated Wed Oct 02 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>
