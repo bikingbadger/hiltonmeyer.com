@@ -708,7 +708,7 @@ git clone -b gh-pages https://github.com/bikingbadger/hiltonmeyer.com.git
     <link href="https://hiltonmeyer.com/articles/11ty-on-netlify.html"/>
     <updated>2019-10-09T00:00:00-00:00</updated>
     <id>https://hiltonmeyer.com/articles/11ty-on-netlify.html</id>
-    <content type="html">&lt;p&gt;Yesterday I wrote a long &lt;a href=&quot;https://hiltonmeyer.com/articles/articles/travis-automatic-build.html&quot;&gt;article&lt;/a&gt; on how to get my site built and deployed using &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis-CI&lt;/a&gt;. I learnt quite a bit in the process but it all actuality I could have had this up and running in no time using Netlify and skipped the whole cutomization steps to get everything playing nice. With the simple setup of the toml file as seen below I would have achieved the same result:&lt;/p&gt;
+    <content type="html">&lt;p&gt;Yesterday I wrote a long &lt;a href=&quot;https://hiltonmeyer.com/articles/travis-automatic-build.html&quot;&gt;article&lt;/a&gt; on how to get my site built and deployed using &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis-CI&lt;/a&gt;. I learnt quite a bit in the process but it all actuality I could have had this up and running in no time using Netlify and skipped the whole cutomization steps to get everything playing nice. With the simple setup of the toml file as seen below I would have achieved the same result:&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;netlify.toml&lt;/em&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[build]
   publish = &amp;quot;_site&amp;quot;
@@ -824,6 +824,78 @@ deploy:
   on:
     branch: master
 &lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Toggle Multiple Fields</title>
+    <link href="https://hiltonmeyer.com/articles/toggle-multiple-fields.html"/>
+    <updated>2019-10-19T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/toggle-multiple-fields.html</id>
+    <content type="html">&lt;p&gt;Today&#39;s project for the &lt;a href=&quot;https://vanillajsacademy.com/&quot;&gt;Vanilla JS Academy&lt;/a&gt; was creating a checkbox that would either show the text of the password or hide it behind a password type input. This was very similar to &lt;a href=&quot;https://hiltonmeyer.com/articles/toggle-password-visibility.html&quot;&gt;yesterdays&lt;/a&gt; in that we were given two password fields and had to toggle between seeing the password or not. In this case there were two password fields like you might have on a change password field.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Multi Field Toggle&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;h2&amp;gt;Password Toggle Visibility&amp;lt;/h2&amp;gt;
+
+    &amp;lt;form&amp;gt;
+      &amp;lt;div&amp;gt;
+        &amp;lt;label for=&amp;quot;current-password&amp;quot;&amp;gt;Current Password &amp;lt;input type=&amp;quot;password&amp;quot; name=&amp;quot;current-password&amp;quot; id=&amp;quot;current-password&amp;quot; /&amp;gt;&amp;lt;/label&amp;gt;        
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;div&amp;gt;
+        &amp;lt;label for=&amp;quot;new-password&amp;quot;&amp;gt;New Password &amp;lt;input type=&amp;quot;password&amp;quot; name=&amp;quot;new-password&amp;quot; id=&amp;quot;new-password&amp;quot; /&amp;gt;&amp;lt;/label&amp;gt;        
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;div&amp;gt;
+        &amp;lt;label for=&amp;quot;show-passwords&amp;quot;&amp;gt;
+          &amp;lt;input type=&amp;quot;checkbox&amp;quot; name=&amp;quot;show-passwords&amp;quot; id=&amp;quot;show-passwords&amp;quot; /&amp;gt;
+          Show passwords
+        &amp;lt;/label&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;p&amp;gt;
+        &amp;lt;button type=&amp;quot;submit&amp;quot;&amp;gt;Change Password&amp;lt;/button&amp;gt;
+      &amp;lt;/p&amp;gt;
+    &amp;lt;/form&amp;gt;
+
+    &amp;lt;script src=&amp;quot;script.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The solution is very much based on what I did yesterday and tried to re-use the same functions.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Select the elements of the checkbox&lt;/li&gt;
+&lt;li&gt;Get an array of the password fields&lt;/li&gt;
+&lt;li&gt;Check when the checkbox was clicked&lt;/li&gt;
+&lt;li&gt;Toggle the password fields using a loop&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// Elements
+const showPasswords = document.querySelector(&amp;quot;#show-passwords&amp;quot;);
+const passwordFields = Array.prototype.slice.call(document.querySelectorAll(&amp;quot;[type=&#39;password&#39;]&amp;quot;));
+
+// Toggle Password Field
+const togglePasswordFields = () =&amp;gt; {
+  passwordFields.forEach((password) =&amp;gt; {
+    password.type = showPasswords.checked ? &amp;quot;text&amp;quot; : &amp;quot;password&amp;quot;;
+  });  
+};
+
+// If page is refreshed and the checkbox is already refreshed
+// change the fields to text in anyway
+if (showPasswords.checked) {
+  passwordFields.forEach((password) =&amp;gt; {
+    password.type = &amp;quot;text&amp;quot;;
+  });
+}
+
+// Listen for checkbox click
+showPasswords.addEventListener(&amp;quot;click&amp;quot;, togglePasswordFields, false);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I ran into a sticky situation that actually came up in the thread on Slack where someone mentions that when refreshing the page it would still keep the checkbox checked but the passwords would disappear but also loose the functionality of changing the input type. The solution was to add a check to make sure that if on load the checkbox was checked then to change the fields to text on the first run.&lt;/p&gt;
 </content>
   </entry>
   

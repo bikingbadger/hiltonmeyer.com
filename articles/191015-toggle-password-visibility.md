@@ -1,6 +1,6 @@
 ---
 title: Toggle Password Visibility
-description: My hacked way of setting up automatic deployments on my hosted server
+description: Password toggle feature for a login page
 date: 2019-10-15
 updated: 2019-10-17
 layout: layouts/article.njk

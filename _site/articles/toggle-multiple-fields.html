@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Multiple Fields</title>
+  <meta name="Description" content="Showing or hiding the passwords of multiple fields on a form">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Toggle Multiple Fields</p>
+
+<p>Today's project for the <a href="https://vanillajsacademy.com">Vanilla JS Academy</a> was creating a checkbox that would either show the text of the password or hide it behind a password type input. This was very similar to <a href="/articles/toggle-password-visibility.html">yesterdays</a> in that we were given two password fields and had to toggle between seeing the password or not. In this case there were two password fields like you might have on a change password field.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Multi Field Toggle&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;Password Toggle Visibility&lt;/h2&gt;
+
+    &lt;form&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;current-password&quot;&gt;Current Password &lt;input type=&quot;password&quot; name=&quot;current-password&quot; id=&quot;current-password&quot; /&gt;&lt;/label&gt;        
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;label for=&quot;new-password&quot;&gt;New Password &lt;input type=&quot;password&quot; name=&quot;new-password&quot; id=&quot;new-password&quot; /&gt;&lt;/label&gt;        
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;label for=&quot;show-passwords&quot;&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;show-passwords&quot; id=&quot;show-passwords&quot; /&gt;
+          Show passwords
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      &lt;p&gt;
+        &lt;button type=&quot;submit&quot;&gt;Change Password&lt;/button&gt;
+      &lt;/p&gt;
+    &lt;/form&gt;
+
+    &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The solution is very much based on what I did yesterday and tried to re-use the same functions.</p>
+<ol>
+<li>Select the elements of the checkbox</li>
+<li>Get an array of the password fields</li>
+<li>Check when the checkbox was clicked</li>
+<li>Toggle the password fields using a loop</li>
+</ol>
+<pre><code class="language-js">// Elements
+const showPasswords = document.querySelector(&quot;#show-passwords&quot;);
+const passwordFields = Array.prototype.slice.call(document.querySelectorAll(&quot;[type='password']&quot;));
+
+// Toggle Password Field
+const togglePasswordFields = () =&gt; {
+  passwordFields.forEach((password) =&gt; {
+    password.type = showPasswords.checked ? &quot;text&quot; : &quot;password&quot;;
+  });  
+};
+
+// If page is refreshed and the checkbox is already refreshed
+// change the fields to text in anyway
+if (showPasswords.checked) {
+  passwordFields.forEach((password) =&gt; {
+    password.type = &quot;text&quot;;
+  });
+}
+
+// Listen for checkbox click
+showPasswords.addEventListener(&quot;click&quot;, togglePasswordFields, false);
+</code></pre>
+<p>I ran into a sticky situation that actually came up in the thread on Slack where someone mentions that when refreshing the page it would still keep the checkbox checked but the passwords would disappear but also loose the functionality of changing the input type. The solution was to add a check to make sure that if on load the checkbox was checked then to change the fields to text on the first run.</p>
+
+
+<footer class="contrast txt-small txt-right">Created on Sat Oct 19 2019 - Last updated Sat Oct 19 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

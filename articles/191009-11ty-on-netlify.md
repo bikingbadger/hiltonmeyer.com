@@ -12,7 +12,7 @@ tags:
 navtitle: 11ty Hosted on Netlify
 permalink: articles/11ty-on-netlify.html
 ---
-Yesterday I wrote a long [article](articles/travis-automatic-build.html) on how to get my site built and deployed using [Travis-CI](https://travis-ci.org). I learnt quite a bit in the process but it all actuality I could have had this up and running in no time using Netlify and skipped the whole cutomization steps to get everything playing nice. With the simple setup of the toml file as seen below I would have achieved the same result:
+Yesterday I wrote a long [article](/articles/travis-automatic-build.html) on how to get my site built and deployed using [Travis-CI](https://travis-ci.org). I learnt quite a bit in the process but it all actuality I could have had this up and running in no time using Netlify and skipped the whole cutomization steps to get everything playing nice. With the simple setup of the toml file as seen below I would have achieved the same result:
 
 *netlify.toml*
 ```
