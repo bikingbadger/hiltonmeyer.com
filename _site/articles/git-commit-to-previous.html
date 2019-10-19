@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git commit file to previous commit</title>
+  <meta name="Description" content="How to add, AKA amend, a fix to a previous commit">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Git commit file to previous commit</p>
+
+<p>I ran into an issue of wanting to simply add a small change to a previous commit that I had just done. I am trying to use git in a way that will hopefully enable me to work on larger projects in the future and being able to navigate the logs has been something that pops up more and more. So creating these mini commits for fixes that were typo's or something like that would definitely not create a clean history. A bit of searching and I found the solution:</p>
+<pre><code>git commit --amend --no-edit
+</code></pre>
+<p>This allows me to add the small fix to the previous commit and I don't even have to have another message. Of course I could omit the <code>--no-edit</code> and then add another message with <code>-m [new message]</code>.</p>
+
+
+<footer class="constrast txt-small txt-right">Create on Mon Oct 21 2019 - Last updated Mon Oct 21 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>
