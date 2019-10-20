@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Counter</title>
+  <meta name="Description" content="Showing the running counter text length of a textfield">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Character Counter</p>
+
+<p>I'm really enjoying <a href="https://vanillajsacademy.com">Vanilla JS Academy</a> because the projects are short and sweet but they all seem to have some real world application. So we are learning some important methods along the way but then we have to go off and apply them in an interesting way. The community around this course is also so great so I can only take my hat off to <a href="https://gomakethings.com/">Chris Ferdinandi</a>. Today we had to create a character counter like you might see on some sites under a text box. Possibly applications is indicating that there is a maximum number of characters in a textarea.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Character Count&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h2&gt;Character Count&lt;/h2&gt;
+
+    &lt;label for=&quot;text&quot;&gt;Enter your text below.&lt;/label&gt;
+    &lt;textarea id=&quot;text&quot;&gt;&lt;/textarea&gt;
+
+    &lt;p&gt;You've written &lt;strong&gt;&lt;span id=&quot;character-count&quot;&gt;0&lt;/span&gt; characters&lt;/strong&gt;.&lt;/p&gt;
+
+    &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>This is some very basic html and the javascript was also pretty simple to find a solution for. The event was my only catch. I initially was using keyup but after posting the solution on the Slack channel I saw others using <code>input</code> as their event. After some checking I found that the mouse copy paste did not trigger the event from happening. So I made this change and I was able to set the counter as I was typing in or doing some form of copy paste.</p>
+<pre><code class="language-js">const characterCount = document.querySelector('#character-count');
+
+window.addEventListener(
+    &quot;keyup&quot;,
+    event =&gt; {event.target.matches('#text') ? characterCount.textContent = event.target.textLength : 0;},
+    false,
+);
+
+characterCount.textContent = document.querySelector('#text').textLength;  
+</code></pre>
+<p>See it in <a href="https://bikingbadger.github.io/vanilla-academy/projects/character-count/">action</a></p>
+
+
+<footer class="contrast txt-small txt-right">Created on Sun Oct 20 2019 - Last updated Sun Oct 20 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

@@ -740,4 +740,69 @@ showPasswords.addEventListener(&amp;quot;click&amp;quot;, togglePasswordFields, 
 &lt;p&gt;I ran into a sticky situation that actually came up in the thread on Slack where someone mentions that when refreshing the page it would still keep the checkbox checked but the passwords would disappear but also loose the functionality of changing the input type. The solution was to add a check to make sure that if on load the checkbox was checked then to change the fields to text on the first run.&lt;/p&gt;
 </content>
   </entry>
+  
+  <entry>
+    <title>Creating a sitemap in 11ty</title>
+    <link href="https://hiltonmeyer.com/articles/11ty-sitemap.html"/>
+    <updated>2019-10-19T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/11ty-sitemap.html</id>
+    <content type="html">&lt;p&gt;In order to submit your site to search analytics you should have a sitemap of your content. Having this just makes it easier and quicker for the search engines to find and index your site content. So I went about find how to do this with 11ty. The base blog of 11ty has this built in so I made a few changes especially for the dates.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;urlset xmlns=&amp;quot;http://www.sitemaps.org/schemas/sitemap/0.9&amp;quot;&amp;gt;
+{%- for page in collections.all %}
+  {% set mappedUrl %}{{ metadata.url}}{{ page.url | url }}{% endset %}
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;{{ mappedUrl }}&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;{{ page.date | htmlDateString }}&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+{%- endfor %}
+&amp;lt;/urlset&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Character Counter</title>
+    <link href="https://hiltonmeyer.com/articles/character-counter.html"/>
+    <updated>2019-10-20T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/character-counter.html</id>
+    <content type="html">&lt;p&gt;I&#39;m really enjoying &lt;a href=&quot;https://vanillajsacademy.com/&quot;&gt;Vanilla JS Academy&lt;/a&gt; because the projects are short and sweet but they all seem to have some real world application. So we are learning some important methods along the way but then we have to go off and apply them in an interesting way. The community around this course is also so great so I can only take my hat off to &lt;a href=&quot;https://gomakethings.com/&quot;&gt;Chris Ferdinandi&lt;/a&gt;. Today we had to create a character counter like you might see on some sites under a text box. Possibly applications is indicating that there is a maximum number of characters in a textarea.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+
+&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Character Count&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+    &amp;lt;h2&amp;gt;Character Count&amp;lt;/h2&amp;gt;
+
+    &amp;lt;label for=&amp;quot;text&amp;quot;&amp;gt;Enter your text below.&amp;lt;/label&amp;gt;
+    &amp;lt;textarea id=&amp;quot;text&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;
+
+    &amp;lt;p&amp;gt;You&#39;ve written &amp;lt;strong&amp;gt;&amp;lt;span id=&amp;quot;character-count&amp;quot;&amp;gt;0&amp;lt;/span&amp;gt; characters&amp;lt;/strong&amp;gt;.&amp;lt;/p&amp;gt;
+
+    &amp;lt;script src=&amp;quot;script.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is some very basic html and the javascript was also pretty simple to find a solution for. The event was my only catch. I initially was using keyup but after posting the solution on the Slack channel I saw others using &lt;code&gt;input&lt;/code&gt; as their event. After some checking I found that the mouse copy paste did not trigger the event from happening. So I made this change and I was able to set the counter as I was typing in or doing some form of copy paste.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const characterCount = document.querySelector(&#39;#character-count&#39;);
+
+window.addEventListener(
+    &amp;quot;keyup&amp;quot;,
+    event =&amp;gt; {event.target.matches(&#39;#text&#39;) ? characterCount.textContent = event.target.textLength : 0;},
+    false,
+);
+
+characterCount.textContent = document.querySelector(&#39;#text&#39;).textLength;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;See it in &lt;a href=&quot;https://bikingbadger.github.io/vanilla-academy/projects/character-count/&quot;&gt;action&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
 </feed>
