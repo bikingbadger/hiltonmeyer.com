@@ -26,7 +26,6 @@ module.exports = function(eleventyConfig) {
     let currentContent = articles.reverse().filter((article) =>{       
       return article.data.date < currentDate;
     }); 
-
     return currentContent;
   });
 
