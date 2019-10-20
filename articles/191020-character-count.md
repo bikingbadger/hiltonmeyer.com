@@ -10,7 +10,7 @@ tags:
  - vanillajs
  - vanillajsacademy
 navtitle: Character Counter
-permalink: articles/toggle-multiple-fields.html
+permalink: articles/character-counter.html
 ---
 I'm really enjoying [Vanilla JS Academy](https://vanillajsacademy.com) because the projects are short and sweet but they all seem to have some real world application. So we are learning some important methods along the way but then we have to go off and apply them in an interesting way. The community around this course is also so great so I can only take my hat off to [Chris Ferdinandi](https://gomakethings.com/). Today we had to create a character counter like you might see on some sites under a text box. Possibly applications is indicating that there is a maximum number of characters in a textarea. 
 
