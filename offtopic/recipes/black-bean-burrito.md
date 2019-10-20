@@ -18,7 +18,7 @@ tags:
 navtitle: Black Bean Burrito Bowl
 date: 2019-09-06
 ---
-# Ingedients {.recipe-ingredients}
+# Ingredients {.recipe-ingredients}
 
 * 1 pound dry black beans
 * 2 Tbsp olive oil

@@ -2,10 +2,10 @@
   --ff: "Montserrat";
   --ff-code: "Space Mono";
 
-  --clr-bg: #ffffff;
+  --clr-bg: hsl(61, 100%, 88%);
   --clr-primary: #1b17ff;
   --clr-secondary: #1787ff;
-  --clr-secondary-lt: #aef5f5;
+  --clr-secondary-lt: hsla(60, 100%, 50%, 0.384);
   --clr-complimentary: #fbff17;
 
   --short-logo: "hm";
@@ -88,10 +88,13 @@ header {
   display: grid;
   grid-template-columns: 2fr auto;
   grid-template-rows: 1fr auto;
-  background-color: var(--clr-secondary);
   border-radius: var(--brdr-rad);
   border-top-left-radius: 0;
   padding: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  background-color: var(--clr-secondary-lt);
+  
 }
 
 /* Logo */
@@ -168,9 +171,9 @@ header {
   }
 }
 
-.constrast {
-  background-color: var(--clr-secondary);
-  color: white;
+.contrast {
+  background-color: var(--clr-secondary-lt);
+  color: var(--clr-primary);
 }
 
 .txt-center {
@@ -220,7 +223,7 @@ ol {
 .article-card {
   text-decoration: none;
   margin: 0.3rem;
-  background-color: var(--clr-secondary);
+  background-color: var(--clr-secondary-lt);
   border-radius: var(--brdr-rad);
   text-align: center;
   min-height: 8rem;
@@ -229,7 +232,7 @@ ol {
 .home-card {
   text-decoration: none;
   margin: 0.3rem;
-  background-color: var(--clr-secondary);
+  background-color: var(--clr-secondary-lt);
   border-radius: var(--brdr-rad);
   border-top-left-radius: 0;
   text-align: center;
@@ -268,7 +271,7 @@ pre {
   color: white;
   width: 40vw;
   padding: 0.5rem 3rem;
-  margin: 0 auto;
+  margin: 0 auto 0.5rem;
   border-radius: var(--brdr-rad);
   border-top-left-radius: 0;
 

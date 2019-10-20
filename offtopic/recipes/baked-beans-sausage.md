@@ -17,7 +17,7 @@ navtitle: Baked Beans with Smoked Sausage
 date: 2019-09-06
 ---
 
-# Ingedients {.recipe-ingredients}
+# Ingredients {.recipe-ingredients}
 
 - 2 slices bacon, chopped into 1/2-inch pieces
 - 1 sweet onion, chopped
