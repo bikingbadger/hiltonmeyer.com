@@ -25,7 +25,7 @@ metadata:
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for content in collections.content | currentContent  %}
+  {%- for content in collections.articles | currentContent  %}
   {% set absoluteContentUrl %}{{ content.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
     <title>{{ content.data.title }}</title>
