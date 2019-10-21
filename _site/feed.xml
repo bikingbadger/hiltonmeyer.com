@@ -805,4 +805,16 @@ characterCount.textContent = document.querySelector(&#39;#text&#39;).textLength;
 &lt;p&gt;See it in &lt;a href=&quot;https://bikingbadger.github.io/vanilla-academy/projects/character-count/&quot;&gt;action&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
+  
+  <entry>
+    <title>Git commit file to previous commit</title>
+    <link href="https://hiltonmeyer.com/articles/git-commit-to-previous.html"/>
+    <updated>2019-10-21T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/git-commit-to-previous.html</id>
+    <content type="html">&lt;p&gt;I ran into an issue of wanting to simply add a small change to a previous commit that I had just done. I am trying to use git in a way that will hopefully enable me to work on larger projects in the future and being able to navigate the logs has been something that pops up more and more. So creating these mini commits for fixes that were typo&#39;s or something like that would definitely not create a clean history. A bit of searching and I found the solution:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git commit --amend --no-edit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This allows me to add the small fix to the previous commit and I don&#39;t even have to have another message. Of course I could omit the &lt;code&gt;--no-edit&lt;/code&gt; and then add another message with &lt;code&gt;-m [new message]&lt;/code&gt;.&lt;/p&gt;
+</content>
+  </entry>
 </feed>
