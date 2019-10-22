@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter</title>
+  <meta name="Description" content="Showing the running counter of words in a textfield">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Word Counter</p>
+
+<p><a href="/articles/character-counter.html">Yesterday</a> I had to figure out the number of characters in a text field that is being written into. Today in the <a href="https://vanillajsacademy.com">Vanilla JS Academy</a> we had to add a word counter to the calculation. We learnt more about arrays and the <code>split</code> and <code>filter</code> methods. The split method will take in a string and convert that into an array according to what you identify as the separator. In my case this was simple breaking up each word by space so this gave me the word count or at least this is what I thought. The split also breaks on multiple spaces so you end up with an array of empty values if there are extra spaces.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Word Count&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;h2&gt;Word Count&lt;/h2&gt;
+
+    &lt;label for=&quot;text&quot;&gt;Enter your text below.&lt;/label&gt;
+    &lt;textarea id=&quot;text&quot;&gt;&lt;/textarea&gt;
+
+    &lt;p&gt;
+      You've written
+      &lt;strong
+        &gt;&lt;span id=&quot;word-count&quot;&gt;0&lt;/span&gt; word&lt;span id=&quot;wordPlural&quot;
+          &gt;s&lt;/span
+        &gt;&lt;/strong
+      &gt;
+      and
+      &lt;strong
+        &gt;&lt;span id=&quot;character-count&quot;&gt;0&lt;/span&gt; character&lt;span id=&quot;charPlural&quot;
+          &gt;s&lt;/span
+        &gt;&lt;/strong
+      &gt;.
+    &lt;/p&gt;
+
+    &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>This is were the filter method of the array comes into play. I used that to remove the empty values in the array for the correct word count. <a href="/articles/character-counter.html">Yesterday</a> I had used the <code>textLength</code> to get the character count but after seeing the solution offered by <a href="https://gomakethings.com/">Chris Ferdinandi</a> I converted today's answer to try and use the element <code>.value</code> which I could then do <code>.length</code> to get the number. I could use this for both the character count as well as the word count.</p>
+<pre><code class="language-js">&quot;use strict&quot;;
+
+const wordCount = document.querySelector(&quot;#word-count&quot;);
+const characterCount = document.querySelector(&quot;#character-count&quot;);
+const text = document.querySelector(&quot;#text&quot;);
+const charPlural = document.querySelector(&quot;#charPlural&quot;);
+const wordPlural = document.querySelector(&quot;#wordPlural&quot;);
+
+const getCharacterCount = () =&gt; {
+  return text.value.length;
+};
+
+const getWordCount = () =&gt; {
+  const numWords = text.value.split(&quot; &quot;).filter(item =&gt; {
+    return item != &quot;&quot;;
+  });
+  return numWords.length;
+};
+
+const setPlural = () =&gt; {
+  wordPlural.style.visibility = getWordCount() === 1 ? &quot;hidden&quot; : &quot;visible&quot;;
+  charPlural.style.visibility =
+    getCharacterCount() === 1 ? &quot;hidden&quot; : &quot;visible&quot;;
+};
+
+const setCounts = () =&gt; {
+  wordCount.textContent = getWordCount();
+  characterCount.textContent = getCharacterCount();
+  setPlural();
+};
+
+window.addEventListener(
+  &quot;input&quot;,
+  event =&gt; {
+    if (event.target.matches(&quot;#text&quot;)) {
+      setCounts();
+    }
+  },
+  false,
+);
+
+setCounts();
+</code></pre>
+<p>As a bonus I didn't want to leave the plural of <em>word</em> and <em>character</em> as is so I did a little bit of style manipulation using a <code>&lt;span&gt;s&lt;/span&gt;</code> so that I would hide the 's' if the value was equal to 1. That way I could leave it as is and only show the 's' when required.</p>
+<p><a href="https://bikingbadger.github.io/vanilla-academy/projects/word-count/">View the code in action</a></p>
+
+
+<footer class="contrast txt-small txt-right">Created on Tue Oct 22 2019 - Last updated Tue Oct 22 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

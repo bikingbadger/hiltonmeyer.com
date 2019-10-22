@@ -4,7 +4,7 @@
   <subtitle>Sharing what I&#39;m learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics</subtitle>
   <link href="https://hiltonmeyer.com/feed.xml" rel="self"/>
   <link href="https://hiltonmeyer.com/"/>
-  <updated>2019-10-21T00:00:00-00:00</updated>
+  <updated>2019-10-22T00:00:00-00:00</updated>
   <id>https://hiltonmeyer.com/</id>
   <author>
     <name>Hilton Meyer</name>
@@ -815,6 +815,92 @@ characterCount.textContent = document.querySelector(&#39;#text&#39;).textLength;
 &lt;pre&gt;&lt;code&gt;git commit --amend --no-edit
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This allows me to add the small fix to the previous commit and I don&#39;t even have to have another message. Of course I could omit the &lt;code&gt;--no-edit&lt;/code&gt; and then add another message with &lt;code&gt;-m [new message]&lt;/code&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Word Counter</title>
+    <link href="https://hiltonmeyer.com/articles/word-counter.html"/>
+    <updated>2019-10-22T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/word-counter.html</id>
+    <content type="html">&lt;p&gt;&lt;a href=&quot;https://hiltonmeyer.com/articles/character-counter.html&quot;&gt;Yesterday&lt;/a&gt; I had to figure out the number of characters in a text field that is being written into. Today in the &lt;a href=&quot;https://vanillajsacademy.com/&quot;&gt;Vanilla JS Academy&lt;/a&gt; we had to add a word counter to the calculation. We learnt more about arrays and the &lt;code&gt;split&lt;/code&gt; and &lt;code&gt;filter&lt;/code&gt; methods. The split method will take in a string and convert that into an array according to what you identify as the separator. In my case this was simple breaking up each word by space so this gave me the word count or at least this is what I thought. The split also breaks on multiple spaces so you end up with an array of empty values if there are extra spaces.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Word Count&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+
+  &amp;lt;body&amp;gt;
+    &amp;lt;h2&amp;gt;Word Count&amp;lt;/h2&amp;gt;
+
+    &amp;lt;label for=&amp;quot;text&amp;quot;&amp;gt;Enter your text below.&amp;lt;/label&amp;gt;
+    &amp;lt;textarea id=&amp;quot;text&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;
+
+    &amp;lt;p&amp;gt;
+      You&#39;ve written
+      &amp;lt;strong
+        &amp;gt;&amp;lt;span id=&amp;quot;word-count&amp;quot;&amp;gt;0&amp;lt;/span&amp;gt; word&amp;lt;span id=&amp;quot;wordPlural&amp;quot;
+          &amp;gt;s&amp;lt;/span
+        &amp;gt;&amp;lt;/strong
+      &amp;gt;
+      and
+      &amp;lt;strong
+        &amp;gt;&amp;lt;span id=&amp;quot;character-count&amp;quot;&amp;gt;0&amp;lt;/span&amp;gt; character&amp;lt;span id=&amp;quot;charPlural&amp;quot;
+          &amp;gt;s&amp;lt;/span
+        &amp;gt;&amp;lt;/strong
+      &amp;gt;.
+    &amp;lt;/p&amp;gt;
+
+    &amp;lt;script src=&amp;quot;script.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is were the filter method of the array comes into play. I used that to remove the empty values in the array for the correct word count. &lt;a href=&quot;https://hiltonmeyer.com/articles/character-counter.html&quot;&gt;Yesterday&lt;/a&gt; I had used the &lt;code&gt;textLength&lt;/code&gt; to get the character count but after seeing the solution offered by &lt;a href=&quot;https://gomakethings.com/&quot;&gt;Chris Ferdinandi&lt;/a&gt; I converted today&#39;s answer to try and use the element &lt;code&gt;.value&lt;/code&gt; which I could then do &lt;code&gt;.length&lt;/code&gt; to get the number. I could use this for both the character count as well as the word count.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;&amp;quot;use strict&amp;quot;;
+
+const wordCount = document.querySelector(&amp;quot;#word-count&amp;quot;);
+const characterCount = document.querySelector(&amp;quot;#character-count&amp;quot;);
+const text = document.querySelector(&amp;quot;#text&amp;quot;);
+const charPlural = document.querySelector(&amp;quot;#charPlural&amp;quot;);
+const wordPlural = document.querySelector(&amp;quot;#wordPlural&amp;quot;);
+
+const getCharacterCount = () =&amp;gt; {
+  return text.value.length;
+};
+
+const getWordCount = () =&amp;gt; {
+  const numWords = text.value.split(&amp;quot; &amp;quot;).filter(item =&amp;gt; {
+    return item != &amp;quot;&amp;quot;;
+  });
+  return numWords.length;
+};
+
+const setPlural = () =&amp;gt; {
+  wordPlural.style.visibility = getWordCount() === 1 ? &amp;quot;hidden&amp;quot; : &amp;quot;visible&amp;quot;;
+  charPlural.style.visibility =
+    getCharacterCount() === 1 ? &amp;quot;hidden&amp;quot; : &amp;quot;visible&amp;quot;;
+};
+
+const setCounts = () =&amp;gt; {
+  wordCount.textContent = getWordCount();
+  characterCount.textContent = getCharacterCount();
+  setPlural();
+};
+
+window.addEventListener(
+  &amp;quot;input&amp;quot;,
+  event =&amp;gt; {
+    if (event.target.matches(&amp;quot;#text&amp;quot;)) {
+      setCounts();
+    }
+  },
+  false,
+);
+
+setCounts();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As a bonus I didn&#39;t want to leave the plural of &lt;em&gt;word&lt;/em&gt; and &lt;em&gt;character&lt;/em&gt; as is so I did a little bit of style manipulation using a &lt;code&gt;&amp;lt;span&amp;gt;s&amp;lt;/span&amp;gt;&lt;/code&gt; so that I would hide the &#39;s&#39; if the value was equal to 1. That way I could leave it as is and only show the &#39;s&#39; when required.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://bikingbadger.github.io/vanilla-academy/projects/word-count/&quot;&gt;View the code in action&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
