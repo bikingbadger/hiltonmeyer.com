@@ -4,7 +4,7 @@
   <subtitle>Sharing what I&#39;m learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics</subtitle>
   <link href="https://hiltonmeyer.com/feed.xml" rel="self"/>
   <link href="https://hiltonmeyer.com/"/>
-  <updated>2019-10-22T00:00:00-00:00</updated>
+  <updated>2019-10-28T00:00:00-00:00</updated>
   <id>https://hiltonmeyer.com/</id>
   <author>
     <name>Hilton Meyer</name>
@@ -742,30 +742,6 @@ showPasswords.addEventListener(&amp;quot;click&amp;quot;, togglePasswordFields, 
   </entry>
   
   <entry>
-    <title>Creating a sitemap in 11ty</title>
-    <link href="https://hiltonmeyer.com/articles/11ty-sitemap.html"/>
-    <updated>2019-10-19T00:00:00-00:00</updated>
-    <id>https://hiltonmeyer.com/articles/11ty-sitemap.html</id>
-    <content type="html">&lt;p&gt;In order to submit your site to search analytics you should have a sitemap of your content. Having this just makes it easier and quicker for the search engines to find and index your site content. So I went about find how to do this with 11ty. The base blog of 11ty has this built in so I made a few changes especially for the dates.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;---
-permalink: /sitemap.xml
-eleventyExcludeFromCollections: true
----
-&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;urlset xmlns=&amp;quot;http://www.sitemaps.org/schemas/sitemap/0.9&amp;quot;&amp;gt;
-{%- for page in collections.all %}
-  {% set mappedUrl %}{{ metadata.url}}{{ page.url | url }}{% endset %}
-  &amp;lt;url&amp;gt;
-    &amp;lt;loc&amp;gt;{{ mappedUrl }}&amp;lt;/loc&amp;gt;
-    &amp;lt;lastmod&amp;gt;{{ page.date | htmlDateString }}&amp;lt;/lastmod&amp;gt;
-  &amp;lt;/url&amp;gt;
-{%- endfor %}
-&amp;lt;/urlset&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-  </entry>
-  
-  <entry>
     <title>Character Counter</title>
     <link href="https://hiltonmeyer.com/articles/character-counter.html"/>
     <updated>2019-10-20T00:00:00-00:00</updated>
@@ -901,6 +877,30 @@ setCounts();
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As a bonus I didn&#39;t want to leave the plural of &lt;em&gt;word&lt;/em&gt; and &lt;em&gt;character&lt;/em&gt; as is so I did a little bit of style manipulation using a &lt;code&gt;&amp;lt;span&amp;gt;s&amp;lt;/span&amp;gt;&lt;/code&gt; so that I would hide the &#39;s&#39; if the value was equal to 1. That way I could leave it as is and only show the &#39;s&#39; when required.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://bikingbadger.github.io/vanilla-academy/projects/word-count/&quot;&gt;View the code in action&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Creating a sitemap in 11ty</title>
+    <link href="https://hiltonmeyer.com/articles/11ty-sitemap.html"/>
+    <updated>2019-10-28T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/11ty-sitemap.html</id>
+    <content type="html">&lt;p&gt;In order to submit your site to search analytics you should have a sitemap of your content. Having this just makes it easier and quicker for the search engines to find and index your site content. So I went about find how to do this with 11ty. The base blog of 11ty has this built in so I made a few changes especially for the dates.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;urlset xmlns=&amp;quot;http://www.sitemaps.org/schemas/sitemap/0.9&amp;quot;&amp;gt;
+{%- for page in collections.all %}
+  {% set mappedUrl %}{{ metadata.url}}{{ page.url | url }}{% endset %}
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;{{ mappedUrl }}&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;{{ page.date | htmlDateString }}&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+{%- endfor %}
+&amp;lt;/urlset&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
 </feed>

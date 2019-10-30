@@ -1,7 +1,7 @@
 ---
 title: Creating a sitemap in 11ty
 description: How to setup 11ty to create a sitemap for web crawlers and search engines
-date: 2019-10-19
+date: 2019-10-28
 updated: 2019-10-28
 layout: layouts/article.njk
 tags: 

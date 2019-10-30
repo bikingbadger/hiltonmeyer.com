@@ -167,11 +167,6 @@
   </url>
   
   <url>
-    <loc>https://hiltonmeyer.com/articles/11ty-sitemap.html</loc>
-    <lastmod>2019-10-19</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hiltonmeyer.com/offtopic/recipes/ginger-bug/</loc>
     <lastmod>2019-10-19</lastmod>
   </url>
@@ -194,5 +189,10 @@
   <url>
     <loc>https://hiltonmeyer.com/articles/word-counter.html</loc>
     <lastmod>2019-10-22</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hiltonmeyer.com/articles/11ty-sitemap.html</loc>
+    <lastmod>2019-10-28</lastmod>
   </url>
 </urlset>
