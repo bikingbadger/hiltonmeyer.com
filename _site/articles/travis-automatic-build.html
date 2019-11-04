@@ -35,11 +35,11 @@
     <p class="title">Travis automated build and hosted deployment</p>
 
 <p>I have website hosting that I'm currently trying to bend to my will and not sure how much longer I can continue to mess around with Shared Hosting and getting everything working. Luckily there are services available around the interwebs that can help with build things. <a href="https://travis-ci.org">Travis-CI</a> is one of those that has come to my aid to help with the build process. <a href="https://www.netlify.com/">Netlify</a> is also wonderful and definitely something I would rather use for static sites as it does the whole build and deploy for you.</p>
-<h1 id="repository">Repository <a class="direct-link" href="#repository" aria-hidden="true">#</a></h1>
+<h1 id="repository">Repository <a class="direct-link" href="#repository">#</a></h1>
 <p>The first thing I have to do is to push the changes to my <a href="https://github.com/bikingbadger/hiltonmeyer.com">Github repository</a>. This holds the changes and because of my setup of 11ty building only my current content on the site I don't have to worry about publishing future content that I am still working on or is in drafts. The thing is that once I have finished writing an article I can make sure the date is current to the day I am done and then it will be published or I can 'schedule' the post by having a future date and when the build happens on that day the post will go live.</p>
 <pre><code>git push origin master
 </code></pre>
-<h1 id="automation">Automation <a class="direct-link" href="#automation" aria-hidden="true">#</a></h1>
+<h1 id="automation">Automation <a class="direct-link" href="#automation">#</a></h1>
 <p>My missing piece of this automation puzzle was somehow scheduling the builds to happen daily. I have heard a lot about Continuous Integration and Travis-CI has popped onto the radar from time to time without me fully understanding exactly what it is. There is also the whole CI integration on Gitlab. I'm currently using Github so I wanted a way to build the site daily with Travis. I thought I could also push to the server but this seemed to be a bit of a security risk I didn't want to take. I broke it down into a few steps:</p>
 <ul>
 <li>Build the master on a schedule using Travis</li>
@@ -47,13 +47,13 @@
 <li>On the hosted server create cronjob to clone the gh-pages branch</li>
 <li>Sync the repo locally on the server with my site</li>
 </ul>
-<h2 id="build-using-travis">Build using Travis <a class="direct-link" href="#build-using-travis" aria-hidden="true">#</a></h2>
+<h2 id="build-using-travis">Build using Travis <a class="direct-link" href="#build-using-travis">#</a></h2>
 <p>This was actually not that difficult after reading the <a href="https://docs.travis-ci.com/user/tutorial/">getting started documentation</a> and then copying the .travis.yml file from the 11ty repo for their build process which I noticed had a travis build file in it. I actually got lucky because it may have been something completely different. I was not looking to create a build for mulitply operating systems or node versions. I chose the latest version of node and linux. These were set with <code>language</code>, <code>node_js</code> and <code>os</code> respectively and can be seen below in complete. Before the build I need to <code>npm install</code> my dependancies as they are required for the the creation of my site by 11ty. I only want to build the master branch so added that and kept it to ignore building to gh-pages as this is what the deploy step will do. You can see these settings on the <code>branches</code> settings. And that was all I needed for the build.</p>
 <p>In order to schedule the daily build I went to the settings and added a line to run a daily build on master. This will now have this build process run at least daily and publish all the current content that might be waiting.</p>
 <p><img src="https://res.cloudinary.com/hiltonmeyer-com/image/upload/c_scale,w_800/v1570366009/travis-automation_gtnppp.jpg" alt="Travis Settings"></p>
-<h2 id="deploy-to-gh-pages">Deploy to gh-pages <a class="direct-link" href="#deploy-to-gh-pages" aria-hidden="true">#</a></h2>
+<h2 id="deploy-to-gh-pages">Deploy to gh-pages <a class="direct-link" href="#deploy-to-gh-pages">#</a></h2>
 <p>The next step was to deploy this build back to github so that I could then clone that branch to the server. This took a bit of tinkering and playing around but the <a href="https://docs.travis-ci.com/user/deployment/pages/">docs</a> made that so much easier. My first step was to create a github token which I followed the <a href="https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line">step by step guide</a> provided by Github. I copied this token and added it as an <a href="https://docs.travis-ci.com/user/environment-variables/#default-environment-variables">environment variable in Travis</a>, again follow the link for the documentation on how to do this. I made sure to call it <code>GITHUB_TOKEN</code>, the same uppercase as I used in the Yaml file. This was the last of my Travis setup and the Github requirements. I still could not get it to work and the _site directory was not showing up. It then dawned on my that Travis was trying to push the build to Github and the .gitignore had the directory in there. This means that in development I will need to delete this directory each time or find another way of getting around this. Once I had removed the line I could see the folder created in the gh-pages branch which Travis had also created. Woop Woop!!!!!</p>
-<h2 id="final-travis.yml">Final travis.yml <a class="direct-link" href="#final-travis.yml" aria-hidden="true">#</a></h2>
+<h2 id="final-travis.yml">Final travis.yml <a class="direct-link" href="#final-travis.yml">#</a></h2>
 <p>This is how the final Yaml file for Travis looks. I place this in my root directory and away you go. It will also build on each push I do to the master branch.</p>
 <pre><code>language: node_js
 node_js:
@@ -78,13 +78,13 @@ deploy:
   on:
     branch: master
 </code></pre>
-<h2 id="clone-gh-pages">Clone gh-pages <a class="direct-link" href="#clone-gh-pages" aria-hidden="true">#</a></h2>
+<h2 id="clone-gh-pages">Clone gh-pages <a class="direct-link" href="#clone-gh-pages">#</a></h2>
 <p>I now had the automation setup to build the site daily and deploy it as a gh-pages branch. I could have from here just used Github as my host and setup a custom URL. I though already had the hosted site so needed a way to get that locally there. Now you might be asking why not just run a cronjob on the server to pull the master daily, build it and then sync the changes. Well the hosting server doesn't have npm installed so I was out of luck. Luckily git was available so I knew all I needed was to somehow get the site built automatically there and then i could just pull that branch on a scheduled basis. The track here was to clone the specific branch using <code>git clone -b gh-pages</code>. I now had the latest build on my server. I then used <code>rsync</code> to synchronize the changes on the latest build to my site.</p>
 <pre><code>rm -rf $HOME/hiltonmeyer.com
 git clone -b gh-pages https://github.com/bikingbadger/hiltonmeyer.com.git
 /usr/bin/rsync -avzh $HOME/hiltonmeyer.com/_site/ $HOME/www/hiltonmeyer.com/
 </code></pre>
-<h1 id="final-notes">Final Notes <a class="direct-link" href="#final-notes" aria-hidden="true">#</a></h1>
+<h1 id="final-notes">Final Notes <a class="direct-link" href="#final-notes">#</a></h1>
 <p>This is probably a very niche way of getting my site deployment automated but it seems to work and I don't have to worry about copying from my local machine any longer.</p>
 
 

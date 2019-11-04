@@ -35,10 +35,10 @@
     <p class="title">R12.2 Adding server to Weblogic</p>
 
 <p>In R12.2 with Weblogic now playing a huge role as well as java also creating resource heavy processes you will eventually run into a situation where you want to add servers to Weblogic. I'd actually recommend adding at least one more oa_core server as this is the one we've noticed is causing most of the issues.</p>
-<h2 id="some-checks-and-background">Some checks and background <a class="direct-link" href="#some-checks-and-background" aria-hidden="true">#</a></h2>
+<h2 id="some-checks-and-background">Some checks and background <a class="direct-link" href="#some-checks-and-background">#</a></h2>
 <p>Oracle recommends up to 150-200 concurrent users per JVM of size 2 GB. You can use the <span class='script-link'><a href="/scripts/ebs_active_users/">EBS Active Users Script</a></span> to find the current value but you should track this over time to give you an indication of how many users are in the system.</p>
 <p>Finding the next available port</p>
-<h2 id="adding-server">Adding Server <a class="direct-link" href="#adding-server" aria-hidden="true">#</a></h2>
+<h2 id="adding-server">Adding Server <a class="direct-link" href="#adding-server">#</a></h2>
 <p>Add oacore_server2 via command line:</p>
 <pre><code>perl $AD_TOP/patch/115/bin/adProvisionEBS.pl ebs-create-managedserver \
    -contextfile=$CONTEXT_FILE \
@@ -68,7 +68,7 @@ perl $FND_TOP//patch/115/bin/txkSetAppsConf.pl \
 <pre><code>sh $ADMIN_SCRIPTS_HOME/adapcctl.sh stop
 sh $ADMIN_SCRIPTS_HOME/adapcctl.sh start
 </code></pre>
-<h2 id="reference">Reference <a class="direct-link" href="#reference" aria-hidden="true">#</a></h2>
+<h2 id="reference">Reference <a class="direct-link" href="#reference">#</a></h2>
 <ul>
 <li><a href="https://support.oracle.com/epmos/faces/DocumentDisplay?id=1905593.1">Managing Configuration of Oracle HTTP Server and Web Application Services in Oracle E-Business Suite Release 12.2 (Doc ID 1905593.1)</a></li>
 </ul>

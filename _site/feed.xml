@@ -16,7 +16,7 @@
     <link href="https://hiltonmeyer.com/articles/ebs-start-stop.html"/>
     <updated>2019-08-01T00:00:00-00:00</updated>
     <id>https://hiltonmeyer.com/articles/ebs-start-stop.html</id>
-    <content type="html">&lt;h2 id=&quot;start-apps-services&quot;&gt;Start Apps Services &lt;a class=&quot;direct-link&quot; href=&quot;#start-apps-services&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+    <content type="html">&lt;h2 id=&quot;start-apps-services&quot;&gt;Start Apps Services &lt;a class=&quot;direct-link&quot; href=&quot;#start-apps-services&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Node Manager&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$adnodemgrctl.sh start 
 Enter Weblogic Admin Password:
@@ -56,7 +56,7 @@ Enter Weblogic Admin Password:
 &lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Fullfillment Serer Services&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$jtffmctl.sh start
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;stop-apps-services&quot;&gt;Stop Apps Services &lt;a class=&quot;direct-link&quot; href=&quot;#stop-apps-services&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;stop-apps-services&quot;&gt;Stop Apps Services &lt;a class=&quot;direct-link&quot; href=&quot;#stop-apps-services&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;When we want to stop all services &lt;a href=&quot;http://adstpall.sh/&quot;&gt;adstpall.sh&lt;/a&gt; apps/apps again it is going to ask weblogic password&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Fullfillment Serer Services&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$jtffmctl.sh stop
@@ -130,10 +130,10 @@ fa.application_short_name;
     <updated>2019-08-15T00:00:00-00:00</updated>
     <id>https://hiltonmeyer.com/articles/ebs-weblogic-server.html</id>
     <content type="html">&lt;p&gt;In R12.2 with Weblogic now playing a huge role as well as java also creating resource heavy processes you will eventually run into a situation where you want to add servers to Weblogic. I&#39;d actually recommend adding at least one more oa_core server as this is the one we&#39;ve noticed is causing most of the issues.&lt;/p&gt;
-&lt;h2 id=&quot;some-checks-and-background&quot;&gt;Some checks and background &lt;a class=&quot;direct-link&quot; href=&quot;#some-checks-and-background&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;some-checks-and-background&quot;&gt;Some checks and background &lt;a class=&quot;direct-link&quot; href=&quot;#some-checks-and-background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Oracle recommends up to 150-200 concurrent users per JVM of size 2 GB. You can use the &lt;span class=&quot;script-link&quot;&gt;&lt;a href=&quot;https://hiltonmeyer.com/scripts/ebs_active_users/&quot;&gt;EBS Active Users Script&lt;/a&gt;&lt;/span&gt; to find the current value but you should track this over time to give you an indication of how many users are in the system.&lt;/p&gt;
 &lt;p&gt;Finding the next available port&lt;/p&gt;
-&lt;h2 id=&quot;adding-server&quot;&gt;Adding Server &lt;a class=&quot;direct-link&quot; href=&quot;#adding-server&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;adding-server&quot;&gt;Adding Server &lt;a class=&quot;direct-link&quot; href=&quot;#adding-server&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Add oacore_server2 via command line:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;perl $AD_TOP/patch/115/bin/adProvisionEBS.pl ebs-create-managedserver \
    -contextfile=$CONTEXT_FILE \
@@ -163,7 +163,7 @@ perl $FND_TOP//patch/115/bin/txkSetAppsConf.pl \
 &lt;pre&gt;&lt;code&gt;sh $ADMIN_SCRIPTS_HOME/adapcctl.sh stop
 sh $ADMIN_SCRIPTS_HOME/adapcctl.sh start
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;reference&quot;&gt;Reference &lt;a class=&quot;direct-link&quot; href=&quot;#reference&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;reference&quot;&gt;Reference &lt;a class=&quot;direct-link&quot; href=&quot;#reference&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://support.oracle.com/epmos/faces/DocumentDisplay?id=1905593.1&quot;&gt;Managing Configuration of Oracle HTTP Server and Web Application Services in Oracle E-Business Suite Release 12.2 (Doc ID 1905593.1)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -246,8 +246,8 @@ another bit of data {.class #identifier attr=value attr2=&amp;quot;spaced value&
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing&quot;&gt;Consumption Is Sometimes Valuable, But Creation Moves You Forward - Kal Zumeus&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;to-learn&quot;&gt;To Learn &lt;a class=&quot;direct-link&quot; href=&quot;#to-learn&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&quot;javascript&quot;&gt;Javascript &lt;a class=&quot;direct-link&quot; href=&quot;#javascript&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id=&quot;to-learn&quot;&gt;To Learn &lt;a class=&quot;direct-link&quot; href=&quot;#to-learn&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;javascript&quot;&gt;Javascript &lt;a class=&quot;direct-link&quot; href=&quot;#javascript&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p class=&quot;article-heading&quot;&gt;&lt;strong&gt;Basics&lt;/strong&gt;&lt;/p&gt;
 &lt;ul class=&quot;list&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;Variables&lt;/li&gt;
@@ -257,16 +257,16 @@ another bit of data {.class #identifier attr=value attr2=&amp;quot;spaced value&
 &lt;li class=&quot;list-item&quot;&gt;ES6 aka ES2017&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p class=&quot;article-heading&quot;&gt;&lt;strong&gt;DOM&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;patterns&quot;&gt;Patterns &lt;a class=&quot;direct-link&quot; href=&quot;#patterns&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;design&quot;&gt;Design &lt;a class=&quot;direct-link&quot; href=&quot;#design&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;patterns&quot;&gt;Patterns &lt;a class=&quot;direct-link&quot; href=&quot;#patterns&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;design&quot;&gt;Design &lt;a class=&quot;direct-link&quot; href=&quot;#design&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class=&quot;list&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;UI/UX Basics&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;frameworks&quot;&gt;Frameworks &lt;a class=&quot;direct-link&quot; href=&quot;#frameworks&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;frameworks&quot;&gt;Frameworks &lt;a class=&quot;direct-link&quot; href=&quot;#frameworks&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class=&quot;list&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;Vue.js&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;css&quot;&gt;CSS &lt;a class=&quot;direct-link&quot; href=&quot;#css&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;css&quot;&gt;CSS &lt;a class=&quot;direct-link&quot; href=&quot;#css&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class=&quot;list&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;Variables&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;Responsive Sites&lt;/li&gt;
@@ -274,14 +274,14 @@ another bit of data {.class #identifier attr=value attr2=&amp;quot;spaced value&
 &lt;li class=&quot;list-item&quot;&gt;Canvas&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;Bootstrap&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;database&quot;&gt;Database &lt;a class=&quot;direct-link&quot; href=&quot;#database&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;database&quot;&gt;Database &lt;a class=&quot;direct-link&quot; href=&quot;#database&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class=&quot;list&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;Postgre&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;Mongo&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;node&quot;&gt;Node &lt;a class=&quot;direct-link&quot; href=&quot;#node&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;h1 id=&quot;learnt&quot;&gt;Learnt &lt;a class=&quot;direct-link&quot; href=&quot;#learnt&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;h1 id=&quot;related-links&quot;&gt;Related links &lt;a class=&quot;direct-link&quot; href=&quot;#related-links&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;node&quot;&gt;Node &lt;a class=&quot;direct-link&quot; href=&quot;#node&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h1 id=&quot;learnt&quot;&gt;Learnt &lt;a class=&quot;direct-link&quot; href=&quot;#learnt&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;related-links&quot;&gt;Related links &lt;a class=&quot;direct-link&quot; href=&quot;#related-links&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;ul class=&quot;list&quot;&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;https://www.swyx.io/writing/learn-in-public/&quot;&gt;Original article about Learn in Public&lt;/a&gt;&lt;/li&gt;
 &lt;li class=&quot;list-item&quot;&gt;&lt;a href=&quot;https://www.swyx.io/writing/learning-gears/&quot;&gt;Followup article by Shawn&lt;/a&gt;&lt;/li&gt;
@@ -491,11 +491,11 @@ An article about best practice for creating commit history in Git
     <updated>2019-10-08T00:00:00-00:00</updated>
     <id>https://hiltonmeyer.com/articles/travis-automatic-build.html</id>
     <content type="html">&lt;p&gt;I have website hosting that I&#39;m currently trying to bend to my will and not sure how much longer I can continue to mess around with Shared Hosting and getting everything working. Luckily there are services available around the interwebs that can help with build things. &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis-CI&lt;/a&gt; is one of those that has come to my aid to help with the build process. &lt;a href=&quot;https://www.netlify.com/&quot;&gt;Netlify&lt;/a&gt; is also wonderful and definitely something I would rather use for static sites as it does the whole build and deploy for you.&lt;/p&gt;
-&lt;h1 id=&quot;repository&quot;&gt;Repository &lt;a class=&quot;direct-link&quot; href=&quot;#repository&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;repository&quot;&gt;Repository &lt;a class=&quot;direct-link&quot; href=&quot;#repository&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;The first thing I have to do is to push the changes to my &lt;a href=&quot;https://github.com/bikingbadger/hiltonmeyer.com&quot;&gt;Github repository&lt;/a&gt;. This holds the changes and because of my setup of 11ty building only my current content on the site I don&#39;t have to worry about publishing future content that I am still working on or is in drafts. The thing is that once I have finished writing an article I can make sure the date is current to the day I am done and then it will be published or I can &#39;schedule&#39; the post by having a future date and when the build happens on that day the post will go live.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git push origin master
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&quot;automation&quot;&gt;Automation &lt;a class=&quot;direct-link&quot; href=&quot;#automation&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;automation&quot;&gt;Automation &lt;a class=&quot;direct-link&quot; href=&quot;#automation&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;My missing piece of this automation puzzle was somehow scheduling the builds to happen daily. I have heard a lot about Continuous Integration and Travis-CI has popped onto the radar from time to time without me fully understanding exactly what it is. There is also the whole CI integration on Gitlab. I&#39;m currently using Github so I wanted a way to build the site daily with Travis. I thought I could also push to the server but this seemed to be a bit of a security risk I didn&#39;t want to take. I broke it down into a few steps:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Build the master on a schedule using Travis&lt;/li&gt;
@@ -503,13 +503,13 @@ An article about best practice for creating commit history in Git
 &lt;li&gt;On the hosted server create cronjob to clone the gh-pages branch&lt;/li&gt;
 &lt;li&gt;Sync the repo locally on the server with my site&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;build-using-travis&quot;&gt;Build using Travis &lt;a class=&quot;direct-link&quot; href=&quot;#build-using-travis&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;build-using-travis&quot;&gt;Build using Travis &lt;a class=&quot;direct-link&quot; href=&quot;#build-using-travis&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This was actually not that difficult after reading the &lt;a href=&quot;https://docs.travis-ci.com/user/tutorial/&quot;&gt;getting started documentation&lt;/a&gt; and then copying the .travis.yml file from the 11ty repo for their build process which I noticed had a travis build file in it. I actually got lucky because it may have been something completely different. I was not looking to create a build for mulitply operating systems or node versions. I chose the latest version of node and linux. These were set with &lt;code&gt;language&lt;/code&gt;, &lt;code&gt;node_js&lt;/code&gt; and &lt;code&gt;os&lt;/code&gt; respectively and can be seen below in complete. Before the build I need to &lt;code&gt;npm install&lt;/code&gt; my dependancies as they are required for the the creation of my site by 11ty. I only want to build the master branch so added that and kept it to ignore building to gh-pages as this is what the deploy step will do. You can see these settings on the &lt;code&gt;branches&lt;/code&gt; settings. And that was all I needed for the build.&lt;/p&gt;
 &lt;p&gt;In order to schedule the daily build I went to the settings and added a line to run a daily build on master. This will now have this build process run at least daily and publish all the current content that might be waiting.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/c_scale,w_800/v1570366009/travis-automation_gtnppp.jpg&quot; alt=&quot;Travis Settings&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;deploy-to-gh-pages&quot;&gt;Deploy to gh-pages &lt;a class=&quot;direct-link&quot; href=&quot;#deploy-to-gh-pages&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;deploy-to-gh-pages&quot;&gt;Deploy to gh-pages &lt;a class=&quot;direct-link&quot; href=&quot;#deploy-to-gh-pages&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The next step was to deploy this build back to github so that I could then clone that branch to the server. This took a bit of tinkering and playing around but the &lt;a href=&quot;https://docs.travis-ci.com/user/deployment/pages/&quot;&gt;docs&lt;/a&gt; made that so much easier. My first step was to create a github token which I followed the &lt;a href=&quot;https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line&quot;&gt;step by step guide&lt;/a&gt; provided by Github. I copied this token and added it as an &lt;a href=&quot;https://docs.travis-ci.com/user/environment-variables/#default-environment-variables&quot;&gt;environment variable in Travis&lt;/a&gt;, again follow the link for the documentation on how to do this. I made sure to call it &lt;code&gt;GITHUB_TOKEN&lt;/code&gt;, the same uppercase as I used in the Yaml file. This was the last of my Travis setup and the Github requirements. I still could not get it to work and the _site directory was not showing up. It then dawned on my that Travis was trying to push the build to Github and the .gitignore had the directory in there. This means that in development I will need to delete this directory each time or find another way of getting around this. Once I had removed the line I could see the folder created in the gh-pages branch which Travis had also created. Woop Woop!!!!!&lt;/p&gt;
-&lt;h2 id=&quot;final-travis.yml&quot;&gt;Final travis.yml &lt;a class=&quot;direct-link&quot; href=&quot;#final-travis.yml&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;final-travis.yml&quot;&gt;Final travis.yml &lt;a class=&quot;direct-link&quot; href=&quot;#final-travis.yml&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This is how the final Yaml file for Travis looks. I place this in my root directory and away you go. It will also build on each push I do to the master branch.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;language: node_js
 node_js:
@@ -534,13 +534,13 @@ deploy:
   on:
     branch: master
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;clone-gh-pages&quot;&gt;Clone gh-pages &lt;a class=&quot;direct-link&quot; href=&quot;#clone-gh-pages&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;clone-gh-pages&quot;&gt;Clone gh-pages &lt;a class=&quot;direct-link&quot; href=&quot;#clone-gh-pages&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I now had the automation setup to build the site daily and deploy it as a gh-pages branch. I could have from here just used Github as my host and setup a custom URL. I though already had the hosted site so needed a way to get that locally there. Now you might be asking why not just run a cronjob on the server to pull the master daily, build it and then sync the changes. Well the hosting server doesn&#39;t have npm installed so I was out of luck. Luckily git was available so I knew all I needed was to somehow get the site built automatically there and then i could just pull that branch on a scheduled basis. The track here was to clone the specific branch using &lt;code&gt;git clone -b gh-pages&lt;/code&gt;. I now had the latest build on my server. I then used &lt;code&gt;rsync&lt;/code&gt; to synchronize the changes on the latest build to my site.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;rm -rf $HOME/hiltonmeyer.com
 git clone -b gh-pages https://github.com/bikingbadger/hiltonmeyer.com.git
 /usr/bin/rsync -avzh $HOME/hiltonmeyer.com/_site/ $HOME/www/hiltonmeyer.com/
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&quot;final-notes&quot;&gt;Final Notes &lt;a class=&quot;direct-link&quot; href=&quot;#final-notes&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;final-notes&quot;&gt;Final Notes &lt;a class=&quot;direct-link&quot; href=&quot;#final-notes&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;This is probably a very niche way of getting my site deployment automated but it seems to work and I don&#39;t have to worry about copying from my local machine any longer.&lt;/p&gt;
 </content>
   </entry>
