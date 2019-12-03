@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nodemon delay</title>
+  <meta name="Description" content="Delay the restart of nodemon when doing changes">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Nodemon delay</p>
+
+<p><a href="https://github.com/remy/nodemon">Nodemon</a> is awesome for development but one thing that comes up from time to time is that as I'm typing the serer will restart over and over.<br>
+I was wondering if there wasn't some kind of debouncing available. A quick check of the docs and I was sorted.</p>
+<p>As a command:</p>
+<pre><code>nodemon --delay 2.5 app.js
+</code></pre>
+<p>In a config file called nodemon.json:</p>
+<pre><code>{
+    &quot;delay&quot;: &quot;2500&quot;
+}
+</code></pre>
+<p>Both the above will delay the restart for 2.5 seconds before restarting. Be aware that the value set in the file is in milliseconds.</p>
+
+
+<footer class="contrast txt-small txt-right">Created on Tue Dec 03 2019 - Last updated Tue Dec 03 2019</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>
