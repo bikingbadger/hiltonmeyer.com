@@ -922,4 +922,19 @@ I was wondering if there wasn&#39;t some kind of debouncing available. A quick c
 &lt;p&gt;Both the above will delay the restart for 2.5 seconds before restarting. Be aware that the value set in the file is in milliseconds.&lt;/p&gt;
 </content>
   </entry>
+  
+  <entry>
+    <title>Debugging using VS Code</title>
+    <link href="https://hiltonmeyer.com/articles/vs-code-debugging.html"/>
+    <updated>2019-12-05T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/vs-code-debugging.html</id>
+    <content type="html">&lt;p&gt;Debugging using VS Code is pretty simple for Node projects. If you run &lt;code&gt;node --inspect-brk app.js&lt;/code&gt; it will start a debugging session&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1575104620/debugging-03_zty5zr.jpg&quot; alt=&quot;Debugging&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Then if you use ctl+shirt+P you can toggle the auto attach which will open the session in the Debugger View&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1575104620/debugging-02_reknek.jpg&quot; alt=&quot;Debugging&quot;&gt;&lt;/p&gt;
+&lt;p&gt;This will then attach to the debugger&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1575104621/debugging-01_wnt3tp.jpg&quot; alt=&quot;Debugging&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Then just a case of adding breakpoints where you want and start stepping through the code. You don&#39;t have to leave VS Code&lt;/p&gt;
+</content>
+  </entry>
 </feed>
