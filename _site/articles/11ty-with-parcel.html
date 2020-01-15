@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using 11ty with Parcel</title>
+  <meta name="Description" content="How to use 11ty to generate content and ParcelJS for bundling JavaScript">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Using 11ty with Parcel</p>
+
+<p>Being a big fan of 11ty and having setup <a href="/articles/character-counter.html">ParcelJS yesterday</a> for my <a href="https://100days100projects.netlify.com/">100 days of Code Challenge</a> I wanted to see if I could get the two to work together as I would then have the benefits of templating and static generation from 11ty and the bundling from ParcelJS. Seems like a win win situation and a quick search brought up a great article by <a href="https://cloudsh.com/eleventy/eleventy_and_parceljs_working_together.html">Marl Clevenger</a>. He had a more advanced requirement so I went about trying to simplify it for my needs of just having the bundling done by ParcelJS.</p>
+<p>First thing was to install 11ty and then also npm-run-all for the development process.</p>
+<pre><code>npm install -D @11ty/eleventy npm-run-all
+</code></pre>
+<p>Once installed I didn't do any major 11ty configuration. My .eleventy.js file looked as follows:</p>
+<pre><code>module.exports = function (eleventyConfig) {
+  
+    // You can return your Config object (optional).
+    return {
+      dir: {
+        input: 'src',
+        output: &quot;dist&quot;
+      },
+      templateFormats: [
+        'html',
+        'md',
+        'njk'
+      ],
+      passthroughFileCopy: true
+    }
+  }
+</code></pre>
+<p>My setup basically just pointed the output to dist which is the default for ParcelJS so figured it would be easier to handle that way. With this the html files, which I will convert to markdown along with some templates, are passed directly through to the <code>dist</code> folder. So far so good and setting me up to be able to start writing everything in markdown files and using some sort of common css and headers. 11ty really is a dream to setup.</p>
+<p>Now for the ParcelJS that I had already implemented on my project. I wanted to take all the assets and bundle those, again thinking of the future where I can start splitting code into files and then bringing it all together in the end. Very much still keeping things as VanillaJS as possible. For this I changed the scripts of my <code>package.json</code>:</p>
+<pre><code>&quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;npm-run-all --parallel bundle:*&quot;,
+    &quot;bundle:eleventy&quot;: &quot;eleventy --serve --quiet&quot;,
+    &quot;bundle:parcel&quot;: &quot;parcel src/**/sounds/* src/**/*.js src/**/*.css&quot;,
+    &quot;build&quot;: &quot;run-s prod:*&quot;,
+    &quot;prod:eleventy&quot;: &quot;eleventy&quot;,
+    &quot;prod:parcel&quot;: &quot;parcel build src/**/sounds/* src/**/*.js src/**/*.css&quot;
+},
+</code></pre>
+<p>Let's run through what it does.</p>
+<ul>
+<li><code>bundle:eleventy</code>: This is the eleventy part of the build. It will build all the markdown and create the dist directory containing all the static markup files. It will update with the changes I make to any markdown files.</li>
+<li><code>bundle:parcel</code>: Based on my file structure in src, I bundle all the css, javascript and sounds. I should also add images to this.</li>
+<li><code>dev</code>: This just runs the above in parallel allowing my to develop my applications and still have everything working together.</li>
+<li><code>prod:eleventy</code>: Build the eleventy files.</li>
+<li><code>prod:parcel</code>: Bundle the assets</li>
+<li><code>build</code>: Using npm-run-all in runs each <code>prod:eleventy</code> and then <code>prod:parcel</code> in sequence.</li>
+</ul>
+<p>With this change I had everything working together without having to make any huge changes to my process. I did not have to rename any files and used the fact that 11ty does not copy javascript file by default or css for that fact.</p>
+
+
+<footer class="contrast txt-small txt-right">Created on Wed Jan 15 2020 - Last updated Wed Jan 15 2020</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

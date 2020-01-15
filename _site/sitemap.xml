@@ -208,6 +208,11 @@
   
   <url>
     <loc>https://hiltonmeyer.com/articles/parcel.html</loc>
+    <lastmod>2020-01-14</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hiltonmeyer.com/articles/11ty-with-parcel.html</loc>
     <lastmod>2020-01-15</lastmod>
   </url>
 </urlset>
