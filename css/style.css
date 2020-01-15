@@ -94,7 +94,7 @@ header {
   border-radius: var(--brdr-rad);
   border-top-left-radius: 0;
   padding: 1rem;
-  width: 80%;
+  width: var(--txt-width);
   margin: 0 auto;
 }
 
@@ -175,7 +175,7 @@ header {
 
 .contrast {
   background-color: var(--clr-secondary-lt);
-  color: var(--clr-primary);
+  color: var(--clr-font);
 }
 
 .txt-center {
@@ -252,6 +252,10 @@ ol {
   color: var(--clr-font);
 }
 
+.article-card-heading:hover {
+  color: var(--clr-bg);
+}
+
 .article-card-description {
   font-size: var(--txt-small);
   text-align: center;
@@ -274,7 +278,7 @@ ol {
 
 pre {
   background-color: var(--clr-secondary);
-  color: white;
+  color:var(--clr-font);
   width: 40vw;
   padding: 0.5rem 3rem;
   margin: 0 auto 0.5rem;

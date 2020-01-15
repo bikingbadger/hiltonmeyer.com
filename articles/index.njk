@@ -11,7 +11,7 @@ date: 2000-02-01
 <section class="article-list">
   {%- for article in collections.articles | currentContent  -%}
     <div  class="article-card">
-      <a href={{ article.url }}><h2 class="article-card-heading">{{ article.data.title }}</h1></a>
+      <a href={{ article.url }}><h3 class="article-card-heading">{{ article.data.title }}</h3></a>
       <p class="article-card-description">{{ article.data.description }}</p>
     </div>
   {%- endfor -%}
