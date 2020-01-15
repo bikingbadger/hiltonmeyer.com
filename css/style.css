@@ -44,8 +44,8 @@ body {
 *****************************************************************************************/
 a {
   text-decoration: none;
-  color: var(--clr-secondary);
-  border-bottom: 1px var(--clr-secondary) dotted;
+  color: var(--clr-primary);
+  border-bottom: 1px var(--clr-primary) dotted;
 }
 
 a:hover {
