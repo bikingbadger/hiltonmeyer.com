@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcel Setup</title>
+  <meta name="Description" content="Getting started with parcel">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a><a class="navigation-item"  href="/offtopic/lists/">Lists</a><a class="navigation-item"  href="/offtopic/recipes/">Recipes</a><a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Parcel Setup</p>
+
+<p>I'm doing the <a href="https://www.100daysofcode.com/">100 days of Code</a> Challenge with a bit of a twist by trying to create 100 small projects everyday and not just coding. This had me thinking that if I wanted to create a medium sized application I'll need to start looking at bundling. I don't want to get into webpack but then heard about <a href="https://parceljs.org/">ParcelJS</a> and ease of setup so.</p>
+<h2 id="setup">Setup <a class="direct-link" href="#setup">#</a></h2>
+<p>One of the reasons I wanted to use Parcel was because it had an easy setup. Having no background with any sort of bundlers and having heard of the nightmares of trying to setup Webpack I was really hoping this would be the case that Parcel setup would not be an issue. I'm glad to report that it was as simple as 11ty in getting up and running.</p>
+<p>Install Parcel</p>
+<pre><code>npm install parcel-bundler --save-dev
+</code></pre>
+<p>In <code>package.json</code> I setup the dev and build commands to develop with:</p>
+<pre><code>&quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;parcel src/*.html&quot;,
+    &quot;build&quot;: &quot;parcel build src/*.html&quot;
+}
+</code></pre>
+<p>That was it. I ran <code>npm run dev</code> and was off to the races. I now would like to implement some sort of minimization on the javascript being produced and then also see how I can have 11ty working together with Parcel.</p>
+
+
+<footer class="contrast txt-small txt-right">Created on Wed Jan 15 2020 - Last updated Wed Jan 15 2020</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

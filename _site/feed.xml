@@ -4,7 +4,7 @@
   <subtitle>Sharing what I&#39;m learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics</subtitle>
   <link href="https://hiltonmeyer.com/feed.xml" rel="self"/>
   <link href="https://hiltonmeyer.com/"/>
-  <updated>2019-12-05T00:00:00-00:00</updated>
+  <updated>2020-01-15T00:00:00-00:00</updated>
   <id>https://hiltonmeyer.com/</id>
   <author>
     <name>Hilton Meyer</name>
@@ -935,6 +935,27 @@ I was wondering if there wasn&#39;t some kind of debouncing available. A quick c
 &lt;p&gt;This will then attach to the debugger&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1575104621/debugging-01_wnt3tp.jpg&quot; alt=&quot;Debugging&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Then just a case of adding breakpoints where you want and start stepping through the code. You don&#39;t have to leave VS Code&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Parcel Setup</title>
+    <link href="https://hiltonmeyer.com/articles/parcel.html"/>
+    <updated>2020-01-15T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/parcel.html</id>
+    <content type="html">&lt;p&gt;I&#39;m doing the &lt;a href=&quot;https://www.100daysofcode.com/&quot;&gt;100 days of Code&lt;/a&gt; Challenge with a bit of a twist by trying to create 100 small projects everyday and not just coding. This had me thinking that if I wanted to create a medium sized application I&#39;ll need to start looking at bundling. I don&#39;t want to get into webpack but then heard about &lt;a href=&quot;https://parceljs.org/&quot;&gt;ParcelJS&lt;/a&gt; and ease of setup so.&lt;/p&gt;
+&lt;h2 id=&quot;setup&quot;&gt;Setup &lt;a class=&quot;direct-link&quot; href=&quot;#setup&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;One of the reasons I wanted to use Parcel was because it had an easy setup. Having no background with any sort of bundlers and having heard of the nightmares of trying to setup Webpack I was really hoping this would be the case that Parcel setup would not be an issue. I&#39;m glad to report that it was as simple as 11ty in getting up and running.&lt;/p&gt;
+&lt;p&gt;Install Parcel&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install parcel-bundler --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In &lt;code&gt;package.json&lt;/code&gt; I setup the dev and build commands to develop with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;scripts&amp;quot;: {
+    &amp;quot;dev&amp;quot;: &amp;quot;parcel src/*.html&amp;quot;,
+    &amp;quot;build&amp;quot;: &amp;quot;parcel build src/*.html&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That was it. I ran &lt;code&gt;npm run dev&lt;/code&gt; and was off to the races. I now would like to implement some sort of minimization on the javascript being produced and then also see how I can have 11ty working together with Parcel.&lt;/p&gt;
 </content>
   </entry>
 </feed>
