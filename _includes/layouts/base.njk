@@ -31,7 +31,7 @@
         {%- for nav in collections.nav  -%}
         <a class="navigation-item{% if nav.url == page.url %} navigation-item-active{% endif %}"  href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a>
         {%- endfor -%}
-        <a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a>
+        {# <a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a> #}
       </div>
    </header>
 
