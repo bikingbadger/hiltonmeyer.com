@@ -220,4 +220,9 @@
     <loc>https://hiltonmeyer.com/articles/css-breakpoints.html</loc>
     <lastmod>2020-01-26</lastmod>
   </url>
+  
+  <url>
+    <loc>https://hiltonmeyer.com/articles/protect-git-branch-and-prevent-master-push.html</loc>
+    <lastmod>2020-02-23</lastmod>
+  </url>
 </urlset>

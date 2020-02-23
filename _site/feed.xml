@@ -4,7 +4,7 @@
   <subtitle>Sharing what I&#39;m learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics</subtitle>
   <link href="https://hiltonmeyer.com/feed.xml" rel="self"/>
   <link href="https://hiltonmeyer.com/"/>
-  <updated>2020-01-26T00:00:00-00:00</updated>
+  <updated>2020-02-23T00:00:00-00:00</updated>
   <id>https://hiltonmeyer.com/</id>
   <author>
     <name>Hilton Meyer</name>
@@ -1032,6 +1032,54 @@ I was wondering if there wasn&#39;t some kind of debouncing available. A quick c
 
 }
 &lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Protect git branch and prevent master push</title>
+    <link href="https://hiltonmeyer.com/articles/protect-git-branch-and-prevent-master-push.html"/>
+    <updated>2020-02-23T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/protect-git-branch-and-prevent-master-push.html</id>
+    <content type="html">&lt;h2 id=&quot;background&quot;&gt;Background &lt;a class=&quot;direct-link&quot; href=&quot;#background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I&#39;ve only really ever developed application by myself but I work in a way that I hope to be able to work in a team. I still have plenty to learn but the basic idea is that I have 2 main branches &lt;code&gt;master&lt;/code&gt; and &lt;code&gt;develop&lt;/code&gt;. I setup &lt;code&gt;develop&lt;/code&gt; as my default branch and the &lt;code&gt;master&lt;/code&gt; branch is what is deployed as Production by merging changes from develop. So this is just a note to myself how to create this setup and it might be of some use to anyone else trying to organise their process a bit without making things to complicated.&lt;/p&gt;
+&lt;h2 id=&quot;branch-protection&quot;&gt;Branch protection &lt;a class=&quot;direct-link&quot; href=&quot;#branch-protection&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;My first step is creating the develop branch from master and pushing this up to Github. You could also do this by simply creating a branch from the GUI.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout master
+git checkout -b develop
+git push origin develop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once the &lt;code&gt;develop&lt;/code&gt; branch is in the repo you want to navigate to &lt;code&gt;Settings &amp;gt; Branches&lt;/code&gt; and set the develop branch you just created as default.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/c_scale,q_auto:best/v1582470547/github-default-branch_hr5c0g.jpg&quot; alt=&quot;Github default branch&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;branch-protection-rules&quot;&gt;Branch protection rules &lt;a class=&quot;direct-link&quot; href=&quot;#branch-protection-rules&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is of course optional and you could leave the &lt;code&gt;master&lt;/code&gt; as default. I just prefer doing it this way to further protect the &lt;code&gt;master&lt;/code&gt; branch. The next step is protecting the &lt;code&gt;develop&lt;/code&gt; branch from deletion by simply creating a &lt;em&gt;Branch protection rule&lt;/em&gt; by clicking on the add button. In &lt;em&gt;Branch name pattern&lt;/em&gt; add the text &lt;code&gt;develop&lt;/code&gt; without selecting anything else. This will now protect the branch from being deleted.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;master&lt;/code&gt; branch will also need to be protected in the same way. You should be left with two rules that have nothing currently checked but this will protect both of these.&lt;/p&gt;
+&lt;h2 id=&quot;disable-master-push&quot;&gt;Disable master push &lt;a class=&quot;direct-link&quot; href=&quot;#disable-master-push&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In the &lt;code&gt;.git/hooks&lt;/code&gt; folder you need to create a file &lt;em&gt;pre-push&lt;/em&gt;, no file extension and add the following to the file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+protected_branch=&#39;master&#39;
+current_branch=$(git symbolic-ref HEAD | sed -e &#39;s,.*/\(.*\),\1,&#39;)
+
+if [ $protected_branch = $current_branch ]
+then
+    echo &amp;quot;${protected_branch} is a protected branch, create PR to merge&amp;quot;
+    exit 1 # push will not execute
+else
+    exit 0 # push will execute
+fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The script checks the current branch being pushed and compares it to the protected branch, in this case master. A simple if statement and stop pushing directly to the master branch and you will need to create a pull request to merge changes. You could do the same for the develop branch to also protect that. This is a simple solution for me to at least protect those branches I want to and forces me to create PR&#39;s everytime I want to make a change.&lt;/p&gt;
+&lt;h2 id=&quot;workflow&quot;&gt;Workflow &lt;a class=&quot;direct-link&quot; href=&quot;#workflow&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Having the &lt;code&gt;master&lt;/code&gt; and &lt;code&gt;develop&lt;/code&gt; branches I will pull my develop branch and then create another branch for the work I want to work on, for example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout develop
+git pull origin develop
+git checkout -b article-protect-git-branch
+
+### MAKE CHANGES ###
+
+git push origin article-protect-git-branch
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The new feature is not in the repository and I can create a pull request into develop to check the changes live before finally merging them into production.&lt;/p&gt;
 </content>
   </entry>
 </feed>
