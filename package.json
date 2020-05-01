@@ -20,12 +20,12 @@
   },
   "homepage": "https://github.com/bikingbadger/personal.hiltonmeyer.com#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.9.0",
+    "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-rss": "^1.0.6",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.1",
-    "luxon": "^1.19.3",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "luxon": "^1.22.0",
     "markdown-it": "^10.0.0",
-    "markdown-it-anchor": "^5.2.4",
-    "markdown-it-attrs": "^3.0.1"
+    "markdown-it-anchor": "^5.2.5",
+    "markdown-it-attrs": "^3.0.2"
   }
 }
