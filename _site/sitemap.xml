@@ -17,11 +17,6 @@
   </url>
   
   <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/</loc>
-    <lastmod>2000-03-01</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hiltonmeyer.com/offtopic/lists/bucket-list/</loc>
     <lastmod>2019-01-01</lastmod>
   </url>
@@ -74,41 +69,6 @@
   <url>
     <loc>https://hiltonmeyer.com/articles/11ty-markdown-attributes.html</loc>
     <lastmod>2019-08-19</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/red-lentil-dal/</loc>
-    <lastmod>2019-09-01</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/_recipe-template/</loc>
-    <lastmod>2019-09-05</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/baked-beans-sausage/</loc>
-    <lastmod>2019-09-06</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/black-bean-burrito/</loc>
-    <lastmod>2019-09-06</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/ginger-beer/</loc>
-    <lastmod>2019-09-06</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/kale-pesto/</loc>
-    <lastmod>2019-09-06</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/potatoes-foil-packet/</loc>
-    <lastmod>2019-09-06</lastmod>
   </url>
   
   <url>
@@ -167,16 +127,6 @@
   </url>
   
   <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/ginger-bug/</loc>
-    <lastmod>2019-10-19</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hiltonmeyer.com/offtopic/recipes/quince-jam/</loc>
-    <lastmod>2019-10-19</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hiltonmeyer.com/articles/character-counter.html</loc>
     <lastmod>2019-10-20</lastmod>
   </url>
@@ -224,5 +174,10 @@
   <url>
     <loc>https://hiltonmeyer.com/articles/protect-git-branch-and-prevent-master-push.html</loc>
     <lastmod>2020-02-23</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hiltonmeyer.com/articles/wemos-esp8266-arduino-client-setup.html</loc>
+    <lastmod>2020-05-01</lastmod>
   </url>
 </urlset>

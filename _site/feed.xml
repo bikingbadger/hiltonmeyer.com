@@ -4,7 +4,7 @@
   <subtitle>Sharing what I&#39;m learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics</subtitle>
   <link href="https://hiltonmeyer.com/feed.xml" rel="self"/>
   <link href="https://hiltonmeyer.com/"/>
-  <updated>2020-02-23T00:00:00-00:00</updated>
+  <updated>2020-05-01T00:00:00-00:00</updated>
   <id>https://hiltonmeyer.com/</id>
   <author>
     <name>Hilton Meyer</name>
@@ -1080,6 +1080,16 @@ git checkout -b article-protect-git-branch
 git push origin article-protect-git-branch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The new feature is not in the repository and I can create a pull request into develop to check the changes live before finally merging them into production.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Setup wemos ESP8266 board in Arduino client</title>
+    <link href="https://hiltonmeyer.com/articles/wemos-esp8266-arduino-client-setup.html"/>
+    <updated>2020-05-01T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/wemos-esp8266-arduino-client-setup.html</id>
+    <content type="html">&lt;p&gt;This is more just a placeholder for future me to have a reference of how to setup a connection to the Wemos Arduino Board that I have. It&#39;s the Wemos D1 R1. I have managed to connect to the board using the following settings although I have yet to fully understand the actual pins on the board which I will come back to later to map out.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1588304172/WeMos_velog9.jpg&quot; alt=&quot;WeMos Board&quot;&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
