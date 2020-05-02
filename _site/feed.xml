@@ -1084,6 +1084,201 @@ git push origin article-protect-git-branch
   </entry>
   
   <entry>
+    <title>Basic 11ty Setup</title>
+    <link href="https://hiltonmeyer.com/articles/basic-11ty-setup.html"/>
+    <updated>2020-04-26T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/basic-11ty-setup.html</id>
+    <content type="html">&lt;p&gt;I wanted to just share how I get my eleventy projects up and running instead of trying to reverse engineer my other projects and copy and pasting bits and pieces. I have been really taking a liking to tailwind so after that install and setup I can create a basic layout and from there every site starts to diverge into it&#39;s own monster. I am sure this will be a living document that I will come back to and change over time as I learn, so it will act as a reference for getting up and running.&lt;/p&gt;
+&lt;h2 id=&quot;install-11ty&quot;&gt;Install 11ty &lt;a class=&quot;direct-link&quot; href=&quot;#install-11ty&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;First and foremost you want to setup a npm project so that you can start pulling in libraries and add-on for later use. After that get 11ty setup in the project.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;npm init -y
+npm install -D @11ty/eleventy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With eleventy installed now some basic setup is required to make everything start working together with my workflow. Again out of the box 11ty can actually be used as is out of the box and things will work just fine. I have just found a few things that I like to work with and ways of using certain addon and tools.&lt;/p&gt;
+&lt;h2 id=&quot;basic-config&quot;&gt;Basic Config &lt;a class=&quot;direct-link&quot; href=&quot;#basic-config&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;11ty has a great feature for development &lt;code&gt;eleventy --serve&lt;/code&gt;. This allows you to develop and see the output at the same time. I add a script to &lt;code&gt;package.json&lt;/code&gt; to allow some live programming. Just keep in mind that any changes to the config require a stop and start so in the beginning this might not be that useful but something I like to get out the way. Add the following to &lt;code&gt;package.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;...
+&amp;quot;scripts&amp;quot;: {
+    &amp;quot;dev&amp;quot;: &amp;quot;eleventy --serve&amp;quot;,
+    &amp;quot;build&amp;quot;: &amp;quot;eleventy&amp;quot;
+},
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add _site to &lt;code&gt;.gitignore&lt;/code&gt; so that it&#39;s not added to your repo once you start developing locally and commiting changes. It is created at build time so is not required to be added to the repo and you acutally want it to rebuild each time so that anyone new doesn&#39;t have some changes that might have been made as a one time customization. Add the following to &lt;code&gt;.gitignore&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;_site
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Because I prefer putting all my source data in a specific directory there is a little bit of configuration required and there is a file called &lt;code&gt;.eleventy.js&lt;/code&gt; that you will eventually create once you start customizing things and adding filters or plugins but more on this later. I create &lt;code&gt;.eleventy.js&lt;/code&gt; as follows&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;module.exports = function (eleventyConfig) {
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: &#39;src&#39;,
+      includes: &#39;_includes&#39;,
+      data: &#39;_data&#39;,
+      output: &#39;_site&#39;,
+    },
+  };
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Firstly I prefer putting all my files in the &lt;code&gt;src&lt;/code&gt; directory. The next thing is you need to create the &lt;code&gt;src&lt;/code&gt; directory and also the &lt;code&gt;index.md&lt;/code&gt; to get a basic skeleton for the site&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir src
+touch src/index.md
+echo &#39;# Heading&#39; &amp;gt; src/index.md
+npm run dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This should give you the basics of getting a very basic structure along with a landing page. Now it&#39;s time to let templating come to the fore and also add tailwind to make things look a bit better although this is completely at your discretion and you can use any layout system you want.&lt;/p&gt;
+&lt;h2 id=&quot;add-some-structure&quot;&gt;Add some structure &lt;a class=&quot;direct-link&quot; href=&quot;#add-some-structure&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The data directory is where you can store as the name suggests data used in 11ty. I&#39;ll just setup a basic setup for information that can be used to get up and running.&lt;/p&gt;
+&lt;p&gt;Create a file called &lt;code&gt;_data/metadata.json&lt;/code&gt; under the src directory&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir src/_data
+touch metadata.json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And then add the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;title&amp;quot;: &amp;quot;Hilton Meyer&amp;quot;,
+  &amp;quot;url&amp;quot;: &amp;quot;https://hiltonmeyer.com&amp;quot;,
+  &amp;quot;description&amp;quot;: &amp;quot;My little blog&amp;quot;,
+  &amp;quot;author&amp;quot;: {
+    &amp;quot;name&amp;quot;: &amp;quot;Hilton Meyer&amp;quot;,
+    &amp;quot;email&amp;quot;: &amp;quot;me@hiltonmeyer.com&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To use the layouts you need to create a template, I prefer nunjucks but 11ty is very flexible and comes with quite a few out of the box that you can plug and play with.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p src/_includes/layouts
+touch base.njk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add the following the following to &lt;code&gt;src/_includes/layouts/base.njk&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;
+    &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot; /&amp;gt;
+    &amp;lt;title&amp;gt;
+      {{ renderData.title or title or metadata.title}}
+    &amp;lt;/title&amp;gt;
+    &amp;lt;meta
+      name=&amp;quot;Description&amp;quot;
+      content=&amp;quot;&amp;quot; /&amp;gt;
+  &amp;lt;/head&amp;gt;
+
+  &amp;lt;body&amp;gt;
+    &amp;lt;header&amp;gt;
+      &amp;lt;h1&amp;gt;{{ metadata.title }}&amp;lt;/h1&amp;gt;
+      &amp;lt;div&amp;gt;
+        {%- for nav in collections.nav -%}
+        &amp;lt;a href=&amp;quot;{{ nav.url | url }}&amp;quot;&amp;gt;{{ nav.data.navtitle }}&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;
+        {%- endfor -%}
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/header&amp;gt;
+    &amp;lt;main&amp;gt;
+      {{ content | safe }}
+    &amp;lt;/main&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that there is a basic layout template, this is just the base, the base can now be used to create sub-templates but that is a deeper rabbit hole and I want to stick to just getting something up and running. So to use the layout I can update my &lt;code&gt;index.md&lt;/code&gt; as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: Pantry
+layout: layouts/base.njk
+tags:
+  - nav
+navtitle: Home
+date: 2000-01-01
+---
+
+## My basic layout
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The main thing to pay attention to is the nav settings. In the &lt;code&gt;base.njk&lt;/code&gt; I added to following &lt;code&gt;for nav in collections.nav&lt;/code&gt;. This will loop through any page that has the tags in it and then add it to the collection if it has the tag of &lt;code&gt;nav&lt;/code&gt;. You can call it anything and collections are really powerful in 11ty. By using this in my base template I have used it to create navigation on the fly which is what I usually use it for. So any subsequent navigation I want in the site I just add it to that pages meta as I did for the Home page. The &lt;code&gt;navtitle&lt;/code&gt; is then shown as the title of the navigation but I still have the &lt;code&gt;title&lt;/code&gt; for using on the page itself. The order is by &lt;code&gt;date&lt;/code&gt; so this I use as a way to hack the order of the navigation items.&lt;/p&gt;
+&lt;h2 id=&quot;layout&quot;&gt;Layout &lt;a class=&quot;direct-link&quot; href=&quot;#layout&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;So here you could use css and just add this as a passthrough file and this way you can manage your layout. I prefer tailwind so this is what I am going to continue with discussing.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Adding Tailwind CSS to 11ty</title>
+    <link href="https://hiltonmeyer.com/articles/add-tailwind-11ty.html"/>
+    <updated>2020-04-26T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/add-tailwind-11ty.html</id>
+    <content type="html">&lt;h2 id=&quot;layout&quot;&gt;Layout &lt;a class=&quot;direct-link&quot; href=&quot;#layout&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In a &lt;a href=&quot;https://hiltonmeyer.com/articles/basic-11ty-setup.html&quot;&gt;previous post&lt;/a&gt; I setup the skeleton of a 11ty project. This is my basic setup that I use to get this up and running quickly. I would say that within about 1 hour you can have a site live and ready to start adding content. Most of my time though is normally spent messing around with layout. Getting this setup in just the right way and I am no UI specialist so my sites don&#39;t come across as flash, very much the opposite. But this is more about adding Tailwind than harping on about my lack of design skills.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -D tailwindcss postcss autoprefixer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As I use the &lt;code&gt;src&lt;/code&gt; directory for all my development I place my assets folder in there and create my css.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p src/assets/css
+touch src/assets/css/tailwind.pcss
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For tailwind you need to create a basic css file and during the build it converts this into the final css. This file is also used for the global changes that you can make. In &lt;code&gt;src/assets/css/tailwind.pcss&lt;/code&gt; add the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Tailwind also has a config file which can be created using the &lt;code&gt;init&lt;/code&gt; command. To enable building the eventual css I post css can be used which is how I set it up. Parcel also picks this up automatically.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npx tailwindcss init
+touch postcss.config.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In file &lt;code&gt;postcss.config.js&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;module.exports = {
+  plugins: [require(&#39;tailwindcss&#39;), require(&#39;autoprefixer&#39;)],
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;build&quot;&gt;Build &lt;a class=&quot;direct-link&quot; href=&quot;#build&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Parcel is my build tool of choice. Lik e11ty there&#39;s no complex setup required and you can be up and running quickly. I like that it has some pre-configured things like postcss that helps me use it to build tailwind.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -D parcel cross-env npm-run-all rimraf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I make a few changes to eleventy config just to so I use the default setup of parcel that builds into the dist directory. My setup for &lt;code&gt;.eleventy.js&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;module.exports = function (eleventyConfig) {
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: &#39;src&#39;,
+      includes: &#39;_includes&#39;,
+      data: &#39;_data&#39;,
+      output: &#39;dist&#39;,
+    },
+  };
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Need to add the css to the layout previously created &lt;code&gt;src/_includes/layouts/base.njk&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt;
+    &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot; /&amp;gt;
+    &amp;lt;title&amp;gt;
+      {{ renderData.title or title or metadata.title}}
+    &amp;lt;/title&amp;gt;
+    &amp;lt;meta
+      name=&amp;quot;Description&amp;quot;
+      content=&amp;quot;&amp;quot;
+    /&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/assets/tailwind.css&amp;quot; /&amp;gt;
+  &amp;lt;/head&amp;gt;
+
+  &amp;lt;body&amp;gt;
+    &amp;lt;header&amp;gt;
+      &amp;lt;h1&amp;gt;{{ metadata.title }}&amp;lt;/h1&amp;gt;
+      &amp;lt;div&amp;gt;
+        {%- for nav in collections.nav -%}
+        &amp;lt;a href=&amp;quot;{{ nav.url | url }}&amp;quot;
+          &amp;gt;{{ nav.data.navtitle }}&amp;lt;/a
+        &amp;gt;&amp;lt;br /&amp;gt;
+        {%- endfor -%}
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/header&amp;gt;
+    &amp;lt;main&amp;gt;
+      {{ content | safe }}
+    &amp;lt;/main&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
     <title>Setup wemos ESP8266 board in Arduino client</title>
     <link href="https://hiltonmeyer.com/articles/wemos-esp8266-arduino-client-setup.html"/>
     <updated>2020-05-01T00:00:00-00:00</updated>

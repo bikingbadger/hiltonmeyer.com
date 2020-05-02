@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic 11ty Setup</title>
+  <meta name="Description" content="My step by step to get a site up and running using 11ty">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Basic 11ty Setup</p>
+
+<p>I wanted to just share how I get my eleventy projects up and running instead of trying to reverse engineer my other projects and copy and pasting bits and pieces. I have been really taking a liking to tailwind so after that install and setup I can create a basic layout and from there every site starts to diverge into it's own monster. I am sure this will be a living document that I will come back to and change over time as I learn, so it will act as a reference for getting up and running.</p>
+<h2 id="install-11ty">Install 11ty <a class="direct-link" href="#install-11ty">#</a></h2>
+<p>First and foremost you want to setup a npm project so that you can start pulling in libraries and add-on for later use. After that get 11ty setup in the project.</p>
+<pre><code class="language-bash">npm init -y
+npm install -D @11ty/eleventy
+</code></pre>
+<p>With eleventy installed now some basic setup is required to make everything start working together with my workflow. Again out of the box 11ty can actually be used as is out of the box and things will work just fine. I have just found a few things that I like to work with and ways of using certain addon and tools.</p>
+<h2 id="basic-config">Basic Config <a class="direct-link" href="#basic-config">#</a></h2>
+<p>11ty has a great feature for development <code>eleventy --serve</code>. This allows you to develop and see the output at the same time. I add a script to <code>package.json</code> to allow some live programming. Just keep in mind that any changes to the config require a stop and start so in the beginning this might not be that useful but something I like to get out the way. Add the following to <code>package.json</code>:</p>
+<pre><code>...
+&quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;eleventy --serve&quot;,
+    &quot;build&quot;: &quot;eleventy&quot;
+},
+...
+</code></pre>
+<p>Add _site to <code>.gitignore</code> so that it's not added to your repo once you start developing locally and commiting changes. It is created at build time so is not required to be added to the repo and you acutally want it to rebuild each time so that anyone new doesn't have some changes that might have been made as a one time customization. Add the following to <code>.gitignore</code>:</p>
+<pre><code>_site
+</code></pre>
+<p>Because I prefer putting all my source data in a specific directory there is a little bit of configuration required and there is a file called <code>.eleventy.js</code> that you will eventually create once you start customizing things and adding filters or plugins but more on this later. I create <code>.eleventy.js</code> as follows</p>
+<pre><code>module.exports = function (eleventyConfig) {
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: 'src',
+      includes: '_includes',
+      data: '_data',
+      output: '_site',
+    },
+  };
+};
+</code></pre>
+<p>Firstly I prefer putting all my files in the <code>src</code> directory. The next thing is you need to create the <code>src</code> directory and also the <code>index.md</code> to get a basic skeleton for the site</p>
+<pre><code>mkdir src
+touch src/index.md
+echo '# Heading' &gt; src/index.md
+npm run dev
+</code></pre>
+<p>This should give you the basics of getting a very basic structure along with a landing page. Now it's time to let templating come to the fore and also add tailwind to make things look a bit better although this is completely at your discretion and you can use any layout system you want.</p>
+<h2 id="add-some-structure">Add some structure <a class="direct-link" href="#add-some-structure">#</a></h2>
+<p>The data directory is where you can store as the name suggests data used in 11ty. I'll just setup a basic setup for information that can be used to get up and running.</p>
+<p>Create a file called <code>_data/metadata.json</code> under the src directory</p>
+<pre><code>mkdir src/_data
+touch metadata.json
+</code></pre>
+<p>And then add the following:</p>
+<pre><code>{
+  &quot;title&quot;: &quot;Hilton Meyer&quot;,
+  &quot;url&quot;: &quot;https://hiltonmeyer.com&quot;,
+  &quot;description&quot;: &quot;My little blog&quot;,
+  &quot;author&quot;: {
+    &quot;name&quot;: &quot;Hilton Meyer&quot;,
+    &quot;email&quot;: &quot;me@hiltonmeyer.com&quot;
+  }
+}
+</code></pre>
+<p>To use the layouts you need to create a template, I prefer nunjucks but 11ty is very flexible and comes with quite a few out of the box that you can plug and play with.</p>
+<pre><code>mkdir -p src/_includes/layouts
+touch base.njk
+</code></pre>
+<p>Add the following the following to <code>src/_includes/layouts/base.njk</code>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;
+      {{ renderData.title or title or metadata.title}}
+    &lt;/title&gt;
+    &lt;meta
+      name=&quot;Description&quot;
+      content=&quot;&quot; /&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;header&gt;
+      &lt;h1&gt;{{ metadata.title }}&lt;/h1&gt;
+      &lt;div&gt;
+        {%- for nav in collections.nav -%}
+        &lt;a href=&quot;{{ nav.url | url }}&quot;&gt;{{ nav.data.navtitle }}&lt;/a&gt;&lt;br /&gt;
+        {%- endfor -%}
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      {{ content | safe }}
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Now that there is a basic layout template, this is just the base, the base can now be used to create sub-templates but that is a deeper rabbit hole and I want to stick to just getting something up and running. So to use the layout I can update my <code>index.md</code> as follows:</p>
+<pre><code>---
+title: Pantry
+layout: layouts/base.njk
+tags:
+  - nav
+navtitle: Home
+date: 2000-01-01
+---
+
+## My basic layout
+
+</code></pre>
+<p>The main thing to pay attention to is the nav settings. In the <code>base.njk</code> I added to following <code>for nav in collections.nav</code>. This will loop through any page that has the tags in it and then add it to the collection if it has the tag of <code>nav</code>. You can call it anything and collections are really powerful in 11ty. By using this in my base template I have used it to create navigation on the fly which is what I usually use it for. So any subsequent navigation I want in the site I just add it to that pages meta as I did for the Home page. The <code>navtitle</code> is then shown as the title of the navigation but I still have the <code>title</code> for using on the page itself. The order is by <code>date</code> so this I use as a way to hack the order of the navigation items.</p>
+<h2 id="layout">Layout <a class="direct-link" href="#layout">#</a></h2>
+<p>So here you could use css and just add this as a passthrough file and this way you can manage your layout. I prefer tailwind so this is what I am going to continue with discussing.</p>
+
+
+<footer class="contrast txt-small txt-right">Created on Sun Apr 26 2020 - Last updated Sat May 02 2020</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

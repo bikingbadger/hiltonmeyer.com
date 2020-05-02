@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adding Tailwind CSS to 11ty</title>
+  <meta name="Description" content="Add CSS to a 11ty project using TailwindCSS">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Adding Tailwind CSS to 11ty</p>
+
+<h2 id="layout">Layout <a class="direct-link" href="#layout">#</a></h2>
+<p>In a <a href="basic-11ty-setup.html">previous post</a> I setup the skeleton of a 11ty project. This is my basic setup that I use to get this up and running quickly. I would say that within about 1 hour you can have a site live and ready to start adding content. Most of my time though is normally spent messing around with layout. Getting this setup in just the right way and I am no UI specialist so my sites don't come across as flash, very much the opposite. But this is more about adding Tailwind than harping on about my lack of design skills.</p>
+<pre><code>npm install -D tailwindcss postcss autoprefixer
+</code></pre>
+<p>As I use the <code>src</code> directory for all my development I place my assets folder in there and create my css.</p>
+<pre><code>mkdir -p src/assets/css
+touch src/assets/css/tailwind.pcss
+</code></pre>
+<p>For tailwind you need to create a basic css file and during the build it converts this into the final css. This file is also used for the global changes that you can make. In <code>src/assets/css/tailwind.pcss</code> add the following:</p>
+<pre><code>@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+</code></pre>
+<p>Tailwind also has a config file which can be created using the <code>init</code> command. To enable building the eventual css I post css can be used which is how I set it up. Parcel also picks this up automatically.</p>
+<pre><code>npx tailwindcss init
+touch postcss.config.js
+</code></pre>
+<p>In file <code>postcss.config.js</code>:</p>
+<pre><code>module.exports = {
+  plugins: [require('tailwindcss'), require('autoprefixer')],
+};
+</code></pre>
+<h2 id="build">Build <a class="direct-link" href="#build">#</a></h2>
+<p>Parcel is my build tool of choice. Lik e11ty there's no complex setup required and you can be up and running quickly. I like that it has some pre-configured things like postcss that helps me use it to build tailwind.</p>
+<pre><code>npm install -D parcel cross-env npm-run-all rimraf
+</code></pre>
+<p>I make a few changes to eleventy config just to so I use the default setup of parcel that builds into the dist directory. My setup for <code>.eleventy.js</code>:</p>
+<pre><code>module.exports = function (eleventyConfig) {
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: 'src',
+      includes: '_includes',
+      data: '_data',
+      output: 'dist',
+    },
+  };
+};
+</code></pre>
+<p>Need to add the css to the layout previously created <code>src/_includes/layouts/base.njk</code>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;
+      {{ renderData.title or title or metadata.title}}
+    &lt;/title&gt;
+    &lt;meta
+      name=&quot;Description&quot;
+      content=&quot;&quot;
+    /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/tailwind.css&quot; /&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;header&gt;
+      &lt;h1&gt;{{ metadata.title }}&lt;/h1&gt;
+      &lt;div&gt;
+        {%- for nav in collections.nav -%}
+        &lt;a href=&quot;{{ nav.url | url }}&quot;
+          &gt;{{ nav.data.navtitle }}&lt;/a
+        &gt;&lt;br /&gt;
+        {%- endfor -%}
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      {{ content | safe }}
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+<footer class="contrast txt-small txt-right">Created on Sun Apr 26 2020 - Last updated Mon Apr 27 2020</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>

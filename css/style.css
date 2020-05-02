@@ -1,6 +1,5 @@
 :root {
   --ff: "Montserrat";
-  --ff-code: "Space Mono";
 
   --clr-bg: #ffffff;
   --clr-primary: #76b852;
@@ -110,7 +109,6 @@ pre {
 }
 
 code {
-  font-family: var(--ff-code);
   line-height: 1.2;
 }
 
