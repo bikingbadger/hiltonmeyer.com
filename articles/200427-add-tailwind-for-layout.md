@@ -21,12 +21,14 @@ In a [previous post](basic-11ty-setup.html) I setup the skeleton of a 11ty proje
 npm install -D tailwindcss postcss autoprefixer
 ```
 
+As I use the `src` directory for all my development I place my assets folder in there and create my css.
+
 ```
 mkdir -p src/assets/css
 touch src/assets/css/tailwind.pcss
 ```
 
-In `src/assets/css/tailwind.pcss` add the following
+For tailwind you need to create a basic css file and during the build it converts this into the final css. This file is also used for the global changes that you can make. In `src/assets/css/tailwind.pcss` add the following:
 
 ```
 @tailwind base;
@@ -35,6 +37,8 @@ In `src/assets/css/tailwind.pcss` add the following
 
 @tailwind utilities;
 ```
+
+Tailwind also has a config file which can be created using the `init` command. To enable building the eventual css I post css can be used which is how I set it up. Parcel also picks this up automatically.
 
 ```
 npx tailwindcss init
@@ -51,11 +55,13 @@ module.exports = {
 
 ## Build
 
+Parcel is my build tool of choice. Lik e11ty there's no complex setup required and you can be up and running quickly. I like that it has some pre-configured things like postcss that helps me use it to build tailwind.
+
 ```
 npm install -D parcel cross-env npm-run-all rimraf
 ```
 
-`.eleventy.js`
+I make a few changes to eleventy config just to so I use the default setup of parcel that builds into the dist directory. My setup for `.eleventy.js`:
 
 ```
 module.exports = function (eleventyConfig) {
