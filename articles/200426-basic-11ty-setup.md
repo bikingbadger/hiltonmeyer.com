@@ -2,7 +2,7 @@
 title: Basic 11ty Setup
 description: My step by step to get a site up and running using 11ty
 date: 2020-04-26
-updated: 2020-04-26
+updated: 2020-05-02
 layout: layouts/article.njk
 tags:
   - content
@@ -11,6 +11,8 @@ tags:
 navtitle: Basic 11ty Setup
 permalink: articles/basic-11ty-setup.html
 ---
+
+I wanted to just share how I get my eleventy projects up and running instead of trying to reverse engineer my other projects and copy and pasting bits and pieces. I have been really taking a liking to tailwind so after that install and setup I can create a basic layout and from there every site starts to diverge into it's own monster. I am sure this will be a living document that I will come back to and change over time as I learn, so it will act as a reference for getting up and running.
 
 ## Install 11ty
 
@@ -21,13 +23,11 @@ npm init -y
 npm install -D @11ty/eleventy
 ```
 
-With eleventy installed now some basic setup is required to make everything work with my workflow of how I like to work. Firstly I prefer putting all my files in the `src` directory and I have been really taking a liking to tailwind so after that install and setup I can create a basic layout and from there every site starts to diverge into it's own monster.
+With eleventy installed now some basic setup is required to make everything start working together with my workflow. Again out of the box 11ty can actually be used as is out of the box and things will work just fine. I have just found a few things that I like to work with and ways of using certain addon and tools. 
 
 ## Basic Config
 
-11ty has a great feature for development - `eleventy --serve`. This allows you to develop and see the output at the same time. so first thing to do is add a script to `package.json` to allow some live programming. Just keep in mind that any changes to the config require a stop and start so in the beginning this might not be that useful but something I like to get out the way.
-
-Add the following to `package.json`:
+11ty has a great feature for development `eleventy --serve`. This allows you to develop and see the output at the same time. I add a script to `package.json` to allow some live programming. Just keep in mind that any changes to the config require a stop and start so in the beginning this might not be that useful but something I like to get out the way. Add the following to `package.json`:
 
 ```
 ...
@@ -38,17 +38,13 @@ Add the following to `package.json`:
 ...
 ```
 
-Add \_site to `.gitignore` so that it's not added to your repo. This is created at build time so is not required
-
-Add the following to `.gitignore`:
+Add \_site to `.gitignore` so that it's not added to your repo once you start developing locally and commiting changes. It is created at build time so is not required to be added to the repo and you acutally want it to rebuild each time so that anyone new doesn't have some changes that might have been made as a one time customization. Add the following to `.gitignore`:
 
 ```
 _site
 ```
 
-Because I prefer putting all my source data in a specifc directory there is a little bit of configuration required and there is a file called `.eleventy.js` that you will eventually create once you start customizing things and adding filters or plugins but more on this later.
-
-I create `.eleventy.js` as follows
+Because I prefer putting all my source data in a specific directory there is a little bit of configuration required and there is a file called `.eleventy.js` that you will eventually create once you start customizing things and adding filters or plugins but more on this later. I create `.eleventy.js` as follows
 
 ```
 module.exports = function (eleventyConfig) {
@@ -64,7 +60,7 @@ module.exports = function (eleventyConfig) {
 };
 ```
 
-The next thing is you need to create the `src` directory and also the `index.md` to get a basic skeleton for the site
+Firstly I prefer putting all my files in the `src` directory. The next thing is you need to create the `src` directory and also the `index.md` to get a basic skeleton for the site
 
 ```
 mkdir src
@@ -120,8 +116,7 @@ Add the following the following to `src/_includes/layouts/base.njk`:
     </title>
     <meta
       name="Description"
-      content="{{ renderData.description or description or metadata.description }}"
-    />
+      content="{{ renderData.description or description or metadata.description }}" />
   </head>
 
   <body>
@@ -129,9 +124,7 @@ Add the following the following to `src/_includes/layouts/base.njk`:
       <h1>{% raw %}{{ metadata.title }}{% endraw %}</h1>
       <div>
         {% raw %}{%- for nav in collections.nav -%}{% endraw %}
-        <a href="{% raw %}{{ nav.url | url }}{% endraw %}"
-          >{% raw %}{{ nav.data.navtitle }}{% endraw %}</a
-        ><br />
+        <a href="{% raw %}{{ nav.url | url }}{% endraw %}">{% raw %}{{ nav.data.navtitle }}{% endraw %}</a><br />
         {% raw %}{%- endfor -%}{% endraw %}
       </div>
     </header>
@@ -142,7 +135,7 @@ Add the following the following to `src/_includes/layouts/base.njk`:
 </html>
 ```
 
-Now that there is a basic layout template, this is just the base, the base can now be used to create sub-templates but that is a deeper rabbit hole and I want to stick to just getting something up and running. So to use the layout I can update my index.md as follows:
+Now that there is a basic layout template, this is just the base, the base can now be used to create sub-templates but that is a deeper rabbit hole and I want to stick to just getting something up and running. So to use the layout I can update my `index.md` as follows:
 
 ```
 ---
