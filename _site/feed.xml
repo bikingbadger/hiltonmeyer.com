@@ -4,7 +4,7 @@
   <subtitle>Sharing what I&#39;m learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics</subtitle>
   <link href="https://hiltonmeyer.com/feed.xml" rel="self"/>
   <link href="https://hiltonmeyer.com/"/>
-  <updated>2020-05-01T00:00:00-00:00</updated>
+  <updated>2020-05-19T00:00:00-00:00</updated>
   <id>https://hiltonmeyer.com/</id>
   <author>
     <name>Hilton Meyer</name>
@@ -1285,6 +1285,31 @@ touch postcss.config.js
     <id>https://hiltonmeyer.com/articles/wemos-esp8266-arduino-client-setup.html</id>
     <content type="html">&lt;p&gt;This is more just a placeholder for future me to have a reference of how to setup a connection to the Wemos Arduino Board that I have. It&#39;s the Wemos D1 R1. I have managed to connect to the board using the following settings although I have yet to fully understand the actual pins on the board which I will come back to later to map out.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1588304172/WeMos_velog9.jpg&quot; alt=&quot;WeMos Board&quot;&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Adding Jest for testing</title>
+    <link href="https://hiltonmeyer.com/articles/jest.html"/>
+    <updated>2020-05-17T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/jest.html</id>
+    <content type="html">&lt;p&gt;This is a quick and simple way to get &lt;a href=&quot;https://jestjs.io/&quot;&gt;Jest&lt;/a&gt; up and running in a project. This can either be done by adding it at the beginning of a project and then doing TDD development which is something I will be looking at in the upcoming weeks. The option is to add this to an existing application and then add tests to new code or write retroactive tests. So first step is to install Jest and supertest, supertest is what I use for testing http endpoints and seeing as I&#39;m doing quite a bit of development using &lt;a href=&quot;https://hiltonmeyer.com/articles/articles/setup-fauna-netlify-functions.html&quot;&gt;Netlify Functions&lt;/a&gt; so I use this to test those API&#39;s.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;npm install --save-dev jest supertest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add the following section to your package.json to create a script for running your tests. I use the &lt;code&gt;watchAll&lt;/code&gt; parameter to be able to not have to restart the tests continually. This means that as I write the tests or develop my application the tests run and tell me if something is not working. Basically I get a heads up if I break something somewhere else in my code by using previous tests. The other advantage is that I can then write the tests and start working on the solution in my code base. This cycle can just continue and I have someone looking at my code all the time throwing up a flag if something isn&#39;t quite kosher.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
+  &amp;quot;scripts&amp;quot;: {
+    &amp;quot;test&amp;quot;: &amp;quot;jest --watchAll&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Config jest to be setup for node by setting up a &lt;code&gt;jest.config.js&lt;/code&gt; file and adding the following. This will setup the environment for node and also exclude any node_modules from being included in the tests. Very basic setup, I am developing in Node for my Netlify functions so I use that as my environment. This is not required as out of the box Jest works.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;module.exports = {
+  verbose: true,
+  testEnvironment: &#39;node&#39;,
+  coveragePathIgnorePatterns: [&#39;/node_modules/&#39;],
+};
+&lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
 </feed>
