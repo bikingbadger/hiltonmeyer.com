@@ -1,4 +1,20 @@
-```
+---
+title: Custom Bash Command Prompt
+description: Customize bash prompt with various colors
+date: 2020-05-21
+updated: 2020-05-21
+layout: layouts/article.njk
+tags:
+  - content
+  - articles
+  - bash
+navtitle: Custom Bash Command Prompt
+permalink: articles/custom-bash-prompt.html
+---
+
+This is the setup I use for my bash prompts in various environments. I simply add the following to my `.bashrc` file. This is more a reference for me but if you find it useful give it a go and play around with the various colors.
+
+```bash
 Custom Prompt###############
 set_prompt () {
         Reset='\[\e[0m\]'
