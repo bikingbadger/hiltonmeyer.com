@@ -1,8 +1,8 @@
 ---
 title: Fauna with netlify functions
 description: Setup fauna using netlify functions
-date: 2020-05-05
-updated: 2020-05-05
+date: 2020-05-19
+updated: 2020-05-18
 layout: layouts/article.njk
 tags:
   - content
