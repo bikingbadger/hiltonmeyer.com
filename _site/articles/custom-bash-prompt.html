@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Bash Command Prompt</title>
+  <meta name="Description" content="Customize bash prompt with various colors">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-80549791-1');
+  </script>
+
+  
+</head>
+
+<body>
+  <header>
+      <h1 class="logo">hilton meyer</h1>
+      
+        <label class = "hamburger-label" for="toggle">&#9776</label>  
+        <input class = "hamburger-box" type="checkbox" id="toggle"/>
+      
+      <div class="navigation-list"><a class="navigation-item"  href="/">Home</a><a class="navigation-item"  href="/articles/">Articles</a>
+      </div>
+   </header>
+
+  <main class="tmpl-article" >
+    <p class="title">Custom Bash Command Prompt</p>
+
+<p>This is the setup I use for my bash prompts in various environments. I simply add the following to my <code>.bashrc</code> file. This is more a reference for me but if you find it useful give it a go and play around with the various colors.</p>
+<pre><code class="language-bash">Custom Prompt###############
+set_prompt () {
+        Reset='\[\e[0m\]'
+
+    Black='\[\e[0;30m\]'
+    Blue='\[\e[0;34m\]'
+    Green='\[\e[0;32m\]'
+    Cyan='\[\e[0;36m\]'
+    Red='\[\e[0;31m\]'
+    Purple='\[\e[0;35m\]'
+    Brown='\[\e[0;33m\]'
+
+    if [ $(whoami) == 'root' ] || [[ $(whoami) == *&quot;prod&quot;* ]] || [[ $(whoami) == *&quot;PROD&quot;* ]]; then
+        PrimaryColor=&quot;${Red}&quot;
+        SecondaryColor=&quot;${Brown}&quot;
+        promptSymbol=&quot;${Red}!! &quot;
+    else
+        PrimaryColor=&quot;${Green}&quot;
+        SecondaryColor=&quot;${Blue}&quot;
+        promptSymbol=&quot;${Green}$ &quot;
+    fi
+
+        userhost=&quot;${PrimaryColor}$(whoami)@$(hostname -s) &quot;
+        currentdir=&quot;${SecondaryColor}[$(pwd | sed &quot;s!^$HOME!~!&quot;)] &quot;
+    currentTime=&quot;${PrimaryColor}$(date +%H:%M:%S) &quot;
+
+    PS1=&quot;$Reset$White&quot;
+    PS1+=&quot;$userhost&quot;
+    PS1+=&quot;$currentdir&quot;
+    PS1+=&quot;$currentTime&quot;
+    PS1+=&quot;$promptSymbol&quot;
+    PS1+=&quot;$Reset&quot;
+}
+
+PROMPT_COMMAND='set_prompt'
+################Custom Prompt End###############
+</code></pre>
+
+
+<footer class="contrast txt-small txt-right">Created on Thu May 21 2020 - Last updated Thu May 21 2020</footer>
+    </main>
+
+    <footer></footer>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
+</body>
+
+</html>
