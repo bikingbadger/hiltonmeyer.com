@@ -1312,4 +1312,97 @@ touch postcss.config.js
 &lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
+  
+  <entry>
+    <title>Fauna with netlify functions</title>
+    <link href="https://hiltonmeyer.com/articles/setup-fauna-netlify-functions.html"/>
+    <updated>2020-05-19T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/setup-fauna-netlify-functions.html</id>
+    <content type="html">&lt;p&gt;To be able to develop fauna we need the sdk library that you can then use FQL (Fauna Query Language) to interact with the database, this is the SQL for Fauna basically. There is an option of using graphQL which I want to explore and might come back and edit this post. The &lt;code&gt;encoding&lt;/code&gt; package is used by netlify and causes an error at the time of writing if not installed. It might be a peer dependency and fixed in future versions but at the moment this is the work around I have found to be working.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm init -y
+npm install faunadb encoding
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we want to be able to connect to the fauna db so there is a key that should be used. You create is in Fauna Console in the Security tab with the &lt;code&gt;NEW KEY&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/f_auto,q_auto,c_scale,w_1024,dpr_auto/v1589787828/FaunaKey-01_uzloif.jpg&quot; alt=&quot;Fauna Key&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The important thing is to save the given secret, this will be your connection to the DB and I store this in a &lt;code&gt;.env&lt;/code&gt; file and make sure that this is in the &lt;code&gt;.gitignore&lt;/code&gt; so that the key is not uploaded in my repo. As this is used in Netlify you should create a key there too. I&#39;ve actually used this little feature to setup a test db for local development and a production db and just generate a key for each and save that.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/f_auto,q_auto,c_scale,w_1024,dpr_auto/v1589787828/FaunaKey-02_wor9ic.jpg&quot; alt=&quot;Fauna Key&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The cool thing about having a test db is that you can set the collection to clean itself up with the History and TTL setting. I set this to 1 and that should in theory keep the testing data clean. One thing to keep in mind is that there are limits to the free account so this might be something to check when you are doing heavy testing. But again you could have a personal account where you create the DB and develop against the API like that.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/f_auto,q_auto,c_scale,w_1024,dpr_auto/v1589788363/FaunaCollectionSettings_awqvax.jpg&quot; alt=&quot;Fauna Collection Settings&quot;&gt;&lt;/p&gt;
+&lt;p&gt;This is how I setup the local environment&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;touch .env
+
+## Add the following to the .env file
+FAUNADB_SECRET=fnADldk43FDdfdsffxlw08N2dh73d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;My &lt;code&gt;.gitignore&lt;/code&gt; has the following added to it so that the build directories are not saved to the repo. They are built on the fly so not required to be in the git repo.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Netlify Functions
+/dist
+/functions
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In development netlify has provided a cool way of being able to test and run the functions locally. There is also Netlify Dev which gives more features but for basic function testing an nothing else this lightweight package is just the thing you need.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -D netlify-lambda 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To be able to use the functions in Netlify you can either do this through the web interface but I prefer to have it in a file in the repo so that I know exactly what is being used without having to open the console. We need a &lt;code&gt;netlify.toml&lt;/code&gt; file with some basic config inside:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[build]
+  # This will be your default build command.
+  command = &amp;quot;npm run build&amp;quot;
+  # This is where Netlify will look for your lambda functions.
+  functions = &amp;quot;functions&amp;quot;
+  # This is the directory that you are publishing from.
+  publish = &amp;quot;dist&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the file setup the following in the &lt;code&gt;package.json&lt;/code&gt; file. The &lt;code&gt;build&lt;/code&gt; command is what Netlify will use and the &lt;code&gt;functions&lt;/code&gt; command is what I use locally to develop the functions and see the output in my console.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;scripts&amp;quot;: {
+    &amp;quot;build&amp;quot;: &amp;quot;netlify-lambda build src/functions&amp;quot;,
+    &amp;quot;functions&amp;quot;: &amp;quot;netlify-lambda serve src/functions&amp;quot;
+  },
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Time to create our first function&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p src/functions
+touch src/functions/test-connection.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In Fauna create a collection called test_connections&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/f_auto,q_auto,c_scale,w_1024,dpr_auto/v1589788960/FaunaNewCollection_j3dvhy.jpg&quot; alt=&quot;New Collection&quot;&gt;&lt;/p&gt;
+&lt;p&gt;And you can add a document for some basic testing.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/f_auto,q_auto,c_scale,w_1024,dpr_auto/v1589788960/FaunaNewDocument_xwqpyo.jpg&quot; alt=&quot;New Document&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The function itself will use the secret you previously created to connection to the DB and fetch this document&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;require(&#39;dotenv&#39;).config();
+import faunadb from &#39;faunadb&#39;;
+
+const q = faunadb.query;
+const client = new faunadb.Client({
+  secret: process.env.FAUNADB_SECRET,
+});
+
+exports.handler = (event, context, callback) =&amp;gt; {
+  console.log(`${event.httpMethod}: ${event.path}`);
+  return client
+    .query(q.Paginate(q.Match(q.Ref(&#39;classes/test_connections&#39;))))
+    .then((response) =&amp;gt; {
+      const references = response.data;
+      console.log(&#39;references&#39;, references);
+      const getAllDataQuery = references.map((ref) =&amp;gt; {
+        console.log(ref);
+        return q.Get(ref);
+      });
+      // then query the refs
+      return client.query(getAllDataQuery).then((ret) =&amp;gt; {
+        return callback(null, {
+          statusCode: 200,
+          body: JSON.stringify(ret),
+        });
+      });
+    })
+    .catch((error) =&amp;gt; {
+      console.log(&#39;error&#39;, error);
+      return callback(null, {
+        statusCode: 400,
+        body: JSON.stringify(error),
+      });
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you can run the function with &lt;code&gt;npm run functions&lt;/code&gt; and go to &lt;code&gt;http://localhost:9000/.netlify/functions/test-connection&lt;/code&gt; to see the result. I prefer using Postman for this type of testing but you can also use curl.&lt;/p&gt;
+</content>
+  </entry>
 </feed>

@@ -195,4 +195,9 @@
     <loc>https://hiltonmeyer.com/articles/jest.html</loc>
     <lastmod>2020-05-17</lastmod>
   </url>
+  
+  <url>
+    <loc>https://hiltonmeyer.com/articles/setup-fauna-netlify-functions.html</loc>
+    <lastmod>2020-05-19</lastmod>
+  </url>
 </urlset>
