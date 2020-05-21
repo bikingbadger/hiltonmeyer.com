@@ -1314,6 +1314,21 @@ touch postcss.config.js
   </entry>
   
   <entry>
+    <title>VS Code Terminal Environment Variables</title>
+    <link href="https://hiltonmeyer.com/articles/vs-code-terminal-env.html"/>
+    <updated>2020-05-17T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/vs-code-terminal-env.html</id>
+    <content type="html">&lt;p&gt;I enjoy using the VS Code integrated terminal. With the shortcut key &lt;code&gt;Ctrl+` &lt;/code&gt; I can pull it up and hide it. I really like the way you can hide the panels and focus on the code easily. I&#39;ve been running up against getting alias&#39; working though. I had been putting them in the &lt;code&gt;~/.bash_profile&lt;/code&gt; file but it wasn&#39;t working. I finally decided to dig a bit deeper and found the answer, &lt;code&gt;~/.bashrc&lt;/code&gt;. This is great because I can now set my environment up and get shortcuts working, this is the example of my current setup:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;alias develop=&amp;quot;cd /c/applications&amp;quot;
+alias glog=&amp;quot;git log --pretty=oneline --graph --decorate --all&amp;quot;
+alias glog_nomerge=&amp;quot;git log --no-merges --oneline&amp;quot;
+alias gpod=&amp;quot;git pull --rebase origin develop&amp;quot;
+alias gpush=&amp;quot;git push origin develop&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  
+  <entry>
     <title>Fauna with netlify functions</title>
     <link href="https://hiltonmeyer.com/articles/setup-fauna-netlify-functions.html"/>
     <updated>2020-05-19T00:00:00-00:00</updated>
@@ -1403,6 +1418,52 @@ exports.handler = (event, context, callback) =&amp;gt; {
 };
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now you can run the function with &lt;code&gt;npm run functions&lt;/code&gt; and go to &lt;code&gt;http://localhost:9000/.netlify/functions/test-connection&lt;/code&gt; to see the result. I prefer using Postman for this type of testing but you can also use curl.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Custom Bash Command Prompt</title>
+    <link href="https://hiltonmeyer.com/articles/custom-bash-prompt.html"/>
+    <updated>2020-05-21T00:00:00-00:00</updated>
+    <id>https://hiltonmeyer.com/articles/custom-bash-prompt.html</id>
+    <content type="html">&lt;p&gt;This is the setup I use for my bash prompts in various environments. I simply add the following to my &lt;code&gt;.bashrc&lt;/code&gt; file. This is more a reference for me but if you find it useful give it a go and play around with the various colors.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;Custom Prompt###############
+set_prompt () {
+        Reset=&#39;\[\e[0m\]&#39;
+
+    Black=&#39;\[\e[0;30m\]&#39;
+    Blue=&#39;\[\e[0;34m\]&#39;
+    Green=&#39;\[\e[0;32m\]&#39;
+    Cyan=&#39;\[\e[0;36m\]&#39;
+    Red=&#39;\[\e[0;31m\]&#39;
+    Purple=&#39;\[\e[0;35m\]&#39;
+    Brown=&#39;\[\e[0;33m\]&#39;
+
+    if [ $(whoami) == &#39;root&#39; ] || [[ $(whoami) == *&amp;quot;prod&amp;quot;* ]] || [[ $(whoami) == *&amp;quot;PROD&amp;quot;* ]]; then
+        PrimaryColor=&amp;quot;${Red}&amp;quot;
+        SecondaryColor=&amp;quot;${Brown}&amp;quot;
+        promptSymbol=&amp;quot;${Red}!! &amp;quot;
+    else
+        PrimaryColor=&amp;quot;${Green}&amp;quot;
+        SecondaryColor=&amp;quot;${Blue}&amp;quot;
+        promptSymbol=&amp;quot;${Green}$ &amp;quot;
+    fi
+
+        userhost=&amp;quot;${PrimaryColor}$(whoami)@$(hostname -s) &amp;quot;
+        currentdir=&amp;quot;${SecondaryColor}[$(pwd | sed &amp;quot;s!^$HOME!~!&amp;quot;)] &amp;quot;
+    currentTime=&amp;quot;${PrimaryColor}$(date +%H:%M:%S) &amp;quot;
+
+    PS1=&amp;quot;$Reset$White&amp;quot;
+    PS1+=&amp;quot;$userhost&amp;quot;
+    PS1+=&amp;quot;$currentdir&amp;quot;
+    PS1+=&amp;quot;$currentTime&amp;quot;
+    PS1+=&amp;quot;$promptSymbol&amp;quot;
+    PS1+=&amp;quot;$Reset&amp;quot;
+}
+
+PROMPT_COMMAND=&#39;set_prompt&#39;
+################Custom Prompt End###############
+&lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
 </feed>
