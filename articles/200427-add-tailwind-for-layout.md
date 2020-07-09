@@ -112,3 +112,24 @@ Need to add the css to the layout previously created `src/_includes/layouts/base
   </body>
 </html>
 ```
+
+Now just need to bring it all together with the npm scripts. I add the following to the package.json. I have a local development script so that I can continue developing and then build for when I build in Netlify.
+
+```json
+"scripts": {
+    "serve": "npm-run-all --parallel bundle:*",
+    "bundle:eleventy": "eleventy --serve --quiet",
+    "bundle:tailwind": "parcel src/assets/css/* --out-dir dist/assets/css",    
+    "build": "npm-run-all --parallel prod:*",
+    "prod:eleventy": "eleventy",
+    "prod:tailwind": "parcel build src/assets/css/* --out-dir dist/assets/css"
+  },
+```
+
+My netlify.toml file looks like this: 
+
+```toml
+[build]
+  publish = "dist"
+  command = "npm run build"
+```
