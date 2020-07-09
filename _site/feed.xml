@@ -1275,6 +1275,21 @@ touch postcss.config.js
   &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now just need to bring it all together with the npm scripts. I add the following to the package.json. I have a local development script so that I can continue developing and then build for when I build in Netlify.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;&amp;quot;scripts&amp;quot;: {
+    &amp;quot;serve&amp;quot;: &amp;quot;npm-run-all --parallel bundle:*&amp;quot;,
+    &amp;quot;bundle:eleventy&amp;quot;: &amp;quot;eleventy --serve --quiet&amp;quot;,
+    &amp;quot;bundle:tailwind&amp;quot;: &amp;quot;parcel src/assets/css/* --out-dir dist/assets/css&amp;quot;,    
+    &amp;quot;build&amp;quot;: &amp;quot;npm-run-all --parallel prod:*&amp;quot;,
+    &amp;quot;prod:eleventy&amp;quot;: &amp;quot;eleventy&amp;quot;,
+    &amp;quot;prod:tailwind&amp;quot;: &amp;quot;parcel build src/assets/css/* --out-dir dist/assets/css&amp;quot;
+  },
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;My netlify.toml file looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-toml&quot;&gt;[build]
+  publish = &amp;quot;dist&amp;quot;
+  command = &amp;quot;npm run build&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
   

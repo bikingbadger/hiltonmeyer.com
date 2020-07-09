@@ -108,6 +108,21 @@ touch postcss.config.js
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+<p>Now just need to bring it all together with the npm scripts. I add the following to the package.json. I have a local development script so that I can continue developing and then build for when I build in Netlify.</p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;serve&quot;: &quot;npm-run-all --parallel bundle:*&quot;,
+    &quot;bundle:eleventy&quot;: &quot;eleventy --serve --quiet&quot;,
+    &quot;bundle:tailwind&quot;: &quot;parcel src/assets/css/* --out-dir dist/assets/css&quot;,    
+    &quot;build&quot;: &quot;npm-run-all --parallel prod:*&quot;,
+    &quot;prod:eleventy&quot;: &quot;eleventy&quot;,
+    &quot;prod:tailwind&quot;: &quot;parcel build src/assets/css/* --out-dir dist/assets/css&quot;
+  },
+</code></pre>
+<p>My netlify.toml file looks like this:</p>
+<pre><code class="language-toml">[build]
+  publish = &quot;dist&quot;
+  command = &quot;npm run build&quot;
+</code></pre>
 
 
 <footer class="contrast txt-small txt-right">Created on Sun Apr 26 2020 - Last updated Mon Apr 27 2020</footer>
