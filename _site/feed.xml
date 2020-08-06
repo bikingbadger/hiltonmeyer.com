@@ -4,7 +4,7 @@
   <subtitle>Sharing what I&#39;m learning and creating in Web Development, Database Admin and some off-topic things like cooking, bee-keeping and electronics</subtitle>
   <link href="https://hiltonmeyer.com/feed.xml" rel="self"/>
   <link href="https://hiltonmeyer.com/"/>
-  <updated>2020-05-21T00:00:00-00:00</updated>
+  <updated>2020-05-21T00:00:00+00:00</updated>
   <id>https://hiltonmeyer.com/</id>
   <author>
     <name>Hilton Meyer</name>
@@ -14,7 +14,7 @@
   <entry>
     <title>R12.2 Startup and Shutdown</title>
     <link href="https://hiltonmeyer.com/articles/ebs-start-stop.html"/>
-    <updated>2019-08-01T00:00:00-00:00</updated>
+    <updated>2019-08-01T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/ebs-start-stop.html</id>
     <content type="html">&lt;h2 id=&quot;start-apps-services&quot;&gt;Start Apps Services &lt;a class=&quot;direct-link&quot; href=&quot;#start-apps-services&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Node Manager&lt;/strong&gt;&lt;/p&gt;
@@ -103,7 +103,7 @@ Weblogic Admin Password:
   <entry>
     <title>EBS Installed Applications</title>
     <link href="https://hiltonmeyer.com/articles/ebs-installed-applications.html"/>
-    <updated>2019-08-14T00:00:00-00:00</updated>
+    <updated>2019-08-14T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/ebs-installed-applications.html</id>
     <content type="html">&lt;p&gt;Scripts for find EBS Installed Applications&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;SELECT
@@ -127,7 +127,7 @@ fa.application_short_name;
   <entry>
     <title>R12.2 Adding server to Weblogic</title>
     <link href="https://hiltonmeyer.com/articles/ebs-weblogic-server.html"/>
-    <updated>2019-08-15T00:00:00-00:00</updated>
+    <updated>2019-08-15T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/ebs-weblogic-server.html</id>
     <content type="html">&lt;p&gt;In R12.2 with Weblogic now playing a huge role as well as java also creating resource heavy processes you will eventually run into a situation where you want to add servers to Weblogic. I&#39;d actually recommend adding at least one more oa_core server as this is the one we&#39;ve noticed is causing most of the issues.&lt;/p&gt;
 &lt;h2 id=&quot;some-checks-and-background&quot;&gt;Some checks and background &lt;a class=&quot;direct-link&quot; href=&quot;#some-checks-and-background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
@@ -173,7 +173,7 @@ sh $ADMIN_SCRIPTS_HOME/adapcctl.sh start
   <entry>
     <title>11ty Markdown Attributes</title>
     <link href="https://hiltonmeyer.com/articles/11ty-markdown-attributes.html"/>
-    <updated>2019-08-19T00:00:00-00:00</updated>
+    <updated>2019-08-19T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/11ty-markdown-attributes.html</id>
     <content type="html">&lt;p&gt;I searched for a way to try and add attributes, such as class or id to markdown for a while. Using &lt;a href=&quot;https://www.11ty.io/&quot;&gt;11ty&lt;/a&gt; as my static site generator I&#39;ve been using Nunjucks for templating and was able to add attributes in the that way. I was sure there must be a way of doing the same thing in Markdown. Luckily 11ty comes with a way of adding your own &lt;a href=&quot;https://www.11ty.io/docs/languages/markdown/#optional%3A-set-your-own-library-instance&quot;&gt;library instance&lt;/a&gt; to Markdown. The example show&#39;s how to use emoji plugin but I found &lt;a href=&quot;https://www.npmjs.com/package/markdown-it-attrs&quot;&gt;markdown-it-attrs&lt;/a&gt; plugin which suited my purpose. This is basically how I went about adding it to my project.&lt;/p&gt;
 &lt;p&gt;&lt;strong class=&quot;article-heading&quot;&gt;Install libraries&lt;/strong&gt;&lt;/p&gt;
@@ -241,7 +241,7 @@ another bit of data {.class #identifier attr=value attr2=&amp;quot;spaced value&
   <entry>
     <title>Learning in Public</title>
     <link href="https://hiltonmeyer.com/articles/learn-in-public.html"/>
-    <updated>2019-09-29T00:00:00-00:00</updated>
+    <updated>2019-09-29T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/learn-in-public.html</id>
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing&quot;&gt;Consumption Is Sometimes Valuable, But Creation Moves You Forward - Kal Zumeus&lt;/a&gt;&lt;/p&gt;
@@ -295,7 +295,7 @@ another bit of data {.class #identifier attr=value attr2=&amp;quot;spaced value&
   <entry>
     <title>Update Date for 11ty file</title>
     <link href="https://hiltonmeyer.com/articles/11ty-update-dates.html"/>
-    <updated>2019-10-02T00:00:00-00:00</updated>
+    <updated>2019-10-02T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/11ty-update-dates.html</id>
     <content type="html">&lt;p&gt;In 11ty you can place metadata into a file using the &lt;code&gt;---&lt;/code&gt; at the top of an article. It took me a while to understand how to do this in 11ty because they call this &lt;a href=&quot;https://www.11ty.io/docs/data-frontmatter/&quot;&gt;Front Matter Data&lt;/a&gt;. Anyway I was able to add some fields but the one I was interested in was adding an update date to my articles so I could latter either order my posts by the last updated date instead of just created as I will be updating content as I go along. Also I could for now just &lt;a href=&quot;https://hiltonmeyer.com/articles/191002-dates-11ty-templates&quot;&gt;show this in my articles&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;My other interest here is to be able to create posts but only show them in the lists based on this date and then the actual article will be &amp;quot;published&amp;quot; or go live on the date I had specified. So I have setup the Front Matter Data using the the YML setup described in the documentation:&lt;/p&gt;
@@ -319,7 +319,7 @@ navtitle: Update Date for 11ty file
   <entry>
     <title>Dates in 11ty used in templates</title>
     <link href="https://hiltonmeyer.com/articles/11ty-dates-in-templates.html"/>
-    <updated>2019-10-02T00:00:00-00:00</updated>
+    <updated>2019-10-02T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/11ty-dates-in-templates.html</id>
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://hiltonmeyer.com/articles/191001-adding-update-date-11ty&quot;&gt;Yesterday&lt;/a&gt; was looking for a way to add the updated date to my static site, generated by 11ty, at the bottom of each article. I wanted to show the creation date and the last updated. I started will the following in my layout but the date being returned was then out put as &amp;quot;Last updated Thu Sep 19 2019 03:00:00 GMT+0300 (Israel Daylight Time)&amp;quot;:&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;article.njk&lt;/em&gt;&lt;/p&gt;
@@ -352,7 +352,7 @@ templateClass: tmpl-article
   <entry>
     <title>Find deleted file in Git</title>
     <link href="https://hiltonmeyer.com/articles/git-find-deleted-file.html"/>
-    <updated>2019-10-03T00:00:00-00:00</updated>
+    <updated>2019-10-03T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/git-find-deleted-file.html</id>
     <content type="html">&lt;p&gt;I found myself looking for a &lt;a href=&quot;https://hiltonmeyer.com/offtopic/recipes&quot;&gt;recipe&lt;/a&gt; I&#39;m sure I had written down and put up on the site. I am using git to keep things in order so that led me down the path of wondering whether I could serach the git repo history and see if there is a file in there I was looking for and then retrieve it.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git log --all --full-history -- **ginger.*
@@ -417,7 +417,7 @@ index d75edf9..0000000
   <entry>
     <title>11ty curly braces and nunjucks</title>
     <link href="https://hiltonmeyer.com/articles/11ty-curly-braces.html"/>
-    <updated>2019-10-04T00:00:00-00:00</updated>
+    <updated>2019-10-04T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/11ty-curly-braces.html</id>
     <content type="html">&lt;p&gt;In trying to share posts about using Nunjucks templating engine in 11ty I came unstuck when creating posts with the curly brackets that are used by Nunjucks. I&#39;d either get and error or it would do the substitute.&lt;br&gt;
 I thought using backticks might work but that didn&#39;t help. A bit of searching and I found an issue on the Nunjucks repo about the curly brackets. This seems to be the only way to do it and I also found that it was &lt;a href=&quot;https://mozilla.github.io/nunjucks/templating.html#raw&quot;&gt;documented&lt;/a&gt; as such.&lt;/p&gt;
@@ -432,7 +432,7 @@ I thought using backticks might work but that didn&#39;t help. A bit of searchin
   <entry>
     <title>Git commit messages</title>
     <link href="https://hiltonmeyer.com/articles/git-commit-message.html"/>
-    <updated>2019-10-07T00:00:00-00:00</updated>
+    <updated>2019-10-07T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/git-commit-message.html</id>
     <content type="html">&lt;p&gt;On the Vanilla Js slack channel, highly recommended if you want to learn with an awesome group of people, Stefan Frede shared a &lt;a href=&quot;https://chris.beams.io/posts/git-commit/&quot;&gt;post&lt;/a&gt; about git commit messages. What I got out of it was that I actually have a hodge-podge of git commit messages and looking at my &lt;code&gt;git log&lt;/code&gt; is not pretty. So here are the seven rules of a great Git commit message&lt;/p&gt;
 &lt;ol&gt;
@@ -488,7 +488,7 @@ An article about best practice for creating commit history in Git
   <entry>
     <title>Travis automated build and hosted deployment</title>
     <link href="https://hiltonmeyer.com/articles/travis-automatic-build.html"/>
-    <updated>2019-10-08T00:00:00-00:00</updated>
+    <updated>2019-10-08T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/travis-automatic-build.html</id>
     <content type="html">&lt;p&gt;I have website hosting that I&#39;m currently trying to bend to my will and not sure how much longer I can continue to mess around with Shared Hosting and getting everything working. Luckily there are services available around the interwebs that can help with build things. &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis-CI&lt;/a&gt; is one of those that has come to my aid to help with the build process. &lt;a href=&quot;https://www.netlify.com/&quot;&gt;Netlify&lt;/a&gt; is also wonderful and definitely something I would rather use for static sites as it does the whole build and deploy for you.&lt;/p&gt;
 &lt;h1 id=&quot;repository&quot;&gt;Repository &lt;a class=&quot;direct-link&quot; href=&quot;#repository&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
@@ -548,7 +548,7 @@ git clone -b gh-pages https://github.com/bikingbadger/hiltonmeyer.com.git
   <entry>
     <title>11ty Hosted on Netlify</title>
     <link href="https://hiltonmeyer.com/articles/11ty-on-netlify.html"/>
-    <updated>2019-10-09T00:00:00-00:00</updated>
+    <updated>2019-10-09T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/11ty-on-netlify.html</id>
     <content type="html">&lt;p&gt;Yesterday I wrote a long &lt;a href=&quot;https://hiltonmeyer.com/articles/travis-automatic-build.html&quot;&gt;article&lt;/a&gt; on how to get my site built and deployed using &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis-CI&lt;/a&gt;. I learnt quite a bit in the process but it all actuality I could have had this up and running in no time using Netlify and skipped the whole cutomization steps to get everything playing nice. With the simple setup of the toml file as seen below I would have achieved the same result:&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;netlify.toml&lt;/em&gt;&lt;/p&gt;
@@ -563,7 +563,7 @@ git clone -b gh-pages https://github.com/bikingbadger/hiltonmeyer.com.git
   <entry>
     <title>Toggle Password Visibility</title>
     <link href="https://hiltonmeyer.com/articles/toggle-password-visibility.html"/>
-    <updated>2019-10-15T00:00:00-00:00</updated>
+    <updated>2019-10-15T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/toggle-password-visibility.html</id>
     <content type="html">&lt;p&gt;I&#39;ve joined the &lt;a href=&quot;https://vanillajsacademy.com/&quot;&gt;Vanilla JS Academy&lt;/a&gt; taught by &lt;a href=&quot;https://gomakethings.com/&quot;&gt;Chris Ferdinandi&lt;/a&gt;. The awesome thing about the course so far has been that the lessons are pretty short and you produce something in the end of the day. The major bonus is also that the is an amazing Slack channel that is actually where I have been learning even more. Our first project was to create a Show Password checkbox that would toggle showing the password in plain text. This is a handy little feature to have and is sprinkled throughout the web.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
@@ -632,7 +632,7 @@ showPassword.addEventListener(&amp;quot;click&amp;quot;, togglePassword, false);
   <entry>
     <title>Travis build branch for github pages</title>
     <link href="https://hiltonmeyer.com/articles/travis-build-branch.html"/>
-    <updated>2019-10-17T00:00:00-00:00</updated>
+    <updated>2019-10-17T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/travis-build-branch.html</id>
     <content type="html">&lt;p&gt;In my article of automating my &lt;a href=&quot;https://hiltonmeyer.com/articles/travis-automatic-build.html&quot;&gt;build process for a hosted server&lt;/a&gt; I was using the default of gh-pages branch. This is the vanilla out of the box branch used by Travis-CI. The issue is that this should be a clean branch because I was getting emails about issues with the build of the &lt;a href=&quot;http://github.io/&quot;&gt;github.io&lt;/a&gt; page:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[bikingbadger/hiltonmeyer.com] Page build failure
@@ -672,7 +672,7 @@ deploy:
   <entry>
     <title>Toggle Multiple Fields</title>
     <link href="https://hiltonmeyer.com/articles/toggle-multiple-fields.html"/>
-    <updated>2019-10-19T00:00:00-00:00</updated>
+    <updated>2019-10-19T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/toggle-multiple-fields.html</id>
     <content type="html">&lt;p&gt;Today&#39;s project for the &lt;a href=&quot;https://vanillajsacademy.com/&quot;&gt;Vanilla JS Academy&lt;/a&gt; was creating a checkbox that would either show the text of the password or hide it behind a password type input. This was very similar to &lt;a href=&quot;https://hiltonmeyer.com/articles/toggle-password-visibility.html&quot;&gt;yesterdays&lt;/a&gt; in that we were given two password fields and had to toggle between seeing the password or not. In this case there were two password fields like you might have on a change password field.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
@@ -744,7 +744,7 @@ showPasswords.addEventListener(&amp;quot;click&amp;quot;, togglePasswordFields, 
   <entry>
     <title>Character Counter</title>
     <link href="https://hiltonmeyer.com/articles/character-counter.html"/>
-    <updated>2019-10-20T00:00:00-00:00</updated>
+    <updated>2019-10-20T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/character-counter.html</id>
     <content type="html">&lt;p&gt;I&#39;m really enjoying &lt;a href=&quot;https://vanillajsacademy.com/&quot;&gt;Vanilla JS Academy&lt;/a&gt; because the projects are short and sweet but they all seem to have some real world application. So we are learning some important methods along the way but then we have to go off and apply them in an interesting way. The community around this course is also so great so I can only take my hat off to &lt;a href=&quot;https://gomakethings.com/&quot;&gt;Chris Ferdinandi&lt;/a&gt;. Today we had to create a character counter like you might see on some sites under a text box. Possibly applications is indicating that there is a maximum number of characters in a textarea.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
@@ -785,7 +785,7 @@ characterCount.textContent = document.querySelector(&#39;#text&#39;).textLength;
   <entry>
     <title>Git commit file to previous commit</title>
     <link href="https://hiltonmeyer.com/articles/git-commit-to-previous.html"/>
-    <updated>2019-10-21T00:00:00-00:00</updated>
+    <updated>2019-10-21T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/git-commit-to-previous.html</id>
     <content type="html">&lt;p&gt;I ran into an issue of wanting to simply add a small change to a previous commit that I had just done. I am trying to use git in a way that will hopefully enable me to work on larger projects in the future and being able to navigate the logs has been something that pops up more and more. So creating these mini commits for fixes that were typo&#39;s or something like that would definitely not create a clean history. A bit of searching and I found the solution:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git commit --amend --no-edit
@@ -797,7 +797,7 @@ characterCount.textContent = document.querySelector(&#39;#text&#39;).textLength;
   <entry>
     <title>Word Counter</title>
     <link href="https://hiltonmeyer.com/articles/word-counter.html"/>
-    <updated>2019-10-22T00:00:00-00:00</updated>
+    <updated>2019-10-22T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/word-counter.html</id>
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://hiltonmeyer.com/articles/character-counter.html&quot;&gt;Yesterday&lt;/a&gt; I had to figure out the number of characters in a text field that is being written into. Today in the &lt;a href=&quot;https://vanillajsacademy.com/&quot;&gt;Vanilla JS Academy&lt;/a&gt; we had to add a word counter to the calculation. We learnt more about arrays and the &lt;code&gt;split&lt;/code&gt; and &lt;code&gt;filter&lt;/code&gt; methods. The split method will take in a string and convert that into an array according to what you identify as the separator. In my case this was simple breaking up each word by space so this gave me the word count or at least this is what I thought. The split also breaks on multiple spaces so you end up with an array of empty values if there are extra spaces.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
@@ -883,7 +883,7 @@ setCounts();
   <entry>
     <title>Creating a sitemap in 11ty</title>
     <link href="https://hiltonmeyer.com/articles/11ty-sitemap.html"/>
-    <updated>2019-10-28T00:00:00-00:00</updated>
+    <updated>2019-10-28T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/11ty-sitemap.html</id>
     <content type="html">&lt;p&gt;In order to submit your site to search analytics you should have a sitemap of your content. Having this just makes it easier and quicker for the search engines to find and index your site content. So I went about find how to do this with 11ty. The base blog of 11ty has this built in so I made a few changes especially for the dates.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;---
@@ -907,7 +907,7 @@ eleventyExcludeFromCollections: true
   <entry>
     <title>Nodemon delay</title>
     <link href="https://hiltonmeyer.com/articles/nodemon-delay.html"/>
-    <updated>2019-12-03T00:00:00-00:00</updated>
+    <updated>2019-12-03T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/nodemon-delay.html</id>
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/remy/nodemon&quot;&gt;Nodemon&lt;/a&gt; is awesome for development but one thing that comes up from time to time is that as I&#39;m typing the serer will restart over and over.&lt;br&gt;
 I was wondering if there wasn&#39;t some kind of debouncing available. A quick check of the docs and I was sorted.&lt;/p&gt;
@@ -926,7 +926,7 @@ I was wondering if there wasn&#39;t some kind of debouncing available. A quick c
   <entry>
     <title>Debugging using VS Code</title>
     <link href="https://hiltonmeyer.com/articles/vs-code-debugging.html"/>
-    <updated>2019-12-05T00:00:00-00:00</updated>
+    <updated>2019-12-05T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/vs-code-debugging.html</id>
     <content type="html">&lt;p&gt;Debugging using VS Code is pretty simple for Node projects. If you run &lt;code&gt;node --inspect-brk app.js&lt;/code&gt; it will start a debugging session&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1575104620/debugging-03_zty5zr.jpg&quot; alt=&quot;Debugging&quot;&gt;&lt;/p&gt;
@@ -941,7 +941,7 @@ I was wondering if there wasn&#39;t some kind of debouncing available. A quick c
   <entry>
     <title>Parcel Setup</title>
     <link href="https://hiltonmeyer.com/articles/parcel.html"/>
-    <updated>2020-01-14T00:00:00-00:00</updated>
+    <updated>2020-01-14T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/parcel.html</id>
     <content type="html">&lt;p&gt;I&#39;m doing the &lt;a href=&quot;https://www.100daysofcode.com/&quot;&gt;100 days of Code&lt;/a&gt; Challenge with a bit of a twist by trying to create 100 small projects everyday and not just coding. This had me thinking that if I wanted to create a medium sized application I&#39;ll need to start looking at bundling. I don&#39;t want to get into webpack but then heard about &lt;a href=&quot;https://parceljs.org/&quot;&gt;ParcelJS&lt;/a&gt; and ease of setup so.&lt;/p&gt;
 &lt;h2 id=&quot;setup&quot;&gt;Setup &lt;a class=&quot;direct-link&quot; href=&quot;#setup&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
@@ -962,7 +962,7 @@ I was wondering if there wasn&#39;t some kind of debouncing available. A quick c
   <entry>
     <title>Using 11ty with Parcel</title>
     <link href="https://hiltonmeyer.com/articles/11ty-with-parcel.html"/>
-    <updated>2020-01-15T00:00:00-00:00</updated>
+    <updated>2020-01-15T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/11ty-with-parcel.html</id>
     <content type="html">&lt;p&gt;Being a big fan of 11ty and having setup &lt;a href=&quot;https://hiltonmeyer.com/articles/character-counter.html&quot;&gt;ParcelJS yesterday&lt;/a&gt; for my &lt;a href=&quot;https://100days100projects.netlify.com/&quot;&gt;100 days of Code Challenge&lt;/a&gt; I wanted to see if I could get the two to work together as I would then have the benefits of templating and static generation from 11ty and the bundling from ParcelJS. Seems like a win win situation and a quick search brought up a great article by &lt;a href=&quot;https://cloudsh.com/eleventy/eleventy_and_parceljs_working_together.html&quot;&gt;Marl Clevenger&lt;/a&gt;. He had a more advanced requirement so I went about trying to simplify it for my needs of just having the bundling done by ParcelJS.&lt;/p&gt;
 &lt;p&gt;First thing was to install 11ty and then also npm-run-all for the development process.&lt;/p&gt;
@@ -1013,7 +1013,7 @@ I was wondering if there wasn&#39;t some kind of debouncing available. A quick c
   <entry>
     <title>CSS Breakpoints</title>
     <link href="https://hiltonmeyer.com/articles/css-breakpoints.html"/>
-    <updated>2020-01-26T00:00:00-00:00</updated>
+    <updated>2020-01-26T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/css-breakpoints.html</id>
     <content type="html">&lt;p&gt;This is just a reference for breakpoints that I say in an article by &lt;a href=&quot;https://flaviocopes.com/css-breakpoints/&quot;&gt;Flavio Copes&lt;/a&gt;. Just wanted to make my own future reference for it as he references tailwind CSS.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;@media (min-width: 640px) {
@@ -1038,7 +1038,7 @@ I was wondering if there wasn&#39;t some kind of debouncing available. A quick c
   <entry>
     <title>Protect git branch and prevent master push</title>
     <link href="https://hiltonmeyer.com/articles/protect-git-branch-and-prevent-master-push.html"/>
-    <updated>2020-02-23T00:00:00-00:00</updated>
+    <updated>2020-02-23T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/protect-git-branch-and-prevent-master-push.html</id>
     <content type="html">&lt;h2 id=&quot;background&quot;&gt;Background &lt;a class=&quot;direct-link&quot; href=&quot;#background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I&#39;ve only really ever developed application by myself but I work in a way that I hope to be able to work in a team. I still have plenty to learn but the basic idea is that I have 2 main branches &lt;code&gt;master&lt;/code&gt; and &lt;code&gt;develop&lt;/code&gt;. I setup &lt;code&gt;develop&lt;/code&gt; as my default branch and the &lt;code&gt;master&lt;/code&gt; branch is what is deployed as Production by merging changes from develop. So this is just a note to myself how to create this setup and it might be of some use to anyone else trying to organise their process a bit without making things to complicated.&lt;/p&gt;
@@ -1086,7 +1086,7 @@ git push origin article-protect-git-branch
   <entry>
     <title>Basic 11ty Setup</title>
     <link href="https://hiltonmeyer.com/articles/basic-11ty-setup.html"/>
-    <updated>2020-04-26T00:00:00-00:00</updated>
+    <updated>2020-04-26T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/basic-11ty-setup.html</id>
     <content type="html">&lt;p&gt;I wanted to just share how I get my eleventy projects up and running instead of trying to reverse engineer my other projects and copy and pasting bits and pieces. I have been really taking a liking to tailwind so after that install and setup I can create a basic layout and from there every site starts to diverge into it&#39;s own monster. I am sure this will be a living document that I will come back to and change over time as I learn, so it will act as a reference for getting up and running.&lt;/p&gt;
 &lt;h2 id=&quot;install-11ty&quot;&gt;Install 11ty &lt;a class=&quot;direct-link&quot; href=&quot;#install-11ty&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
@@ -1199,7 +1199,7 @@ date: 2000-01-01
   <entry>
     <title>Adding Tailwind CSS to 11ty</title>
     <link href="https://hiltonmeyer.com/articles/add-tailwind-11ty.html"/>
-    <updated>2020-04-26T00:00:00-00:00</updated>
+    <updated>2020-04-26T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/add-tailwind-11ty.html</id>
     <content type="html">&lt;h2 id=&quot;layout&quot;&gt;Layout &lt;a class=&quot;direct-link&quot; href=&quot;#layout&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;In a &lt;a href=&quot;https://hiltonmeyer.com/articles/basic-11ty-setup.html&quot;&gt;previous post&lt;/a&gt; I setup the skeleton of a 11ty project. This is my basic setup that I use to get this up and running quickly. I would say that within about 1 hour you can have a site live and ready to start adding content. Most of my time though is normally spent messing around with layout. Getting this setup in just the right way and I am no UI specialist so my sites don&#39;t come across as flash, very much the opposite. But this is more about adding Tailwind than harping on about my lack of design skills.&lt;/p&gt;
@@ -1296,7 +1296,7 @@ touch postcss.config.js
   <entry>
     <title>Setup wemos ESP8266 board in Arduino client</title>
     <link href="https://hiltonmeyer.com/articles/wemos-esp8266-arduino-client-setup.html"/>
-    <updated>2020-05-01T00:00:00-00:00</updated>
+    <updated>2020-05-01T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/wemos-esp8266-arduino-client-setup.html</id>
     <content type="html">&lt;p&gt;This is more just a placeholder for future me to have a reference of how to setup a connection to the Wemos Arduino Board that I have. It&#39;s the Wemos D1 R1. I have managed to connect to the board using the following settings although I have yet to fully understand the actual pins on the board which I will come back to later to map out.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1588304172/WeMos_velog9.jpg&quot; alt=&quot;WeMos Board&quot;&gt;&lt;/p&gt;
@@ -1306,7 +1306,7 @@ touch postcss.config.js
   <entry>
     <title>Adding Jest for testing</title>
     <link href="https://hiltonmeyer.com/articles/jest.html"/>
-    <updated>2020-05-17T00:00:00-00:00</updated>
+    <updated>2020-05-17T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/jest.html</id>
     <content type="html">&lt;p&gt;This is a quick and simple way to get &lt;a href=&quot;https://jestjs.io/&quot;&gt;Jest&lt;/a&gt; up and running in a project. This can either be done by adding it at the beginning of a project and then doing TDD development which is something I will be looking at in the upcoming weeks. The option is to add this to an existing application and then add tests to new code or write retroactive tests. So first step is to install Jest and supertest, supertest is what I use for testing http endpoints and seeing as I&#39;m doing quite a bit of development using &lt;a href=&quot;https://hiltonmeyer.com/articles/articles/setup-fauna-netlify-functions.html&quot;&gt;Netlify Functions&lt;/a&gt; so I use this to test those API&#39;s.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;npm install --save-dev jest supertest
@@ -1331,7 +1331,7 @@ touch postcss.config.js
   <entry>
     <title>VS Code Terminal Environment Variables</title>
     <link href="https://hiltonmeyer.com/articles/vs-code-terminal-env.html"/>
-    <updated>2020-05-17T00:00:00-00:00</updated>
+    <updated>2020-05-17T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/vs-code-terminal-env.html</id>
     <content type="html">&lt;p&gt;I enjoy using the VS Code integrated terminal. With the shortcut key &lt;code&gt;Ctrl+` &lt;/code&gt; I can pull it up and hide it. I really like the way you can hide the panels and focus on the code easily. I&#39;ve been running up against getting alias&#39; working though. I had been putting them in the &lt;code&gt;~/.bash_profile&lt;/code&gt; file but it wasn&#39;t working. I finally decided to dig a bit deeper and found the answer, &lt;code&gt;~/.bashrc&lt;/code&gt;. This is great because I can now set my environment up and get shortcuts working, this is the example of my current setup:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;alias develop=&amp;quot;cd /c/applications&amp;quot;
@@ -1346,7 +1346,7 @@ alias gpush=&amp;quot;git push origin develop&amp;quot;
   <entry>
     <title>Fauna with netlify functions</title>
     <link href="https://hiltonmeyer.com/articles/setup-fauna-netlify-functions.html"/>
-    <updated>2020-05-19T00:00:00-00:00</updated>
+    <updated>2020-05-19T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/setup-fauna-netlify-functions.html</id>
     <content type="html">&lt;p&gt;To be able to develop fauna we need the sdk library that you can then use FQL (Fauna Query Language) to interact with the database, this is the SQL for Fauna basically. There is an option of using graphQL which I want to explore and might come back and edit this post. The &lt;code&gt;encoding&lt;/code&gt; package is used by netlify and causes an error at the time of writing if not installed. It might be a peer dependency and fixed in future versions but at the moment this is the work around I have found to be working.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;npm init -y
@@ -1439,7 +1439,7 @@ exports.handler = (event, context, callback) =&amp;gt; {
   <entry>
     <title>Custom Bash Command Prompt</title>
     <link href="https://hiltonmeyer.com/articles/custom-bash-prompt.html"/>
-    <updated>2020-05-21T00:00:00-00:00</updated>
+    <updated>2020-05-21T00:00:00+00:00</updated>
     <id>https://hiltonmeyer.com/articles/custom-bash-prompt.html</id>
     <content type="html">&lt;p&gt;This is the setup I use for my bash prompts in various environments. I simply add the following to my &lt;code&gt;.bashrc&lt;/code&gt; file. This is more a reference for me but if you find it useful give it a go and play around with the various colors.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;Custom Prompt###############
