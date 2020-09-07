@@ -79,7 +79,7 @@ Create a file called `_data/metadata.json` under the src directory
 
 ```
 mkdir src/_data
-touch metadata.json
+touch src/_data/metadata.json
 ```
 
 And then add the following:
@@ -100,7 +100,7 @@ To use the layouts you need to create a template, I prefer nunjucks but 11ty is 
 
 ```
 mkdir -p src/_includes/layouts
-touch base.njk
+touch src/_includes/layouts/base.njk
 ```
 
 Add the following the following to `src/_includes/layouts/base.njk`:
@@ -152,7 +152,3 @@ date: 2000-01-01
 ```
 
 The main thing to pay attention to is the nav settings. In the `base.njk` I added to following `for nav in collections.nav`. This will loop through any page that has the tags in it and then add it to the collection if it has the tag of `nav`. You can call it anything and collections are really powerful in 11ty. By using this in my base template I have used it to create navigation on the fly which is what I usually use it for. So any subsequent navigation I want in the site I just add it to that pages meta as I did for the Home page. The `navtitle` is then shown as the title of the navigation but I still have the `title` for using on the page itself. The order is by `date` so this I use as a way to hack the order of the navigation items.
-
-## Layout
-
-So here you could use css and just add this as a passthrough file and this way you can manage your layout. I prefer tailwind so this is what I am going to continue with discussing.
