@@ -92,7 +92,7 @@ Need to add the css to the layout previously created `src/_includes/layouts/base
       name="Description"
       content="{{ renderData.description or description or metadata.description }}"
     />
-    <link rel="stylesheet" href="/assets/tailwind.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/tailwind.css" />
   </head>
 
   <body>
