@@ -1,47 +1,46 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ renderData.title or title or metadata.title }}</title>
-  <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
-  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ renderData.title or title or metadata.title }}</title>
+    <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 
-    gtag('config', 'UA-80549791-1');
-  </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80549791-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-  
-</head>
+      gtag('config', 'UA-80549791-1');
+    </script>
 
-<body>
-  <header>
+  </head>
+
+  <body>
+    <header>
       <h1 class="logo">{{ metadata.title }}</h1>
-      
-        <label class = "hamburger-label" for="toggle">&#9776</label>  
-        <input class = "hamburger-box" type="checkbox" id="toggle"/>
-      
       <div class="navigation-list">
         {%- for nav in collections.nav  -%}
-        <a class="navigation-item{% if nav.url == page.url %} navigation-item-active{% endif %}"  href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a>
+          {% if nav.url !== page.url %}
+            <a href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a>
+          {% endif %}
         {%- endfor -%}
-        {# <a class="navigation-item" href="https://bikingbadger.com" target="_blank">Bike Packing</a> #}
       </div>
-   </header>
+    </header>
 
-  <main{% if templateClass %} class="{{ templateClass }}" {% endif %}>
-    {{ content | safe }}
+    <main{% if templateClass %} class="{{ templateClass }}" {% endif %}>
+      {{ content | safe }}
     </main>
 
     <footer></footer>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Space+Mono:400,700" rel="stylesheet">
-</body>
+  </body>
 
 </html>
