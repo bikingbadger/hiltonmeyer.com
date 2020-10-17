@@ -26,9 +26,9 @@
     <header>
       <h1 class="logo">{{ metadata.title }}</h1>
       <div class="navigation-list">
-        {%- for nav in collections.nav  -%}          
+        {%- for nav in collections.nav  -%}
           {% if nav.url !== page.url %}
-             <a href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a>
+            <a href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a>
           {% endif %}
         {%- endfor -%}
       </div>
