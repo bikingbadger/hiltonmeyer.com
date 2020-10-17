@@ -1,8 +1,8 @@
 ---
 title: Add Testing to Existing Vue Project
 description: After a Vue project is up and running or on older project you want to add testing. This is how I went about it using vue-cli 
-date: 2020-10-20
-updated: 2020-10-20
+date: 2020-10-17
+updated: 2020-10-17
 layout: layouts/article.njk
 tags:
   - content
