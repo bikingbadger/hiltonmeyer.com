@@ -26,6 +26,7 @@ set_prompt () {
     Red='\[\e[0;31m\]'
     Purple='\[\e[0;35m\]'
     Brown='\[\e[0;33m\]'
+    Yellow='\[\e[0;33m\]'
 
     if [ $(whoami) == 'root' ] || [[ $(whoami) == *"prod"* ]] || [[ $(whoami) == *"PROD"* ]]; then
         PrimaryColor="${Red}"
@@ -33,7 +34,7 @@ set_prompt () {
         promptSymbol="${Red}!! "
     else
         PrimaryColor="${Green}"
-        SecondaryColor="${Blue}"
+        SecondaryColor="${Yellow}"
         promptSymbol="${Green}$ "
     fi
 
