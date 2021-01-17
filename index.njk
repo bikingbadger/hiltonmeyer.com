@@ -10,9 +10,11 @@ actually create either online or in that thing they call real life.</p>
 
 <h2>Latest Articles</h2>
 <section class="article-list">
-  {%- for article in collections.articles  | currentContent | head(-3)  -%}
+  {%- for article in collections.articles.reverse()  | currentContent | head(3)  -%}
     <div  class="home-card">
-      <a href={{ article.url }}><h3 class="article-card-heading">{{ article.data.title }}</h3></a>
+      <a href={{ article.url }}>
+        <h3 class="article-card-heading">{{ article.data.title }}</h3>
+      </a>
       <p class="article-card-description">{{ article.data.description }}</p>
     </div>
   {%- endfor -%}
