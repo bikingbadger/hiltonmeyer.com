@@ -1,8 +1,8 @@
 ---
 title: Project Setup
 description: The idea behind the kitchen manager project
-date: 2099-01-24
-updated: 2099-01-24
+date: 2021-02-01
+updated: 2021-02-01
 layout: layouts/article.njk
 tags: 
  - content
