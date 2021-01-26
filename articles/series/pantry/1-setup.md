@@ -100,3 +100,15 @@ The logo I've recently found [Streamline](https://app.streamlinehq.com/) which h
 ```
 
 ![Pantry Layout](https://res.cloudinary.com/hiltonmeyer-com/image/upload/f_auto,q_auto,c_scale,w_auto,dpr_auto/v1611490439/hiltonmeyer.com/pantry-002_bmfqhv.jpg)
+
+### Bonus
+
+I'm using VSCode and one of the cool add-ons is [Vetur](https://vuejs.github.io/vetur/). This is easy enough to setup by creating a `jsconfig.json` file in the root and add the following
+
+```
+{
+    "include": [
+        "./src/**/*"
+    ]
+}
+```
