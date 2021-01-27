@@ -9,11 +9,12 @@ date: 2000-02-01
 <p>Articles of things I've learnt or tricks I've found in the database and web development</p>
 
 <section class="article-list">
-  {%- for article in collections.articles | currentContent  -%}
+  {%- for article in collections.articles.reverse() | currentContent  -%}
     <div  class="article-card">
-      <a href={{ article.url }}><h3 class="article-card-heading">{{ article.data.title }}</h3></a>
+      <a href={{ article.url }}>
+        <h3 class="article-card-heading">{{ article.data.title }}</h3>
+      </a>
       <p class="article-card-description">{{ article.data.description }}</p>
     </div>
   {%- endfor -%}
 </section>
-
