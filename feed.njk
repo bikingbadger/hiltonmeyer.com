@@ -25,12 +25,12 @@ metadata:
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for content in collections.articles | currentContent  %}
+  {%- for content in collections.content | currentContent  %}
   {% set absoluteContentUrl %}{{ content.url | url | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
     <title>{{ content.data.title }}</title>
     <link href="{{ absoluteContentUrl }}"/>
-    <updated>{{ content.date | rssDate }}</updated>
+    <updated>{{ content.data.updated | rssDate }}</updated>
     <id>{{ absoluteContentUrl }}</id>
     <content type="html">{{ content.templateContent | htmlToAbsoluteUrls(absoluteContentUrl) }}</content>
   </entry>
