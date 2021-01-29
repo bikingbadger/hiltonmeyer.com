@@ -95,7 +95,7 @@ For now I just want the layout of the form for being able to show a list of ingr
 </template>
 ```
 
-![Ingredient Form](https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1611929567/hiltonmeyer.com/pantry-004_hovn32.jpg)
+![Ingredient Form](https://res.cloudinary.com/hiltonmeyer-com/image/upload/f_auto,q_auto,c_scale,w_auto,dpr_auto/v1611929567/hiltonmeyer.com/pantry-004_hovn32.jpg)
 
 ## Next steps
 
