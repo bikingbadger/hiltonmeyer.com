@@ -80,6 +80,10 @@ For now I just want the layout of the form for being able to show a list of ingr
           <option value="dairy">Dairy</option>
         </select>
       </div>
+      <div>
+        <label for="uom">Unit of Measure:</label>
+        <input type="text" name="uom" id="uom" />
+      </div>
       <div><button>Add</button></div>
     </div>
     <ul>
@@ -90,6 +94,8 @@ For now I just want the layout of the form for being able to show a list of ingr
   </div>
 </template>
 ```
+
+![Ingredient Form](https://res.cloudinary.com/hiltonmeyer-com/image/upload/v1611929567/hiltonmeyer.com/pantry-004_hovn32.jpg)
 
 ## Next steps
 
