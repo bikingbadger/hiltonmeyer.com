@@ -2,7 +2,7 @@
 title: Learning in Public
 description: How I go about learning
 date: 2019-09-29
-updated: 2019-09-30
+updated: 2021-01-27
 layout: layouts/article.njk
 tags: 
  - content
@@ -15,32 +15,30 @@ permalink: articles/learn-in-public.html
 
 > [Consumption Is Sometimes Valuable, But Creation Moves You Forward - Kal Zumeus](https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing)
 
-# To Learn
-
-## Javascript
+<!-- ## Javascript
 
 **Basics** {.article-heading}
 
 - Variables {.list-item}
 - Dates {.list-item}
 - Arrays {.list-item}
-- Asyncronous JS {.list-item}
+- Asynchronous JS {.list-item}
 - ES6 aka ES2017 {.list-item}
 {.list}
 
-**DOM** {.article-heading}
-
-## Patterns
-
-## Design
-
-- UI/UX Basics {.list-item}
-{.list}
-
+**DOM** {.article-heading} -->
 ## Frameworks
 
 - Vue.js {.list-item}
 {.list}
+
+<!-- ## Patterns -->
+
+<!-- ## Design
+
+- UI/UX Basics {.list-item}
+{.list}
+
 
 ## CSS
 
@@ -55,11 +53,9 @@ permalink: articles/learn-in-public.html
 
 - Postgre {.list-item}
 - Mongo {.list-item}
-{.list}
+{.list} -->
 
-## Node
-
-# Learnt
+<!-- ## Node -->
 
 # Related links
 - [Original article about Learn in Public](https://www.swyx.io/writing/learn-in-public/) {.list-item}
