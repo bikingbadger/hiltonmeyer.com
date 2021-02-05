@@ -14,6 +14,7 @@ navtitle: Setup Firebase
 series: Vue Full Application Build
 permalink: articles/series/pantry/4-firebase.html
 ---
+*Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/5-firebase)*
 
 There is a bit of a chicken or the egg situation now. I guess I could start with getting my state managed in Vuex setup first although I prefer to get the DB setup so that I can use it. I'm going for [Firebase](https://console.firebase.google.com/) to give me a quick solution for setting up a database and also later adding auth in one place. So let's go ahead and install and initialize firebase
 

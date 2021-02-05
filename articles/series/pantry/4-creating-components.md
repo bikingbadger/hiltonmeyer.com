@@ -14,6 +14,7 @@ navtitle: Creating components
 series: Vue Full Application Build
 permalink: articles/series/pantry/5-components.html
 ---
+*Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/4-creating-components)*
 
 Things are going to start increasing in size and one of the cool things about Vue is using components. So the first thing I want to do is create a directory in `src` called `components/ingredient`, this will be where I add all my ingredient related components. This is just the way that I've decided to go but you could have something else or a different layout. Again I'm learning as I go along here and trying to share that with you as I pick up new things or better ways of doing things. If all goes according to plan I would come back and update these files not with the correct way but rather a link to the new way of doing it. I still want others to see the process which I find sometimes missing in these polished tutorials.
 
