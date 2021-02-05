@@ -11,8 +11,8 @@ tags:
  - writing
  - learning
 navtitle: Setup ingredients
+series: Vue Full Application Build
 permalink: articles/series/pantry/3-ingredients.html
-series: 
 ---
 *Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/3-add-ingredient*
 ## Change About
