@@ -11,6 +11,7 @@ tags:
  - writing
  - learning
 navtitle: Routing using Vue Router
+series: Vue Full Application Build
 permalink: articles/series/pantry/2-routing.html
 ---
 
