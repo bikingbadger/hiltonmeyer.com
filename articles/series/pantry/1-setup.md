@@ -11,6 +11,7 @@ tags:
  - writing
  - learning
 navtitle: Project Setup
+series: Vue Full Application Build
 permalink: articles/series/pantry/1-setup.html
 ---
 

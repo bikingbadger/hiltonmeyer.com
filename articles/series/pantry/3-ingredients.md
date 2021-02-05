@@ -11,8 +11,10 @@ tags:
  - writing
  - learning
 navtitle: Setup ingredients
+series: Vue Full Application Build
 permalink: articles/series/pantry/3-ingredients.html
 ---
+*Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/3-add-ingredient*
 ## Change About
 
 In order to add ingredients we'll need a form, I'm thinking that with this form I should be able to setup a shopping list as a first milestone for the project. There is an about page that I'm not really sure that I'll be using so instead of deleting it I'll re-purpose it for the form to add ingredients and show the current list of ingredients. 
