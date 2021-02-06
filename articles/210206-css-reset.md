@@ -19,12 +19,13 @@ After doing a the [CSS Demystified](https://cssdemystified.com/) CSS course of [
   --ff-serif: 'IBM Plex Serif', serif;
 
   /* small screen font-sizes */
-  --fs-200: 0.75rem;
+  --fs-200: 0.5rem;
   --fs-300: 1rem;
-  --fs-400: 1.25rem;
-  --fs-500: 1.375rem;
-  --fs-600: 1.75rem;
-  --fs-900: 2.125rem;
+  --fs-400: 1.6rem;
+  --fs-500: 1.8rem;
+  --fs-600: 2.4rem;
+  --fs-700: 3.2rem;
+  --fs-900: 4.8rem;
 
   --fw-200: 200;
   --fw-300: 300;
@@ -43,8 +44,8 @@ After doing a the [CSS Demystified](https://cssdemystified.com/) CSS course of [
 
   --br: 1rem;
 
-  --lh-heading: 1rem;
-  --lh-text: 1.5rem;
+  --lh-heading: 3.5rem;
+  --lh-text: 2.4rem;
 }
 
 /* Reset */
@@ -53,6 +54,12 @@ After doing a the [CSS Demystified](https://cssdemystified.com/) CSS course of [
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
 }
 
 h1,
@@ -64,11 +71,6 @@ h4,
 .h3,
 .h4 {
   line-height: var(--lh-heading);
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 ul[class],
@@ -87,5 +89,34 @@ img {
 body {
   padding: 1rem;
   line-height: var(--lh-text);
+  font-family: var(--ff-sans);
+  font-size: var(--fs-500);
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+  font-family: var(--ff-serif);
+  font-weight: var(--fw-200);
+}
+
+h1,
+.h1 {
+  font-size: var(--fs-900);
+  --lh-heading: calc(var(--fs-900) * 1.1);
+}
+
+h2,
+.h2 {
+  font-size: var(--fs-700);
+  --lh-heading: calc(var(--fs-700) * 1.1);
+}
+
+h3,
+.h3 {
+  font-size: var(--fs-600);
+  --lh-heading: calc(var(--fs-600) * 1.1);
 }
 ```
