@@ -119,4 +119,11 @@ h3,
   font-size: var(--fs-600);
   --lh-heading: calc(var(--fs-600) * 1.1);
 }
+
+/* Layout */
+
+.container {
+  max-width: 85ch;
+  margin: 0 auto;
+}
 ```
