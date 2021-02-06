@@ -14,18 +14,20 @@ permalink: articles/css-reset.html
 After doing a the [CSS Demystified](https://cssdemystified.com/) CSS course of [Kevin Powel](https://www.kevinpowell.co/) I left with a much better understanding of CSS although far from where I want to be and coming from a development side of thigs my design chops need some serious work. At the moment I love [Tailwind](https://tailwindcss.com/) although more and more lately [WaterCSS](https://watercss.kognise.dev/) drop in stylesheet. But for me to start working and learning I'll have to start working on CSS and not depending on others. The base is where everything starts off with so I will use this as a page that I will come back to as I build out my CSS reset for projects.
 
 ```css
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+
 :root {
   --ff-sans: 'IBM Plex Sans', sans-serif;
   --ff-serif: 'IBM Plex Serif', serif;
 
-  /* small screen font-sizes */
+  /* mobile first */
   --fs-200: 0.5rem;
   --fs-300: 1rem;
-  --fs-400: 1.6rem;
-  --fs-500: 1.8rem;
-  --fs-600: 2.4rem;
-  --fs-700: 3.2rem;
-  --fs-900: 4.8rem;
+  --fs-400: 1.2rem;
+  --fs-500: 1.6rem;
+  --fs-600: 1.8rem;
+  --fs-700: 2.4rem;
+  --fs-900: 3.2rem;
 
   --fw-200: 200;
   --fw-300: 300;
@@ -126,4 +128,26 @@ h3,
   max-width: 85ch;
   margin: 0 auto;
 }
+
+/* Responsive */
+
+@media (min-width: 640px) {
+  :root {
+    --fs-200: 0.5rem;
+    --fs-300: 1rem;
+    --fs-400: 1.6rem;
+    --fs-500: 1.8rem;
+    --fs-600: 2.4rem;
+    --fs-700: 3.2rem;
+    --fs-900: 4.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1280px) {
 ```
