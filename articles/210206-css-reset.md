@@ -80,6 +80,13 @@ ol[class] {
   list-style: none;
 }
 
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
 img {
   max-width: 100%;
   height: auto;
