@@ -2,8 +2,10 @@
 layout: layouts/base.njk
 templateClass: tmpl-article
 ---
-<h2>{{ title }}</h2>
+<article>
+    <h2>{{ title }}</h2>
 
-{{ content | safe }}
+    {{ content | safe }}
 
-<footer class="contrast txt-small txt-right">Created on {{ page.date.toDateString() }} - Last updated {{ updated.toDateString() }}</footer>
+    <footer class="contrast txt-small txt-right">Created on {{ page.date.toDateString() }} - Last updated {{ updated.toDateString() }}</footer>
+</article>
