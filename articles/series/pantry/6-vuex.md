@@ -14,6 +14,8 @@ navtitle: Add Vuex
 series: Vue Full Application Build
 permalink: articles/series/pantry/5-vuex.html
 ---
+*Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/6-vuex)*
+
 This is a short one but will lay the foundation for saving ingredients, recipes and any other state of the app.
 
 ```
