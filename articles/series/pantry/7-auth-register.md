@@ -18,7 +18,7 @@ permalink: articles/series/pantry/7-auth-register.html
 
 ## Organise Firebase
 
-After previously setting up firebase and vuex I want to organise things a bit better and then add login and registration of users. So first I extract the firebase setup to a separate file, this enables me to use it in other parts of the app and then to also import this into main and use it in the app.
+After [previously](/articles/series/pantry/4-firebase.html) setting up firebase and vuex I want to organise things a bit better and then add login and registration of users. So first I extract the firebase setup to a separate file, this enables me to use it in other parts of the app and then to also import this into main and use it in the app.
 
 `firebase.js`
 
