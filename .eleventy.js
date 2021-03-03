@@ -20,16 +20,17 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
-  eleventyConfig.addFilter('currentContent', (articles) => {
+  eleventyConfig.addFilter('currentContent', (articles, sortOrder = 'desc') => {
+    console.log(sortOrder);
     const currentDate = new Date();
 
     articles.sort((a, b) => a.data.updated - b.data.updated);
 
-    let currentContent = articles.reverse().filter((article) => {
+    let currentContent = articles.filter((article) => {
       // console.log(article.data.title, article.data.date, article.data.updated);
       return (article.data.updated || article.data.date) < currentDate;
     });
-    return currentContent;
+    return sortOrder === 'desc' ? currentContent.reverse() : currentContent;
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
