@@ -2,8 +2,8 @@
 title: Login user using firebase
 navtitle: Login user using firebase
 description: Create login functionality for a user
-date: 2021-03-30
-updated: 2021-03-30
+date: 2021-04-01
+updated: 2021-04-01
 layout: layouts/article.njk
 tags: 
  - content
