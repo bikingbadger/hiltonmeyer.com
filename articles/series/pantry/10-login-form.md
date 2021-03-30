@@ -108,9 +108,6 @@ To get the router links working and also to show whether the user in logged in I
   {
     path: '/login',
     name: 'login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import('../views/Login.vue'),
   },
 ```
