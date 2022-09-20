@@ -10,3 +10,18 @@ h4 {
   background: var(--background);
   padding: 0.5em 0;
 }
+
+.navigation-list {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+
+}
+
+.nav-element {
+  padding: 10px;
+}
+
+.current-page {
+  text-decoration: underline;
+}

@@ -12,7 +12,7 @@ tags:
  - learning
 navtitle: Setup Firebase
 series: Vue Full Application Build
-permalink: articles/series/pantry/4-firebase.html
+permalink: articles/projects/pantry/4-firebase.html
 ---
 *Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/5-firebase)*
 

@@ -1,16 +1,15 @@
 ---
-title: Pantry Series
+title: Projects
 layout: layouts/home.njk
 tags:
-  - series
   - nav
-navtitle: Pantry Series
+navtitle: Projects
 date: 2000-02-01
 ---
-<p>Articles of things I've learnt or tricks I've found in the database and web development</p>
+<p>Projects that I have worked on. Using various technologies either for testing out something new or creating a POC</p>
 
 <section class="article-list">
-  {%- for article in collections.pantry | currentContent('asc') -%}
+  {%- for article in collections.project | currentContent('asc') -%}
     <div  class="article-card">
       <a href={{ article.url }}>
         <h3 class="article-card-heading">{{ article.data.title }}</h3>

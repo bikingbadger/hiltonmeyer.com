@@ -12,7 +12,7 @@ tags:
  - writing
  - learning
 series: Vue Full Application Build
-permalink: articles/series/pantry/11-auth-logout.html
+permalink: articles/projects/pantry/11-auth-logout.html
 ---
 
 *Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/11-auth-logout)*
