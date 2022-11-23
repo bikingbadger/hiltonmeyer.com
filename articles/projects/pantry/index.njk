@@ -1,0 +1,31 @@
+---
+title: Pantry Application
+description: Application for keeping track of food in the pantry and also being able to create recipes
+layout: layouts/home.njk
+tags:
+  - project
+navtitle: Pantry Application
+date: 2000-02-01
+---
+<h1>Pantry Application</h1>
+
+<p>Application for keeping track of food in the pantry and also being able to create recipes and then to use on-hand pantry ingredients to find recipes to prepare.</p>
+
+<h2>roles</h2>
+
+design | web development
+
+<h2>technologies</h2>
+
+sketch, wordpress, mobilize api
+
+<section class="article-list">
+  {%- for article in collections.pantry | currentContent('asc') -%}
+    <div  class="article-card">
+      <a href={{ article.url }}>
+        <h3 class="article-card-heading">{{ article.data.title }}</h3>
+      </a>
+      <p class="article-card-description">{{ article.data.description }}</p>
+    </div>
+  {%- endfor -%}
+</section>

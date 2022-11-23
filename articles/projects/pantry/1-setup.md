@@ -12,7 +12,7 @@ tags:
  - learning
 navtitle: Project Setup
 series: Vue Full Application Build
-permalink: articles/series/pantry/1-setup.html
+permalink: articles/projects/pantry/1-setup.html
 ---
 
 ### Purpose and reason
