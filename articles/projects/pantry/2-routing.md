@@ -12,7 +12,7 @@ tags:
  - learning
 navtitle: Routing using Vue Router
 series: Vue Full Application Build
-permalink: articles/series/pantry/2-routing.html
+permalink: articles/projects/pantry/2-routing.html
 ---
 
 ### Setting up Vue Router

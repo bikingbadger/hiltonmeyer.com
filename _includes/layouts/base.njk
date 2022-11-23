@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ renderData.title or title or metadata.title }}</title>
     <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
+    <link rel="preload" href="/fonts/Begika.woff" as="font" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -28,8 +29,10 @@
       <h1 class="logo">{{ metadata.title }}</h1>
       <div class="navigation-list">
         {%- for nav in collections.nav  -%}
-          {% if nav.url !== page.url %}
-            <a href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a>
+          {% if nav.url === page.url %}
+            <a class="nav-element current-page"  href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a>
+          {% else %}
+            <a class="nav-element" href="{{ nav.url | url }}">{{ nav.data.navtitle }}</a>
           {% endif %}
         {%- endfor -%}
       </div>
