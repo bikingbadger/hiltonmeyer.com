@@ -12,7 +12,7 @@ tags:
  - writing
  - learning
 series: Vue Full Application Build
-permalink: articles/series/pantry/9-auth-login.html
+permalink: articles/projects/pantry/9-auth-login.html
 ---
 
 *Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/9-auth-login)*

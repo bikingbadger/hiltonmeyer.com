@@ -12,7 +12,7 @@ tags:
  - learning
 navtitle: Register user to firebase
 series: Vue Full Application Build
-permalink: articles/series/pantry/7-auth-register.html
+permalink: articles/projects/pantry/7-auth-register.html
 ---
 *Code for this can be found in the [Github Branch](https://github.com/bikingbadger/pantry/tree/7-auth-register)*
 

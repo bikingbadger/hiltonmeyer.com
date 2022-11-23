@@ -3,10 +3,29 @@ h1,
 h2,
 h3,
 h4 {
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: Begika, serif;
   letter-spacing: -1px;
   position: sticky;
   top: 0;
   background: var(--background);
   padding: 0.5em 0;
+}
+
+.logo {
+  text-align: center;
+}
+
+.navigation-list {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+
+}
+
+.nav-element {
+  padding: 10px;
+}
+
+.current-page {
+  text-decoration: underline;
 }
